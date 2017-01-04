@@ -1,0 +1,45 @@
+/*
+Theme Name: Registralow
+Theme URL: http://
+Author: JA
+Author URL: 
+Description: Tema para la página web de Registralow.
+Version: 1.0
+Text Domain: 
+*/
+
+@import url(css/woocommerce.css);
+
+@font-face {
+    font-family: 'Bariol';
+    src: url(fonts/Bariol.ttf);
+}
+
+@font-face {
+    font-family: 'Gandhi';
+    src: url(fonts/GandhiSansRegular.otf);
+}
+
+@font-face {
+    font-family: 'GandhiBold';
+    src: url(fonts/GandhiSerifBold.otf);
+}
+
+/* GENERAL STYLES */
+body {
+    font-family: 'Gandhi', sans-serif;
+}
+
+/* NAVBAR */
+.navbar {
+    height: 90px;
+    background: #1da6df;
+    border: 0;
+    padding: 0;
+    border-radius: 0;
+}
+
+.navbar a {
+    color: #fff;
+    font-family: 'GandhiBold', sans-serif;
+}

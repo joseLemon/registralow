@@ -1,0 +1,68 @@
+/*
+Theme Name: Registralow
+Theme URL: http://
+Author: JA
+Author URL: 
+Description: Tema para la página web de Registralow.
+Version: 1.0
+Text Domain: 
+*/
+
+#main h1 {
+    text-align: center;
+}
+
+.woocommerce-error {
+    display: none;
+}
+
+.button.alt {
+    width: auto!important;
+    float: right;
+    color: #fff;
+    font-size: 16px!important;
+    border: 0;
+    height: 60px!important;
+    line-height: 60px!important;
+}
+
+.wc_payment_methods.payment_methods.methods {
+    padding: 0;
+}
+
+.wc_payment_methods.payment_methods.methods li {
+    list-style: none;
+    text-align: right;
+}
+
+.shop_table th {
+    color: #fff;
+}
+
+label[for=payment_method_paypal] {
+    margin-top: 10px;
+    max-width: 504px;
+    padding: 4px;
+}
+
+.payment_method_paypal a {
+    display: table-cell;
+    margin-top: 5px;
+    float: right;
+}
+
+.woocommerce-billing-fields input:focus::-webkit-input-placeholder {
+    color: #e3e3e3;
+}
+
+.woocommerce-billing-fields input:focus:-moz-placeholder { /* Firefox 18- */
+    color: #e3e3e3;  
+}
+
+.woocommerce-billing-fields input:focus::-moz-placeholder {  /* Firefox 19+ */
+    color: #e3e3e3;  
+}
+
+.woocommerce-billing-fields input:focus::-ms-input-placeholder {  
+    color: #e3e3e3;  
+}

@@ -1,0 +1,523 @@
+/*
+Theme Name: Registralow
+Theme URL: http://
+Author: JA
+Author URL: 
+Description: Tema para la página web de Registralow.
+Version: 1.0
+Text Domain: 
+*/
+
+@import url(https://fonts.googleapis.com/css?family=Roboto);
+
+/* BEGIN GENERAL STYLES */
+body {
+    font-family: 'Roboto', sans-serif;
+}
+
+.banner {
+    background-size: cover!important;
+    height: 400px;
+}
+
+.spacing {
+    padding: 100px 15px!important;
+}
+
+/* SUBSTRACT HEADER AND FOOTER HEIGHT */
+.wrapper {
+    min-height: 100vh;
+}
+
+.transform-center-vertical, .transform-center-vertical-banner {
+    position: relative;
+    top: 50%;
+    -webkit-transform: translateY(-50%);
+    -moz-transform: translateY(-50%);
+    -ms-transform: translateY(-50%);
+    -o-transform: translateY(-50%);
+    transform: translateY(-50%);
+}
+
+.transform-center-vertical-banner {
+    position: absolute;
+    width: 100%;
+}
+
+.input input[type=text]:focus {
+    outline: none;
+}
+
+.text {
+    font-size: 18px;
+    line-height: 30px;
+    color: #6f6f6f;
+    font-weight: 400;
+}
+
+.header {
+    font-size: 38px;
+    font-weight: 400;
+    margin-bottom: 50px;
+}
+
+.border-left {
+    border-left: 1px solid #a1a1a1;
+}
+
+.blue {
+    color: #00a8e7;
+}
+
+.white {
+    color: #fff;
+}
+
+.yellow {
+    color: #f9c025;
+}
+
+.yellow-btn {
+    background-color: #f9c025;
+}
+
+.yellow-btn:hover {
+    background-color: #dba921;
+}
+/* END GENERAL STYLES */
+
+/* BEGIN NAVBAR */
+.navbar-default {
+    border: 0;
+    border-radius: 0;
+    margin-bottom: 0;
+    height: 117px;
+    background-color: #00a8e7;
+}
+
+.nav {
+    margin-top: 34px;
+}
+
+.nav a {
+    color: #ffffff!important;
+    padding-bottom: 5px!important;
+}
+
+.nav a:hover {
+    border-bottom: 1px solid #fff;
+    -webkit-transition: all 50ms ease;
+    -moz-transition: all 50ms ease;
+    -o-transition: all 50ms ease;
+    transition: all 50ms ease;
+}
+
+.navbar-toggle:hover, .navbar-toggle:focus {
+    background: #0094cb!important;
+}
+
+.navbar-default .navbar-toggle .icon-bar {
+    background-color: #fff;
+}
+/* END NAVBAR */
+
+/* BEGIN BANNER */
+.inicio {
+    background: url(https://dl.dropbox.com/s/cik4t4sr8ya3idk/1.jpg?dl=0) no-repeat center center;
+    background-size: cover;
+    height: 750px;
+}
+
+.registration-form {
+    min-height: 627px;
+    border-radius: 10px;
+    background-color: rgba(69, 96, 111, 0.7);
+    max-width: 500px;
+    right: 15%;
+    padding: 30px;
+    width: 500px;
+}
+
+.registration-form input[type=text] {
+    width: 100%;
+    margin-bottom: 20px;
+    padding-left: 15px;
+    height: 62px;
+    border-radius: 10px;
+    font-size: 16px;
+    border: 0;
+    background-color: rgba(255,255,255,.85);
+    transition: all 150ms;
+}
+
+.registration-form input[type=text]:focus {
+    /*box-shadow: 3px 3px 3px 3px rgba(0,0,0,.3)*/
+    background: #fff;
+}
+
+.registration-form input:focus::-webkit-input-placeholder {
+    color: #e3e3e3;
+}
+
+.registration-form input:focus:-moz-placeholder { /* Firefox 18- */
+    color: #e3e3e3;  
+}
+
+.registration-form input:focus::-moz-placeholder {  /* Firefox 19+ */
+    color: #e3e3e3;  
+}
+
+.registration-form input:focus::-ms-input-placeholder {  
+    color: #e3e3e3;  
+}
+
+.inicio .terms {
+    text-align: right;
+    margin-bottom: 20px;
+}
+
+.registration-form input[type=submit] {
+    border: 0;
+    border-radius: 10px;
+    height: 62px;
+    width: 128px;
+    background-color: #10cc45;
+    font-size: 20px;
+}
+
+.registration-form input[type=submit]:hover {
+    background-color: #0eb33d;
+}
+/* END BANNER */
+
+/* BEGIN PROCEDIMIENTO */
+/* END PROCEDIMIENTO */
+
+/* BEGIN PRECIOS */
+.precios {
+    background: url(https://dl.dropbox.com/s/jmoowg2bilw0ky4/blue-triangles.png?dl=0) no-repeat center center;
+    background-size: cover;
+}
+
+.pricing {
+    background-color: rgba(255, 255, 255, 0.26);
+    border-radius: 5px;
+    padding: 25px 35px;
+    transition: all 500ms;
+}
+
+.pricing:hover {
+    background-color: rgba(255, 255, 255, 0.4);
+}
+
+.pricing h2:first-line {
+    font-size: 42.26px;
+}
+
+.pricing h2 {
+    font-size: 30.18px;
+    font-weight: 700;
+    line-height: 35px;
+}
+
+.pricing hr {
+    margin-top: 30px;
+    margin-bottom: 30px;
+}
+
+.pricing p {
+    font-size: 21.73px;
+    line-height: 30px;
+    margin-bottom: 35px;
+}
+
+.pricing a {
+    max-width: 210px;
+    height: 50px;
+    line-height: 45px;
+    border: 2.5px solid #fff;
+    border-radius: 5px;
+    color: #fff;
+    font-size: 16px;
+    font-weight: 500;
+    transition: all 300ms;
+    margin-bottom: 20px;
+}
+
+.pricing a:hover {
+    text-decoration: none;
+    background: #fff;
+    color: #00a8e7;
+}
+/* END PRECIOS */
+
+/* BEGIN CAROUSEL */
+.carousel, .carousel-inner, .carousel .item {
+    min-height: 475px;
+}
+
+.carousel-control {
+    background-image: none!important;
+}
+
+.carousel-indicators li {
+    border: 1px solid rgba(161, 161, 161, 0.32);
+}
+
+.carousel-indicators li.active {
+    background-color: rgba(161, 161, 161, 0.32);
+}
+
+.carousel-caption .circular-border {
+    border-radius: 100%;
+    border: 3px solid #e3e3e3;
+    width: 160px;
+    height: 160px;
+    overflow: hidden;
+    margin-bottom: 50px;
+}
+/* END CAROUSEL */
+
+/* BEGIN FOOTER */
+footer {
+    height: 264px;
+    position: relative;
+    background-color: #45606f;
+}
+
+footer .footer-logo {
+    margin-bottom: 30px;
+}
+
+.footer-top {
+    padding: 0 15px;
+    top: 43%
+}
+
+.footer-top a {
+    padding: 0 5px;
+}
+
+.footer-rights {
+    position: absolute;
+    bottom: 0;
+    width: 100%;
+    min-height: 48px;
+    padding-top: 15px;
+    background-color: #304755;
+}
+/* END FOOTER */
+
+/* BEGIN NOSOTROS */
+.nosotros .banner {
+    background: url(https://dl.dropbox.com/s/1oovwuq4mowv3x3/banner.jpg?dl=0) no-repeat center;
+}
+
+.nosotros p {
+    text-align: justify;
+    margin: 0 auto;
+    -moz-text-align-last: center;
+    text-align-last: center;
+}
+
+.nosotros p:nth-child(2) {
+    margin-bottom: 110px;
+}
+/* END NOSOTROS */
+
+/* BEGIN CONTACTO */
+.contacto .scrolloff {
+    pointer-events: none;
+}
+
+.contacto h1 {
+    font-family: 'Myriad Pro';
+}
+
+.contacto .summary {
+    margin-bottom: 50px;
+}
+
+.contact-info p {
+    margin-left: 50px;
+}
+
+.contact-info img {
+    position: absolute;
+}
+
+.contact-form {
+    padding-left: 50px;
+}
+
+.contacto h3 {
+    font-family: 'Myriad Pro';
+    margin-bottom: 30px;
+}
+
+.contacto input[type=text], textarea {
+    width: 100%;
+    border: 1px solid #f9c025;
+    margin-bottom: 30px;
+    border-radius: 10px;
+    padding-left: 15px;
+}
+
+.contacto input[type=text]:focus, textarea:focus {
+    outline: none;
+    box-shadow: 3px 3px 3px 3px rgba(0,0,0,.3);
+}
+
+.contacto input[type=text] {
+    height: 55px;
+}
+
+.contacto textarea {
+    padding-top: 20px;
+}
+
+.contacto button {
+    border: 0;
+    height: 60px;
+    width: 144px;
+    border-radius: 10px;
+    font-size: 14px;
+    margin-bottom: 30px;
+}
+/* END CONTACTO */
+
+/* Parallax CSS */
+.parallax-container {
+    position: relative;
+    overflow: hidden;
+    min-height: 400px;
+    height: auto;
+}
+
+.parallax {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    z-index: -1;
+}
+
+.parallax img {
+    display: none;
+    position: absolute;
+    bottom: 0;
+    min-width: 1920px;
+    width: 100%;
+    background-position: center;
+}
+
+/* MEDIA QUERIES */
+@media (max-width: 1200px) {
+    .pricing {
+        padding-left: 22px;
+        padding-right: 22px;
+    }
+
+}
+
+@media (max-width: 992px) {
+    .pricing h2:first-line {
+        font-size: 35px;
+    }
+    .pricing h2 {
+        font-size: 25px;
+    }
+    .pricing p {
+        font-size: 16px;
+    }
+}
+
+@media (max-width: 767px) {
+    .spacing {
+        padding: 50px 10px;
+    }
+    .banner {
+        height: 200px;
+    }
+    .header {
+        font-size: 30px;
+    }
+    .text {
+        font-size: 15px;
+    }
+    .border-left {
+        border-left: 0;
+    }
+    .navbar {
+        height: 50px;
+    }
+    .navbar-brand img {
+        height: 45px;
+        margin-top: -12px
+    }
+    .navbar-collapse {
+        position: absolute;
+        width: 200px;
+        z-index: 10;
+        right: 0;
+        text-align: right;
+        border: 0;
+        background: rgba(0,168,231,.8);
+    }
+    .nav {
+        margin-top: 0;
+        padding: 10px 20px 10px 50px;
+    }
+    .nav a {
+        border-bottom: 1px solid rgba(0,0,0,0)
+    }
+    .registration-form {
+        width: 90%;
+        transform: none;
+        display: block;
+        margin: 0 auto;
+        left: 0;
+        right: 0;
+        top: 65px;
+    }
+    .pricing {
+        max-width: 330px;
+        margin: 0 auto;
+        margin-bottom: 20px;
+        min-height: 200px;
+    }
+    .pricing h2:first-line {
+        font-size: 25px;
+    }
+    .pricing h {
+        font-size: 20px;
+    }
+    .pricing p {
+        font-size: 16px;
+        line-height: 20px;
+        margin-bottom: 20px;
+    }
+    .pricing h1 {
+        font-size: 32px;
+    }
+    .nosotros p {
+        margin-bottom: 20px!important;
+    }
+    .contacto h1, .contacto .summary, .contacto input[type=text], .contacto textarea, .contacto button {
+        margin-bottom: 20px;
+    }
+    .contacto .contact-form {
+        padding: 15px;
+    }
+}
+
+@media (max-width: 480px) {
+    .carousel .item, .carousel-inner {
+        min-height: 550px;
+    }
+    .carousel-caption {
+        padding: 0;
+        padding-bottom: 20px;
+    }
+}
