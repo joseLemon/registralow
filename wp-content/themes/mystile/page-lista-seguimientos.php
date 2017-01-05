@@ -1,7 +1,7 @@
 <?php include('header.php'); ?>
 <?php
 $flag = false;
-if(isset($_POST['search'])){
+if(isset($_POST['search'])) {
     $flag=true;
     $term=$_POST['search'];
 }
@@ -30,7 +30,6 @@ switch($tab){
     case 'approved': $pageA=$page;break;
     case 'decline': $pageD=$page;break;
 }
-
 ?>
     <div class="wrapper">
         <div class="container request-list">
@@ -120,7 +119,7 @@ switch($tab){
                                     <li>
                                         <a href="<?php echo (get_permalink().'?page=p'.($i*15).'&tab=all'); ?>"><?php echo $i; ?> <span class="sr-only">(página actual)</span></a>
                                     </li>
-                                <? }
+                                <?php }
                             }
                             ?>
                         </ul>
@@ -160,7 +159,7 @@ switch($tab){
                                     <li>
                                         <a href="<?php echo (get_permalink().'?page=p'.($i*15).'&tab=review'); ?>"><?php echo $i; ?> <span class="sr-only"></span></a>
                                     </li>
-                                <? }
+                                <?php }
                             }
                             ?>
                         </ul>
@@ -171,7 +170,7 @@ switch($tab){
                         <thead class="white">
                         <tr>
                             <th>Nombre</th>
-                            <!--<th>Razón Social</th>->
+                            <!--<th>Razón Social</th>-->
                             <th>Estado</th>
                         </tr>
                         </thead>
@@ -200,7 +199,7 @@ switch($tab){
                                     <li>
                                         <a href="<?php echo (get_permalink().'?page=p'.($i*15).'&tab=process'); ?>"><?php echo $i; ?> <span class="sr-only"></span></a>
                                     </li>
-                                <? }
+                                <?php }
                             }
                             ?>
                         </ul>
@@ -240,7 +239,7 @@ switch($tab){
                                     <li>
                                         <a href="<?php echo (get_permalink().'?page=p'.($i*15).'&tab=exam'); ?>"><?php echo $i; ?> <span class="sr-only"></span></a>
                                     </li>
-                                <? }
+                                <?php }
                             }
                             ?>
                         </ul>
@@ -280,7 +279,7 @@ switch($tab){
                                     <li>
                                         <a href="<?php echo (get_permalink().'?page=p'.($i*15).'&tab=obstacle'); ?>"><?php echo $i; ?> <span class="sr-only"></span></a>
                                     </li>
-                                <? }
+                                <?php }
                             }
                             ?>
                         </ul>
@@ -321,7 +320,7 @@ switch($tab){
                                     <li>
                                         <a href="<?php echo (get_permalink().'?page=p'.($i*15).'&tab=approved'); ?>"><?php echo $i; ?> <span class="sr-only"></span></a>
                                     </li>
-                                <? }
+                                <?php }
                             }
                             ?>
                         </ul>
@@ -361,7 +360,7 @@ switch($tab){
                                     <li>
                                         <a href="<?php echo (get_permalink().'?page=p'.($i*15).'&tab=decline'); ?>"><?php echo $i; ?> <span class="sr-only"></span></a>
                                     </li>
-                                <? }
+                                <?php }
                             }
                             ?>
                         </ul>

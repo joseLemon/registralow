@@ -98,8 +98,8 @@ $(document).ready(function () {
     $("#user_login").attr("placeholder", "Usuario");
     $("#user_pass").attr("placeholder", "Contraseña");
 
-    $margin = ($('.mi-cuenta').width()/2);
-    $('.mi-cuenta').css({ marginRight: $margin });
+    /*$margin = ($('.mi-cuenta').width()/2);
+    $('.mi-cuenta').css({ marginRight: $margin });*/
 });
 
 $(document).ready(function(){

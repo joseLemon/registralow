@@ -73,7 +73,7 @@ if( isset($_POST['status']) ) {
 
     // multiple recipients
     $to  = $brand->email;
-    
+
     $solicitud = 'http://registralow.com/site/seguimiento/?id='.$ID;
 
     // To send HTML mail, the Content-type header must be set
@@ -212,164 +212,164 @@ switch( $brand->status_id ) {
         break;
 }
 ?>
-<form action="<?php echo (the_permalink().'?id='.$ID); ?>" method="post">
-    <input type="hidden" value="<?php echo($ID)?>" name="brand_id" id="brand_id">
-    <div class="wrapper registro seguimiento">
-        <div class="container">
-            <div class="form-container active spacing">
-                <!--
+    <form action="<?php echo (the_permalink().'?id='.$ID); ?>" method="post">
+        <input type="hidden" value="<?php echo($ID)?>" name="brand_id" id="brand_id">
+        <div class="wrapper registro seguimiento">
+            <div class="container">
+                <div class="form-container active spacing">
+                    <!--
                    <div class="info">
                     <a href=""><img src="<?php bloginfo('template_directory'); ?>/img/icons/info.png" alt=""></a>
                 </div>
                 -->
-                <h1 class="header blue text-center">Seguimiento</h1>
-                <div class="row light-spacing">
-                    <h3 class="blue text-center">Información del Solicitante</h3>
-                    <table>
-                        <thead class="white">
+                    <h1 class="header blue text-center normal-weight">SEGUIMIENTO</h1>
+                    <div class="row light-spacing">
+                        <h3 class="blue text-center">INFORMACIÓN DEL SOLICITANTE</h3>
+                        <table>
+                            <thead class="white">
                             <tr>
                                 <th>Nombre</th>
-                                <th>Razón Social</th>
+                                <th>RFC</th>
                                 <th>Fecha de Nacimiento</th>
                                 <th>Teléfono</th>
                                 <th>Correo Electrónico</th>
                             </tr>
-                        </thead>
-                        <tbody class="text">
+                            </thead>
+                            <tbody class="text">
                             <tr>
                                 <td><?php echo $brand->name." ".$brand->last_name." ".$brand->m_last_name; ?></td>
-                                <td><?php echo $brand->social_reason; ?></td>
-                                <td><?php echo $brand->birthday; ?></td>
+                                <td><?php echo $brand->rfc; ?></td>
+                                <td><?php echo date('d/m/Y', strtotime($brand->birthday)); ?></td>
                                 <td><?php echo $brand->phone; ?></td>
                                 <td><?php echo $brand->email; ?></td>
                             </tr>
-                        </tbody>
-                    </table>
-                    <div style="margin: 10px 0;" class="center-block"></div>
-                    <h3 class="blue text-center">Domicilio del Solicitante</h3>
-                    <table>
-                        <thead class="white">
+                            </tbody>
+                        </table>
+                        <div style="margin: 10px 0;" class="center-block"></div>
+                        <h3 class="blue text-center">DOMICILIO DEL SOLICITANTE</h3>
+                        <table>
+                            <thead class="white">
                             <tr>
                                 <th>Calle</th>
                                 <th>Número Exterior</th>
                                 <th>Número Interior</th>
                                 <th>Código Postal</th>
                             </tr>
-                        </thead>
-                        <tbody class="text">
+                            </thead>
+                            <tbody class="text">
                             <tr>
                                 <td><?php echo $brand->street; ?></td>
                                 <td><?php echo $brand->ext_num; ?></td>
                                 <td><?php echo $brand->int_num; ?></td>
                                 <td><?php echo $brand->postal_code; ?></td>
                             </tr>
-                        </tbody>
-                    </table>
-                    <table>
-                        <thead class="white">
+                            </tbody>
+                        </table>
+                        <table>
+                            <thead class="white">
                             <tr>
                                 <th>Colonia</th>
                                 <th>Municipio</th>
-                                <th>Localidad</th>
+                                <!--<th>Localidad</th>-->
                                 <th>Estado</th>
                                 <th>País</th>
                             </tr>
-                        </thead>
-                        <tbody class="text">
+                            </thead>
+                            <tbody class="text">
                             <tr>
                                 <td><?php echo $brand->colony; ?></td>
                                 <td><?php echo $brand->town; ?></td>
-                                <td><?php echo $brand->locality; ?></td>
+                                <!--<td><?php echo $brand->locality; ?></td>-->
                                 <td><?php echo $brand->state; ?></td>
                                 <td><?php echo $brand->country; ?></td>
                             </tr>
-                        </tbody>
-                    </table>
-                    <h3 class="blue text-center">Giro Comercial</h3>
-                    <p class="text"><span class="blue">Tipo: </span><?php echo $brand->business_course; ?></p>
-                    <? if( $brand->bussiness_course == 'Productos' ) { ?>
-                    <p class="text"><span class="blue">Tipo de Producto: </span><?php echo $brand->product_type; ?></p>
-                    <?php } ?>
-                    <?php if( !$brand->brand_first_use_date == NULL ) { ?>
-                    <p class="text">
-                        <span class="blue">Usado desde:</span>
-                        <?php echo $brand->brand_first_use_date; ?>
-                    </p>
-                    <?php } ?>
-                    <p class="text text-justify">
-                        <?php echo $brand->bussiness_course_description; ?>
-                    </p>
-                    <?php if( !$brand->brand_first_use_date == NULL ) { ?>
-                    <h3 class="blue text-center">Establecimiento</h3>
-                    <table>
-                        <thead class="white">
-                            <tr>
-                                <th>Colonia</th>
-                                <th>Municipio</th>
-                                <th>Localidad</th>
-                                <th>Estado</th>
-                                <th>País</th>
-                            </tr>
-                        </thead>
-                        <tbody class="text">
-                            <tr>
-                                <td><?php echo $brand->b_colony; ?></td>
-                                <td><?php echo $brand->b_town; ?></td>
-                                <td><?php echo $brand->b_locality; ?></td>
-                                <td><?php echo $brand->b_state; ?></td>
-                                <td><?php echo $brand->b_country; ?></td>
-                            </tr>
-                        </tbody>
-                    </table>
-                    <?php } ?>
-                    <h3 class="blue text-center">Comentarios</h3>
-                    <textarea name="comments" id="comments" cols="30" rows="10" placeholder="Comentarios" maxlength="254"><?php echo $brand->comments; ?></textarea>
-                </div>
-                <div class="row text-center margin-bottom">
-                    <div class="col-sm-4 margin-top">
-                        <p class="gray text-center">Solicitud</p>
-                        <input type="text" class="hidden" value="">
+                            </tbody>
+                        </table>
+                        <h3 class="blue text-center">GIRO COMERCIAL</h3>
+                        <p class="text"><span class="blue">Tipo: </span><?php echo $brand->business_course; ?></p>
+                        <?php if( $brand->bussiness_course == 'Productos' ) { ?>
+                            <p class="text"><span class="blue">Tipo de Producto: </span><?php echo $brand->product_type; ?></p>
+                        <?php } ?>
+                        <?php if( !$brand->brand_first_use_date == NULL ) { ?>
+                            <p class="text">
+                                <span class="blue">Usado desde:</span>
+                                <?php echo $brand->brand_first_use_date; ?>
+                            </p>
+                        <?php } ?>
+                        <p class="text text-justify">
+                            <?php echo $brand->bussiness_course_description; ?>
+                        </p>
+                        <?php if( !$brand->brand_first_use_date == NULL ) { ?>
+                            <h3 class="blue text-center">ESTABLECIMIENTO</h3>
+                            <table>
+                                <thead class="white">
+                                <tr>
+                                    <th>Calle</th>
+                                    <th>Colonia</th>
+                                    <th>Municipio</th>
+                                    <th>Estado</th>
+                                    <th>País</th>
+                                </tr>
+                                </thead>
+                                <tbody class="text">
+                                <tr>
+                                    <td><?php echo $brand->b_street; ?></td>
+                                    <td><?php echo $brand->b_colony; ?></td>
+                                    <td><?php echo $brand->b_town; ?></td>
+                                    <td><?php echo $brand->b_state; ?></td>
+                                    <td><?php echo $brand->b_country; ?></td>
+                                </tr>
+                                </tbody>
+                            </table>
+                        <?php } ?>
+                        <h3 class="blue text-center">COMENTARIOS</h3>
+                        <textarea name="comments" id="comments" cols="30" rows="10" placeholder="Comentarios" maxlength="254"><?php echo $brand->comments; ?></textarea>
+                    </div>
+                    <div class="row text-center margin-bottom">
+                        <div class="col-sm-4 margin-top">
+                            <p class="gray text-center">Solicitud</p>
+                            <input type="text" class="hidden" value="">
 
-                        <img src="<?php echo $solicitud; ?>" alt="Solicitud">
-                        <hr class="right">
+                            <img src="<?php echo $solicitud; ?>" alt="Solicitud">
+                            <hr class="right">
+                        </div>
+                        <div class="col-sm-4 margin-top">
+                            <p class="gray text-center">Proceso</p>
+                            <img src="<?php echo $proceso; ?>" alt="Proceso">
+                        </div>
+                        <div class="col-sm-4 margin-top">
+                            <p class="gray text-center">Registro</p>
+                            <img src="<?php echo $registro; ?>"  alt="Registro">
+                            <hr class="left">
+                        </div>
                     </div>
-                    <div class="col-sm-4 margin-top">
-                        <p class="gray text-center">Proceso</p>
-                        <img src="<?php echo $proceso; ?>" alt="Proceso">
-                    </div>
-                    <div class="col-sm-4 margin-top">
-                        <p class="gray text-center">Registro</p>
-                        <img src="<?php echo $registro; ?>"  alt="Registro">
-                        <hr class="left">
-                    </div>
-                </div>
-                <div class="text-center actualizar-solicitud">
-                    <select name="status" id="status">
-                        <?php $statuses = $wpdb->get_results("SELECT status_id, name FROM statuses");
-                        foreach($statuses as $status){
-                            if($brand->status_id<3){
-                                if($status->status_id<3){
-                                    if($status->status_id==$brand->status_id){?>
-                        <option value="<?php echo $status->status_id ?>" selected><?php echo $status->name ?></option>
-                        <?php   }else{ ?>
-                        <option value="<?php echo $status->status_id ?>"><?php echo $status->name ?></option>
-                        <?php   }
+                    <div class="text-center actualizar-solicitud">
+                        <select name="status" id="status" style="max-width: 300px" class="center-block">
+                            <?php $statuses = $wpdb->get_results("SELECT status_id, name FROM statuses");
+                            foreach($statuses as $status){
+                                if($brand->status_id<3){
+                                    if($status->status_id<3){
+                                        if($status->status_id==$brand->status_id){?>
+                                            <option value="<?php echo $status->status_id ?>" selected><?php echo $status->name ?></option>
+                                        <?php   }else{ ?>
+                                            <option value="<?php echo $status->status_id ?>"><?php echo $status->name ?></option>
+                                        <?php   }
+                                    }
+                                }else{
+                                    if($status->status_id>2){
+                                        if($status->status_id==$brand->status_id){?>
+                                            <option value="<?php echo $status->status_id ?>" selected><?php echo $status->name ?></option>
+                                        <?php   }else{ ?>
+                                            <option value="<?php echo $status->status_id ?>"><?php echo $status->name ?></option>
+                                        <?php   }
+                                    }
                                 }
-                            }else{
-                                if($status->status_id>2){
-                                    if($status->status_id==$brand->status_id){?>
-                        <option value="<?php echo $status->status_id ?>" selected><?php echo $status->name ?></option>
-                        <?php   }else{ ?>
-                        <option value="<?php echo $status->status_id ?>"><?php echo $status->name ?></option>
-                        <?php   }
-                                }
-                            }
-                        }?>
-                    </select>
-                    <input class="green-btn white" type="submit" value="Actualizar">
+                            }?>
+                        </select>
+                        <input class="green-btn white" type="submit" value="Actualizar">
+                    </div>
                 </div>
             </div>
         </div>
-    </div>
-</form>
+    </form>
 <?php include('footer.php'); ?>
