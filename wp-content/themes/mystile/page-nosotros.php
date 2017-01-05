@@ -1,8 +1,7 @@
 <?php get_header(); ?>
-<div class="wrapper nosotros">
-    <div class="banner"></div>
+<div class="wrapper nosotros-page">
     <div class="container text-center spacing">
-        <h1 class="blue header"><?php echo CFS() -> get( 'nosotros_title' ); ?></h1>
+        <h1 class="blue header normal-weight to-uppercase"><?php echo CFS() -> get( 'nosotros_title' ); ?></h1>
         <p class="text">
             <?php echo CFS() -> get( 'nosotros_text' ); ?>
         </p>

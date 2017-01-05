@@ -193,7 +193,7 @@ a.text {
     background-color: #10cc45;
 }
 
-.sm-btn {
+.sm-btn, #respond input[type=submit] {
     border-radius: 10px!important;
     padding: 3px 15px;
     letter-spacing: 2px;
@@ -639,17 +639,20 @@ td {
     height: 487px;
 }
 
-.index-errors {
-    pointer-events: none;
+.index-errors, .index-success {
+    margin-bottom: 12px;
+    position: relative;
 }
 
 .close-alert {
-    pointer-events: all;
-    position: absolute;
-    right: 40px;
-    margin-top: -10px;
-    cursor: pointer;
     font-weight: bold;
+    position: absolute;
+    right: 5px;
+    top: 5px;
+    cursor: pointer;
+    font-size: 20px;
+    width: 15px;
+    text-align: center;
 }
 
 .registration-form {
@@ -1283,7 +1286,7 @@ footer .menu a {
     line-height: 46px;
 }
 
-.small-btn, #respond input[type=submit], .button.alt, .login-submit #wp-submit {
+.small-btn, .button.alt, .login-submit #wp-submit {
     height: 62px;
     width: 128px;
     border-radius: 10px;
@@ -1723,6 +1726,8 @@ section.canvas {
 @media (max-width: 1200px) {
     .navbar-nav>li>a {
         font-size: 13px;
+        padding-left: 12px;
+        padding-right: 12px;
     }
     .pricing {
         padding-left: 22px;
@@ -1741,6 +1746,24 @@ section.canvas {
 }
 
 @media (max-width: 992px) {
+    .navbar-brand {
+        width: 120px;
+        padding-right: 0px;
+        padding-left: 0px;
+        margin-left: 0px!important;
+    }
+    .navbar-brand img {
+        width: 100%;
+        margin-top: 19px;
+    }
+    .navbar .container {
+        width: 100%;
+    }
+    .navbar-nav>li>a {
+        font-size: 13.5px;
+        padding-left: 10px;
+        padding-right: 10px;
+    }
     .header {
         font-size: 28px;
     }
@@ -1775,22 +1798,6 @@ section.canvas {
     .registro .container {
         width: 100%;
         max-width: 850px;
-    }
-    .navbar-brand {
-        width: 120px;
-        padding-right: 0px;
-        padding-left: 0px;
-        margin-left: 0px!important;
-    }
-    .navbar-brand img {
-        width: 100%;
-        margin-top: 19px;
-    }
-    .navbar .container {
-        width: 100%;
-    }
-    .navbar-nav>li>a {
-        font-size: 13.5px;
     }
     .procedimiento .col-sm-4 {
         min-height: 433px;
@@ -1925,7 +1932,7 @@ section.canvas {
         padding: 0;
     }
     .close-alert {
-        display: none;
+        /*display: none;*/
     }
     .procedimiento .col-sm-4 {
         min-height: 0;

@@ -47,32 +47,26 @@ function registration_form( $username, $password, $email ) {
 
     echo '
     <form action="' . $_SERVER['REQUEST_URI'] . '" method="post">
-    <p>
-         <input type="text" name="username" value="' . (isset($_POST['username']) ? $username : null) . '" placeholder="Nombre de Usuario">
-    </p>
-    <p>
-        <input type="password" name="password" value="' . (isset($_POST['password']) ? $password : null) . '" placeholder="Contraseña">
-    </p>
-    <p>
-        <input type="text" name="email" value="' . (isset($_POST['email']) ? $email : null) . '" placeholder="Correo">
-    </p>
-    
-    <div class="row no-margin">
-    
-        <div class="col-sm-6 text-center">
-            <div class="terms">
-                <input type="checkbox" id="indexTerms" name="indexTerms"><span class="blue">Acepto términos y condiciones</span>
+        <p>
+             <input type="text" name="username" value="' . (isset($_POST['username']) ? $username : null) . '" placeholder="Nombre de Usuario">
+        </p>
+        <p>
+            <input type="password" name="password" value="' . (isset($_POST['password']) ? $password : null) . '" placeholder="Contraseña">
+        </p>
+        <p>
+            <input type="text" name="email" value="' . (isset($_POST['email']) ? $email : null) . '" placeholder="Correo">
+        </p>
+        <div class="row no-margin">
+            <div class="col-sm-6 text-center">
+                <div class="terms">
+                    <input type="checkbox" id="indexTerms" name="indexTerms"><span class="blue">Acepto términos y condiciones</span>
+                </div>
+                <input class="small-btn blue-btn submit-btn" type="submit" name="submit" value="Registrar">
             </div>
-
-            <input class="small-btn blue-btn submit-btn" type="submit" name="submit" value="Registrar"/>
+            <div class="col-sm-6">
+                '.do_shortcode( '[oa_social_login]' ).'
+            </div>
         </div>
-    
-        <div class="col-sm-6">
-        '.do_shortcode( '[oa_social_login]' ).'
-        </div>
-        
-    </div>
-    
 	</form>
 	';
 }
@@ -107,15 +101,14 @@ function registration_validation( $username, $password, $email )  {
     if ( email_exists( $email ) ) {
         $reg_errors->add('email', 'Este correo ya está siendo utilizado.');
     }
-    
+
     if ( !isset($_POST['indexTerms']) ) {
         $reg_errors->add('terms', 'Debes de aceptar nuestros términos y condiciones para proceder.');
     }
 
     if ( is_wp_error( $reg_errors ) ) {
-
-        if( count( $reg_errors != 0) ) {
-            echo '<div class="alert alert-danger index-errors" style="margin-top: -35px" data-dismiss="alert" aria-label="Close"><span class="close-alert" aria-hidden="true">&times;</span>';
+        if( count( $reg_errors) > 1 ) {
+            echo '<div class="alert alert-danger index-errors"><span class="close-alert" aria-hidden="true" data-dismiss="alert" aria-label="Close">&times;</span>';
             foreach ( $reg_errors->get_error_messages() as $error ) {
                 echo $error . '<br/>';
             }
@@ -132,8 +125,8 @@ function complete_registration($username, $password, $email) {
             'user_email' 	=> 	$email,
             'user_pass' 	=> 	$password
         );
-        $user = wp_insert_user( $userdata );
-        echo '<div class="alert alert-success">Usuario registrado existosamente<div>';   
+        //$user = wp_insert_user( $userdata );
+        echo '<div class="alert alert-success index-success"><span class="close-alert" aria-hidden="true" data-dismiss="alert" aria-label="Close">&times;</span>Usuario registrado existosamente<div></div></div>';
     }
 }
 

@@ -24,9 +24,55 @@
       <file leaf-file-name="style.css" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/wp-content/themes/mystile/style.css">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="386">
-              <caret line="1536" column="45" lean-forward="false" selection-start-line="1536" selection-start-column="45" selection-end-line="1536" selection-end-column="45" />
+            <state relative-caret-position="199">
+              <caret line="641" column="29" lean-forward="false" selection-start-line="641" selection-start-column="29" selection-end-line="641" selection-end-column="29" />
               <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="registration-form.php" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/wp-content/plugins/registration-form/registration-form.php">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="540">
+              <caret line="128" column="55" lean-forward="false" selection-start-line="128" selection-start-column="55" selection-end-line="128" selection-end-column="55" />
+              <folding>
+                <marker date="1483577115933" expanded="true" signature="3634:3641" ph="×" />
+                <marker date="1483577115933" expanded="true" signature="4395:4402" ph="×" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="single.php" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/wp-content/themes/mystile/single.php">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="357">
+              <caret line="21" column="60" lean-forward="true" selection-start-line="21" selection-start-column="60" selection-end-line="21" selection-end-column="60" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="footer.php" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/wp-content/themes/mystile/footer.php">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="153">
+              <caret line="9" column="47" lean-forward="true" selection-start-line="9" selection-start-column="47" selection-end-line="10" selection-end-column="65" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="header.php" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/wp-content/themes/mystile/header.php">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="285">
+              <caret line="49" column="28" lean-forward="false" selection-start-line="49" selection-start-column="28" selection-end-line="49" selection-end-column="28" />
+              <folding>
+                <marker date="1483575799199" expanded="true" signature="1403:1556" ph="..." />
+                <marker date="1483575799199" expanded="true" signature="1449:1536" ph="{...}" />
+              </folding>
             </state>
           </provider>
         </entry>
@@ -34,8 +80,8 @@
       <file leaf-file-name="page-registro.php" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/wp-content/themes/mystile/page-registro.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="34">
-              <caret line="5" column="90" lean-forward="false" selection-start-line="5" selection-start-column="81" selection-end-line="5" selection-end-column="90" />
+            <state relative-caret-position="238">
+              <caret line="17" column="38" lean-forward="true" selection-start-line="17" selection-start-column="38" selection-end-line="17" selection-end-column="38" />
               <folding>
                 <element signature="e#9786#9793#0#HTML" expanded="true" />
                 <element signature="e#14556#14563#0#HTML" expanded="true" />
@@ -46,26 +92,41 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="page-revision.php" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/wp-content/themes/mystile/page-revision.php">
+      <file leaf-file-name="page-nosotros.php" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/wp-content/themes/mystile/page-nosotros.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="797">
-              <caret line="198" column="30" lean-forward="true" selection-start-line="198" selection-start-column="30" selection-end-line="198" selection-end-column="30" />
-              <folding>
-                <element signature="e#9786#9793#0#HTML" expanded="true" />
-                <element signature="e#14555#14562#0#HTML" expanded="true" />
-                <element signature="e#19682#19689#0#HTML" expanded="true" />
-                <marker date="1483556333246" expanded="true" signature="11818:11861" ph="SELECT brand... brand_types" />
-              </folding>
+            <state relative-caret-position="136">
+              <caret line="8" column="21" lean-forward="true" selection-start-line="8" selection-start-column="21" selection-end-line="8" selection-end-column="21" />
+              <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="page-mi-cuenta.php" pinned="false" current-in-tab="true">
+      <file leaf-file-name="page-blog.php" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/wp-content/themes/mystile/page-blog.php">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="374">
+              <caret line="22" column="14" lean-forward="true" selection-start-line="22" selection-start-column="14" selection-end-line="22" selection-end-column="14" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="comment-template.php" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/wp-includes/comment-template.php">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="593">
+              <caret line="979" column="45" lean-forward="false" selection-start-line="979" selection-start-column="40" selection-end-line="979" selection-end-column="45" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="page-mi-cuenta.php" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/wp-content/themes/mystile/page-mi-cuenta.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="203">
-              <caret line="17" column="23" lean-forward="false" selection-start-line="17" selection-start-column="23" selection-end-line="17" selection-end-column="23" />
+            <state relative-caret-position="101">
+              <caret line="11" column="51" lean-forward="true" selection-start-line="11" selection-start-column="51" selection-end-line="11" selection-end-column="51" />
               <folding>
                 <element signature="e#1106#1124#0#HTML" expanded="true" />
                 <element signature="e#1159#1178#0#HTML" expanded="true" />
@@ -80,93 +141,10 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="page-seguimiento.php" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/wp-content/themes/mystile/page-seguimiento.php">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="442">
-              <caret line="206" column="59" lean-forward="false" selection-start-line="206" selection-start-column="59" selection-end-line="206" selection-end-column="59" />
-              <folding>
-                <marker date="1483571911504" expanded="true" signature="85:194" ph="UPDATE `regi... " />
-                <marker date="1483571911504" expanded="true" signature="482:571" ph="UPDATE `regi... " />
-                <marker date="1483571911504" expanded="true" signature="864:1028" ph="SELECT * FRO... brands" />
-                <marker date="1483571911504" expanded="true" signature="1141:1267" ph="SELECT post_... wp_posts" />
-                <marker date="1483571911504" expanded="true" signature="2082:2748" ph="..." />
-                <marker date="1483571911504" expanded="true" signature="2121:2733" ph="..." />
-                <marker date="1483571911504" expanded="true" signature="2191:2714" ph="..." />
-                <marker date="1483571911504" expanded="true" signature="2261:2691" ph="..." />
-                <marker date="1483571911504" expanded="true" signature="2475:2664" ph="..." />
-                <marker date="1483571911504" expanded="true" signature="3075:4431" ph="..." />
-                <marker date="1483571911504" expanded="true" signature="3114:4416" ph="..." />
-                <marker date="1483571911504" expanded="true" signature="3184:4397" ph="..." />
-                <marker date="1483571911504" expanded="true" signature="3240:4374" ph="..." />
-                <marker date="1483571911504" expanded="true" signature="3616:4347" ph="..." />
-                <marker date="1483571911504" expanded="true" signature="3681:4065" ph="..." />
-                <marker date="1483571911504" expanded="true" signature="3780:4030" ph="..." />
-                <marker date="1483571911504" expanded="false" signature="3832:3870" ph="..." />
-                <marker date="1483571911504" expanded="true" signature="4130:4316" ph="..." />
-                <marker date="1483571911504" expanded="true" signature="5575:6112" ph="..." />
-                <marker date="1483571911504" expanded="true" signature="5614:6097" ph="..." />
-                <marker date="1483571911504" expanded="true" signature="5684:6078" ph="..." />
-                <marker date="1483571911504" expanded="true" signature="5740:6055" ph="..." />
-                <marker date="1483571911504" expanded="true" signature="6323:6934" ph="..." />
-                <marker date="1483571911504" expanded="true" signature="6358:6923" ph="..." />
-                <marker date="1483571911504" expanded="true" signature="6424:6908" ph="..." />
-                <marker date="1483571911504" expanded="true" signature="6490:6889" ph="..." />
-                <marker date="1483571911504" expanded="true" signature="6681:6866" ph="..." />
-                <marker date="1483571911504" expanded="true" signature="8486:8591" ph="..." />
-                <marker date="1483571911504" expanded="true" signature="8794:8944" ph="..." />
-                <marker date="1483571911504" expanded="true" signature="8855:8943" ph="..." />
-                <marker date="1483571911504" expanded="true" signature="9194:9399" ph="..." />
-                <marker date="1483571911504" expanded="true" signature="9260:9360" ph="..." />
-                <marker date="1483571911504" expanded="true" signature="9468:9677" ph="..." />
-                <marker date="1483571911504" expanded="true" signature="9933:10161" ph="..." />
-                <marker date="1483571911504" expanded="true" signature="10420:10625" ph="..." />
-                <marker date="1483571911504" expanded="true" signature="10486:10586" ph="..." />
-                <marker date="1483571911504" expanded="true" signature="10694:10763" ph="..." />
-                <marker date="1483571911504" expanded="true" signature="10694:10811" ph="..." />
-                <marker date="1483571911504" expanded="true" signature="10694:10859" ph="..." />
-                <marker date="1483571911504" expanded="true" signature="10694:10922" ph="..." />
-                <marker date="1483571911504" expanded="true" signature="11196:11279" ph="..." />
-                <marker date="1483571911504" expanded="true" signature="11196:11359" ph="..." />
-                <marker date="1483571911504" expanded="true" signature="11196:11360" ph="..." />
-                <marker date="1483571911504" expanded="true" signature="11196:11424" ph="..." />
-                <marker date="1483571911504" expanded="true" signature="11493:11702" ph="..." />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="page-submitsolicitor.php" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/wp-content/themes/mystile/page-submitsolicitor.php">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="697">
-              <caret line="41" column="52" lean-forward="true" selection-start-line="41" selection-start-column="52" selection-end-line="41" selection-end-column="52" />
-              <folding>
-                <marker date="1483554955743" expanded="true" signature="533:1859" ph="INSERT INTO `registra_wp2016`.`brands`... " />
-                <marker date="1483554955743" expanded="true" signature="1929:3255" ph="INSERT INTO `registra_wp2016`.`brands`... " />
-                <marker date="1483554955743" expanded="true" signature="3324:3486" ph="UPDATE `regi... " />
-                <marker date="1483554955743" expanded="true" signature="4620:4747" ph="SELECT brand... brands" />
-                <marker date="1483554955743" expanded="true" signature="4689:4739" ph="select MAX(c... brands" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
     </leaf>
   </component>
   <component name="FindInProjectRecents">
     <findStrings>
-      <find>gene</find>
-      <find>en qué es</find>
-      <find>el rfc</find>
-      <find>e fade</find>
-      <find>display</find>
-      <find>#design</find>
-      <find>adjunta</find>
-      <find>tipo de</find>
-      <find>form</find>
-      <find>login</find>
-      <find>button</find>
       <find>wrapper</find>
       <find>nav</find>
       <find>social</find>
@@ -174,7 +152,6 @@
       <find>from</find>
       <find>dropdown</find>
       <find>info</find>
-      <find>btn</find>
       <find>.btn {</find>
       <find>solicitud</find>
       <find>SELECT</find>
@@ -182,10 +159,22 @@
       <find>gray {</find>
       <find>normal-w</find>
       <find>mi-cu</find>
-      <find>dialog</find>
-      <find>in active</find>
       <find>infor</find>
       <find>seguimiento</find>
+      <find>dialog</find>
+      <find>$args</find>
+      <find>btn</find>
+      <find>btn {</find>
+      <find>in active</find>
+      <find>sm-btn</find>
+      <find>legal</find>
+      <find>login-modal</find>
+      <find>login</find>
+      <find>navba</find>
+      <find>index-err</find>
+      <find>complete</find>
+      <find>index-errors</find>
+      <find>close-alert</find>
     </findStrings>
     <replaceStrings>
       <replace>vertical-align</replace>
@@ -194,12 +183,10 @@
   <component name="IdeDocumentHistory">
     <option name="CHANGED_PATHS">
       <list>
-        <option value="$PROJECT_DIR$/wp-content/plugins/registration-form/registration-form.php" />
         <option value="$PROJECT_DIR$/wp-content/themes/mystile/functions.php" />
         <option value="$PROJECT_DIR$/wp-content/themes/mystile/css/style.css" />
         <option value="$PROJECT_DIR$/wp-content/plugins/login-form/login-form.php" />
         <option value="$PROJECT_DIR$/wp-content/themes/mystile/js/smoothscroll.js" />
-        <option value="$PROJECT_DIR$/wp-content/themes/mystile/header.php" />
         <option value="$PROJECT_DIR$/wp-content/themes/mystile/front-page.php" />
         <option value="$PROJECT_DIR$/.htaccess" />
         <option value="$PROJECT_DIR$/wp-content/themes/mystile/page-contacto.php" />
@@ -208,11 +195,16 @@
         <option value="$PROJECT_DIR$/wp-content/themes/mystile/js/app.js" />
         <option value="$PROJECT_DIR$/wp-content/themes/mystile/page-registro.php" />
         <option value="$PROJECT_DIR$/wp-content/themes/mystile/page-revision.php" />
-        <option value="$PROJECT_DIR$/wp-content/themes/mystile/footer.php" />
         <option value="$USER_HOME$/AppData/Local/Temp/fz3temp-1/page-lista-seguimientos.php" />
         <option value="$PROJECT_DIR$/wp-content/themes/mystile/page-seguimiento.php" />
-        <option value="$PROJECT_DIR$/wp-content/themes/mystile/style.css" />
         <option value="$PROJECT_DIR$/wp-content/themes/mystile/page-mi-cuenta.php" />
+        <option value="$PROJECT_DIR$/wp-content/themes/mystile/page-nosotros.php" />
+        <option value="$PROJECT_DIR$/wp-content/themes/mystile/page-blog.php" />
+        <option value="$PROJECT_DIR$/wp-content/themes/mystile/single.php" />
+        <option value="$PROJECT_DIR$/wp-content/themes/mystile/footer.php" />
+        <option value="$PROJECT_DIR$/wp-content/themes/mystile/header.php" />
+        <option value="$PROJECT_DIR$/wp-content/themes/mystile/style.css" />
+        <option value="$PROJECT_DIR$/wp-content/plugins/registration-form/registration-form.php" />
       </list>
     </option>
   </component>
@@ -288,7 +280,7 @@
               <option name="myItemType" value="com.jetbrains.php.projectView.PhpTreeStructureProvider$1" />
             </PATH_ELEMENT>
             <PATH_ELEMENT>
-              <option name="myItemId" value="themes" />
+              <option name="myItemId" value="plugins" />
               <option name="myItemType" value="com.jetbrains.php.projectView.PhpTreeStructureProvider$1" />
             </PATH_ELEMENT>
           </PATH>
@@ -306,37 +298,11 @@
               <option name="myItemType" value="com.jetbrains.php.projectView.PhpTreeStructureProvider$1" />
             </PATH_ELEMENT>
             <PATH_ELEMENT>
-              <option name="myItemId" value="themes" />
+              <option name="myItemId" value="plugins" />
               <option name="myItemType" value="com.jetbrains.php.projectView.PhpTreeStructureProvider$1" />
             </PATH_ELEMENT>
             <PATH_ELEMENT>
-              <option name="myItemId" value="mystile" />
-              <option name="myItemType" value="com.jetbrains.php.projectView.PhpTreeStructureProvider$1" />
-            </PATH_ELEMENT>
-          </PATH>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="registralow" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="registralow" />
-              <option name="myItemType" value="com.jetbrains.php.projectView.PhpTreeStructureProvider$1" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="wp-content" />
-              <option name="myItemType" value="com.jetbrains.php.projectView.PhpTreeStructureProvider$1" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="themes" />
-              <option name="myItemType" value="com.jetbrains.php.projectView.PhpTreeStructureProvider$1" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="mystile" />
-              <option name="myItemType" value="com.jetbrains.php.projectView.PhpTreeStructureProvider$1" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="js" />
+              <option name="myItemId" value="registration-form" />
               <option name="myItemType" value="com.jetbrains.php.projectView.PhpTreeStructureProvider$1" />
             </PATH_ELEMENT>
           </PATH>
@@ -432,18 +398,18 @@
       <workItem from="1482433964736" duration="5399000" />
       <workItem from="1483031443646" duration="2979000" />
       <workItem from="1483461158245" duration="5190000" />
-      <workItem from="1483545852430" duration="17472000" />
+      <workItem from="1483545852430" duration="20068000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="81928000" />
+    <option name="totallyTimeSpent" value="84524000" />
   </component>
   <component name="ToolWindowManager">
-    <frame x="-7" y="0" width="974" height="1047" extended-state="1" />
+    <frame x="-7" y="0" width="974" height="1047" extended-state="0" />
     <editor active="true" />
     <layout>
-      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.27453026" sideWeight="0.5" order="1" side_tool="false" content_ui="combo" />
+      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.27453026" sideWeight="0.5" order="1" side_tool="false" content_ui="combo" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="9" side_tool="false" content_ui="tabs" />
       <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="0" side_tool="true" content_ui="tabs" />
       <window_info id="Database" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
@@ -461,25 +427,6 @@
       <window_info id="Ant Build" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
     </layout>
-    <layout-to-restore>
-      <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="9" side_tool="false" content_ui="tabs" />
-      <window_info id="Cvs" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
-      <window_info id="Message" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
-      <window_info id="Commander" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
-      <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="0" side_tool="true" content_ui="tabs" />
-      <window_info id="Inspection" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="8" side_tool="false" content_ui="tabs" />
-      <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="false" weight="0.33" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
-      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
-      <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
-      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.27453026" sideWeight="0.5" order="1" side_tool="false" content_ui="combo" />
-      <window_info id="Hierarchy" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="3" side_tool="false" content_ui="combo" />
-      <window_info id="Database" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
-      <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32980973" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
-      <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
-      <window_info id="Ant Build" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
-      <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="0" side_tool="true" content_ui="tabs" />
-      <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
-    </layout-to-restore>
   </component>
   <component name="TypeScriptGeneratedFilesManager">
     <option name="processedProjectFiles" value="true" />
@@ -500,43 +447,6 @@
     <watches-manager />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/wp-content/themes/mystile/functions.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1887">
-          <caret line="111" column="56" lean-forward="false" selection-start-line="111" selection-start-column="56" selection-end-line="111" selection-end-column="56" />
-          <folding>
-            <marker date="1481840453737" expanded="true" signature="3502:3629" ph="SELECT brand... brands" />
-            <marker date="1481840453737" expanded="true" signature="3571:3621" ph="select MAX(c... brands" />
-            <marker date="1481840453737" expanded="true" signature="3672:3815" ph="SELECT post_... wp_postmeta" />
-            <marker date="1481840453737" expanded="true" signature="3721:3807" ph="select MAX(m... wp_postmeta" />
-            <marker date="1481840453737" expanded="true" signature="3838:3916" ph="UPDATE brand... " />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/wp-content/themes/mystile/js/app.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="7582">
-          <caret line="446" column="5" lean-forward="false" selection-start-line="446" selection-start-column="5" selection-end-line="446" selection-end-column="5" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/wp-content/themes/mystile/style.css">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="0">
-          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/wp-content/themes/mystile/footer.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="306">
-          <caret line="18" column="31" lean-forward="true" selection-start-line="18" selection-start-column="31" selection-end-line="18" selection-end-column="31" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/wp-content/themes/mystile/front-page.php">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="1343">
@@ -550,8 +460,8 @@
         <state relative-caret-position="68">
           <caret line="4" column="26" lean-forward="false" selection-start-line="4" selection-start-column="20" selection-end-line="4" selection-end-column="26" />
           <folding>
-            <marker date="1482341734076" expanded="true" signature="1403:1556" ph="..." />
-            <marker date="1482341734076" expanded="true" signature="1449:1536" ph="{...}" />
+            <marker date="1483575799199" expanded="true" signature="1403:1556" ph="..." />
+            <marker date="1483575799199" expanded="true" signature="1449:1536" ph="{...}" />
           </folding>
         </state>
       </provider>
@@ -762,13 +672,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/wp-content/plugins/registration-form/registration-form.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="935">
-          <caret line="62" column="29" lean-forward="false" selection-start-line="62" selection-start-column="29" selection-end-line="62" selection-end-column="29" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/wp-content/themes/mystile/css/style.css">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="3854">
@@ -855,25 +758,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/wp-content/themes/mystile/header.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="710">
-          <caret line="83" column="59" lean-forward="false" selection-start-line="83" selection-start-column="54" selection-end-line="83" selection-end-column="59" />
-          <folding>
-            <marker date="1482341734076" expanded="true" signature="1403:1556" ph="..." />
-            <marker date="1482341734076" expanded="true" signature="1449:1536" ph="{...}" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/wp-content/themes/mystile/footer.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="594">
-          <caret line="43" column="9" lean-forward="false" selection-start-line="43" selection-start-column="9" selection-end-line="43" selection-end-column="9" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/wp-content/themes/mystile/page-giro-comercial.php">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="578">
@@ -925,19 +809,6 @@
             <marker date="1483554955743" expanded="true" signature="3324:3486" ph="UPDATE `regi... " />
             <marker date="1483554955743" expanded="true" signature="4620:4747" ph="SELECT brand... brands" />
             <marker date="1483554955743" expanded="true" signature="4689:4739" ph="select MAX(c... brands" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/wp-content/themes/mystile/page-registro.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="34">
-          <caret line="5" column="90" lean-forward="false" selection-start-line="5" selection-start-column="81" selection-end-line="5" selection-end-column="90" />
-          <folding>
-            <element signature="e#9786#9793#0#HTML" expanded="true" />
-            <element signature="e#14556#14563#0#HTML" expanded="true" />
-            <element signature="e#19683#19690#0#HTML" expanded="true" />
-            <marker date="1483556333407" expanded="true" signature="11818:11861" ph="SELECT brand... brand_types" />
           </folding>
         </state>
       </provider>
@@ -1009,18 +880,10 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/wp-content/themes/mystile/style.css">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="386">
-          <caret line="1536" column="45" lean-forward="false" selection-start-line="1536" selection-start-column="45" selection-end-line="1536" selection-end-column="45" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/wp-content/themes/mystile/page-mi-cuenta.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="203">
-          <caret line="17" column="23" lean-forward="false" selection-start-line="17" selection-start-column="23" selection-end-line="17" selection-end-column="23" />
+        <state relative-caret-position="101">
+          <caret line="11" column="51" lean-forward="true" selection-start-line="11" selection-start-column="51" selection-end-line="11" selection-end-column="51" />
           <folding>
             <element signature="e#1106#1124#0#HTML" expanded="true" />
             <element signature="e#1159#1178#0#HTML" expanded="true" />
@@ -1030,6 +893,89 @@
             <marker date="1483573000613" expanded="true" signature="132:361" ph="SELECT text,... brands" />
             <marker date="1483573000613" expanded="true" signature="132:385" ph="SELECT text,... brands" />
             <marker date="1483573000613" expanded="true" signature="132:386" ph="SELECT text,... brands" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/wp-content/themes/mystile/page-blog.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="374">
+          <caret line="22" column="14" lean-forward="true" selection-start-line="22" selection-start-column="14" selection-end-line="22" selection-end-column="14" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/wp-includes/comment-template.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="593">
+          <caret line="979" column="45" lean-forward="false" selection-start-line="979" selection-start-column="40" selection-end-line="979" selection-end-column="45" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/wp-content/themes/mystile/page-registro.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="238">
+          <caret line="17" column="38" lean-forward="true" selection-start-line="17" selection-start-column="38" selection-end-line="17" selection-end-column="38" />
+          <folding>
+            <element signature="e#9786#9793#0#HTML" expanded="true" />
+            <element signature="e#14556#14563#0#HTML" expanded="true" />
+            <element signature="e#19683#19690#0#HTML" expanded="true" />
+            <marker date="1483556333407" expanded="true" signature="11818:11861" ph="SELECT brand... brand_types" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/wp-content/themes/mystile/page-nosotros.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="136">
+          <caret line="8" column="21" lean-forward="true" selection-start-line="8" selection-start-column="21" selection-end-line="8" selection-end-column="21" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/wp-content/themes/mystile/single.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="357">
+          <caret line="21" column="60" lean-forward="true" selection-start-line="21" selection-start-column="60" selection-end-line="21" selection-end-column="60" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/wp-content/themes/mystile/footer.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="153">
+          <caret line="9" column="47" lean-forward="true" selection-start-line="9" selection-start-column="47" selection-end-line="10" selection-end-column="65" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/wp-content/themes/mystile/header.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="285">
+          <caret line="49" column="28" lean-forward="false" selection-start-line="49" selection-start-column="28" selection-end-line="49" selection-end-column="28" />
+          <folding>
+            <marker date="1483575799199" expanded="true" signature="1403:1556" ph="..." />
+            <marker date="1483575799199" expanded="true" signature="1449:1536" ph="{...}" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/wp-content/themes/mystile/style.css">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="199">
+          <caret line="641" column="29" lean-forward="false" selection-start-line="641" selection-start-column="29" selection-end-line="641" selection-end-column="29" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/wp-content/plugins/registration-form/registration-form.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="540">
+          <caret line="128" column="55" lean-forward="false" selection-start-line="128" selection-start-column="55" selection-end-line="128" selection-end-column="55" />
+          <folding>
+            <marker date="1483577115933" expanded="true" signature="3634:3641" ph="×" />
+            <marker date="1483577115933" expanded="true" signature="4395:4402" ph="×" />
           </folding>
         </state>
       </provider>

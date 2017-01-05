@@ -45,8 +45,9 @@
                 <div class="collapse navbar-collapse pull-right" id="navbar-collapse">
                     <ul class="nav navbar-nav">
                         <li><a href="<?php echo home_url(); ?>">INICIO</a></li>
-                        <li><a id="scrollPrecios" <?php if(!is_front_page()){ echo 'href="'.home_url().'#preciosLow"'; } ?> >PRECIOSLOW</a></li>
                         <li><a href="nosotros">¿QUIENES SOMOS?</a></li>
+                        <li><a id="scrollPrecios" <?php if(!is_front_page()){ echo 'href="'.home_url().'#preciosLow"'; } ?> >PRECIOSLOW</a></li>
+                        <li><a href="<?php echo home_url(); ?>/faqs">FAQS</a></li>
                         <li><a href="blog">BLOG</a></li>
                         <li><a href="contacto">CONTACTO</a></li>
                         <li class="dropdown">
@@ -71,14 +72,14 @@
                                 <li><a href="<?php echo wp_logout_url( home_url() ); ?>">SALIR</a></li>
                             </ul>
                             <?php } else { ?>
-                            <li><a href="#" data-dialog="somedialog" class="trigger" id="login-modal">LOGIN</a></li>
+                            <li><a href="#" data-dialog="modal-login" class="trigger" id="login-modal">LOGIN</a></li>
                             <?php } ?>
                         </div>
                     </ul>
                 </div><!-- /.navbar-collapse -->
             </div><!-- /.container-fluid -->
         </nav>
-        <div id="somedialog" class="dialog">
+        <div id="modal-login" class="dialog">
             <div class="dialog__overlay"></div>
             <div class="dialog__content">
                 <?php echo do_shortcode('[registralow_login_form]'); ?>

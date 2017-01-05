@@ -1,15 +1,13 @@
 <?php get_header(); ?>
 <div class="wrapper blog-single">
-    <div class="banner"></div>
     <div class="container spacing">
-        <h1 class="blue header text-center">Blog</h1>
         <div class="col-sm-8">
             <div class="center-block">
                 <img class="img-responsive" src="<?php echo CFS()->get('img'); ?>" alt="">
             </div>
             <?php if (have_posts()) : while (have_posts()) : the_post(); ?>
             <div id="entrada">
-                <h3 class="blue text-center"><?php the_title(); ?></h3>
+                <h2 class="blue text-center normal-weight"><?php the_title(); ?></h2>
                 <div class="text text-justify">
                     <?php the_content(); ?>
                 </div>

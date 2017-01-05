@@ -9,8 +9,11 @@
                 <a href="blog">BLOG</a>
                 <a href="contacto">CONTACTO</a>
                 <a href="<?php echo home_url(); ?>/faqs">FAQS</a>
-                <a href="contacto">BOLSA DE TRABAJO</a>
-                <a href="#">LEGAL</a>
+                <!--<?php if( !is_user_logged_in() ) { ?>
+                    <a href="#" data-dialog="modal-login" class="trigger" id="login-modal">LOGIN</a>
+                <?php } ?>-->
+                <!--<a href="contacto">BOLSA DE TRABAJO</a>-->
+                <!--<a href="#">LEGAL</a>-->
             </div>
             <div class="clearfix"></div>
         </div>
@@ -34,7 +37,6 @@
 <script src="<?php bloginfo('template_directory'); ?>/js/smoothscroll.js"></script>
 <script>
     (function() {
-
         var dlgtrigger = document.querySelector( '[data-dialog]' ),
             somedialog = document.getElementById( dlgtrigger.getAttribute( 'data-dialog' ) ),
             dlg = new DialogFx( somedialog );
