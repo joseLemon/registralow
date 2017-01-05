@@ -34,11 +34,11 @@
       <file leaf-file-name="registration-form.php" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/wp-content/plugins/registration-form/registration-form.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="540">
-              <caret line="128" column="55" lean-forward="false" selection-start-line="128" selection-start-column="55" selection-end-line="128" selection-end-column="55" />
+            <state relative-caret-position="523">
+              <caret line="127" column="8" lean-forward="false" selection-start-line="127" selection-start-column="8" selection-end-line="127" selection-end-column="8" />
               <folding>
-                <marker date="1483577115933" expanded="true" signature="3634:3641" ph="×" />
-                <marker date="1483577115933" expanded="true" signature="4395:4402" ph="×" />
+                <marker date="1483577250887" expanded="true" signature="3634:3641" ph="×" />
+                <marker date="1483577250887" expanded="true" signature="4393:4400" ph="×" />
               </folding>
             </state>
           </provider>
@@ -398,12 +398,12 @@
       <workItem from="1482433964736" duration="5399000" />
       <workItem from="1483031443646" duration="2979000" />
       <workItem from="1483461158245" duration="5190000" />
-      <workItem from="1483545852430" duration="20068000" />
+      <workItem from="1483545852430" duration="20205000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="84524000" />
+    <option name="totallyTimeSpent" value="84661000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="-7" y="0" width="974" height="1047" extended-state="0" />
@@ -971,11 +971,11 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/wp-content/plugins/registration-form/registration-form.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="540">
-          <caret line="128" column="55" lean-forward="false" selection-start-line="128" selection-start-column="55" selection-end-line="128" selection-end-column="55" />
+        <state relative-caret-position="523">
+          <caret line="127" column="8" lean-forward="false" selection-start-line="127" selection-start-column="8" selection-end-line="127" selection-end-column="8" />
           <folding>
-            <marker date="1483577115933" expanded="true" signature="3634:3641" ph="×" />
-            <marker date="1483577115933" expanded="true" signature="4395:4402" ph="×" />
+            <marker date="1483577250887" expanded="true" signature="3634:3641" ph="×" />
+            <marker date="1483577250887" expanded="true" signature="4393:4400" ph="×" />
           </folding>
         </state>
       </provider>

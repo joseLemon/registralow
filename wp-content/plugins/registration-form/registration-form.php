@@ -125,7 +125,7 @@ function complete_registration($username, $password, $email) {
             'user_email' 	=> 	$email,
             'user_pass' 	=> 	$password
         );
-        //$user = wp_insert_user( $userdata );
+        $user = wp_insert_user( $userdata );
         echo '<div class="alert alert-success index-success"><span class="close-alert" aria-hidden="true" data-dismiss="alert" aria-label="Close">&times;</span>Usuario registrado existosamente<div></div></div>';
     }
 }
