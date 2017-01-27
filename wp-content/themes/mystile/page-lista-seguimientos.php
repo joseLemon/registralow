@@ -30,6 +30,16 @@ switch($tab){
     case 'approved': $pageA=$page;break;
     case 'decline': $pageD=$page;break;
 }
+$order_statuses = array(
+    'wc-pending'    => ( 'Pago pendiente'),
+    'wc-processing' => ( 'Procesando'),
+    'wc-on-hold'    => ( 'En espera'),
+    'wc-completed'  => ( 'Completado'),
+    'wc-cancelled'  => ( 'Cancelado'),
+    'wc-refunded'   => ( 'Reembolsado'),
+    'wc-failed'     => ( 'Fallido'),
+);
+
 ?>
     <div class="wrapper">
         <div class="container request-list">
@@ -52,37 +62,38 @@ switch($tab){
             </ul>
             <?php
             if($flag){
-                $brandsAll = $wpdb->get_results("SELECT brand_id, brands.name, last_name, text, statuses.name as status_name FROM brands INNER JOIN statuses on brands.status_id = statuses.status_id INNER JOIN wp_posts on ID = wp_post_id WHERE post_status = 'wc-completed' AND (last_name LIKE '%".$term."%' OR brands.name LIKE '%".$term."%' OR m_last_name LIKE '%".$term."%' OR text LIKE '%".$term."%') LIMIT ".$pageAll.", 15");
-                $brandsAllCount = $wpdb->get_results("SELECT COUNT(brand_id) as cont FROM brands INNER JOIN wp_posts on ID = wp_post_id WHERE post_status = 'wc-completed' AND (last_name LIKE '%".$term."%' OR brands.name LIKE '%".$term."%' OR m_last_name LIKE '%".$term."%' OR text LIKE '%".$term."%')");
-                $brandsReview = $wpdb->get_results("SELECT brand_id, brands.name, last_name, text, statuses.name as status_name FROM brands INNER JOIN statuses on brands.status_id = statuses.status_id INNER JOIN wp_posts on ID = wp_post_id WHERE brands.status_id < 3 AND post_status = 'wc-completed' AND (last_name LIKE '%".$term."%' OR brands.name LIKE '%".$term."%' OR m_last_name LIKE '%".$term."%' OR text LIKE '%".$term."%') LIMIT ".$pageR.", 15");
-                $brandsReviewCount = $wpdb->get_results("SELECT COUNT(brand_id)as cont FROM brands INNER JOIN wp_posts on ID = wp_post_id WHERE post_status = 'wc-completed' AND brands.status_id < 3 AND (last_name LIKE '%".$term."%' OR brands.name LIKE '%".$term."%' OR m_last_name LIKE '%".$term."%' OR text LIKE '%".$term."%')");
-                $brandsInProcess = $wpdb->get_results("SELECT brand_id, brands.name, last_name, text, statuses.name as status_name FROM brands INNER JOIN statuses on brands.status_id = statuses.status_id INNER JOIN wp_posts on ID = wp_post_id WHERE brands.status_id = 3 AND post_status = 'wc-completed' AND (last_name LIKE '%".$term."%' OR brands.name LIKE '%".$term."%' OR m_last_name LIKE '%".$term."%' OR text LIKE '%".$term."%') LIMIT ".$pageP.", 15");
-                $brandsInProcessCount = $wpdb->get_results("SELECT COUNT(brand_id)as cont FROM brands INNER JOIN wp_posts on ID = wp_post_id WHERE post_status = 'wc-completed' AND brands.status_id = 3 AND (last_name LIKE '%".$term."%' OR brands.name LIKE '%".$term."%' OR m_last_name LIKE '%".$term."%' OR text LIKE '%".$term."%')");
-                $brandsInExam = $wpdb->get_results("SELECT brand_id, brands.name, last_name, text, statuses.name as status_name FROM brands INNER JOIN statuses on brands.status_id = statuses.status_id INNER JOIN wp_posts on ID = wp_post_id WHERE brands.status_id = 4 AND post_status = 'wc-completed' AND (last_name LIKE '%".$term."%' OR brands.name LIKE '%".$term."%' OR m_last_name LIKE '%".$term."%' OR text LIKE '%".$term."%') LIMIT ".$pageP.", 15");
-                $brandsInExamCount = $wpdb->get_results("SELECT COUNT(brand_id)as cont FROM brands INNER JOIN wp_posts on ID = wp_post_id WHERE post_status = 'wc-completed' AND brands.status_id = 4 AND (last_name LIKE '%".$term."%' OR brands.name LIKE '%".$term."%' OR m_last_name LIKE '%".$term."%' OR text LIKE '%".$term."%')");
-                $brandsInObstacle = $wpdb->get_results("SELECT brand_id, brands.name, last_name, text, statuses.name as status_name FROM brands INNER JOIN statuses on brands.status_id = statuses.status_id INNER JOIN wp_posts on ID = wp_post_id WHERE brands.status_id = 5 AND post_status = 'wc-completed' AND (last_name LIKE '%".$term."%' OR brands.name LIKE '%".$term."%' OR m_last_name LIKE '%".$term."%' OR text LIKE '%".$term."%') LIMIT ".$pageP.", 15");
-                $brandsInObstacleCount = $wpdb->get_results("SELECT COUNT(brand_id)as cont FROM brands INNER JOIN wp_posts on ID = wp_post_id WHERE post_status = 'wc-completed' AND brands.status_id = 5 AND (last_name LIKE '%".$term."%' OR brands.name LIKE '%".$term."%' OR m_last_name LIKE '%".$term."%' OR text LIKE '%".$term."%')");
-                $brandsDenied = $wpdb->get_results("SELECT brand_id, brands.name, last_name, text, statuses.name as status_name FROM brands INNER JOIN statuses on brands.status_id = statuses.status_id INNER JOIN wp_posts on ID = wp_post_id WHERE brands.status_id = 6 AND post_status = 'wc-completed' AND (last_name LIKE '%".$term."%' OR brands.name LIKE '%".$term."%' OR m_last_name LIKE '%".$term."%' OR text LIKE '%".$term."%') LIMIT ".$pageD.", 15");
-                $brandsDeniedCount = $wpdb->get_results("SELECT COUNT(brand_id)as cont FROM brands INNER JOIN wp_posts on ID = wp_post_id WHERE post_status = 'wc-completed' AND brands.status_id = 6 AND (last_name LIKE '%".$term."%' OR brands.name LIKE '%".$term."%' OR m_last_name LIKE '%".$term."%' OR text LIKE '%".$term."%')");
-                $brandsApproved = $wpdb->get_results("SELECT brand_id, brands.name, last_name, text, statuses.name as status_name FROM brands INNER JOIN statuses on brands.status_id = statuses.status_id INNER JOIN wp_posts on ID = wp_post_id WHERE brands.status_id = 7 AND post_status = 'wc-completed' AND (last_name LIKE '%".$term."%' OR brands.name LIKE '%".$term."%' OR m_last_name LIKE '%".$term."%' OR text LIKE '%".$term."%') LIMIT ".$pageA.", 15");
-                $brandsApprovedCount = $wpdb->get_results("SELECT COUNT(brand_id)as cont FROM brands INNER JOIN wp_posts on ID = wp_post_id WHERE post_status = 'wc-completed' AND brands.status_id = 7 AND (last_name LIKE '%".$term."%' OR brands.name LIKE '%".$term."%' OR m_last_name LIKE '%".$term."%' OR text LIKE '%".$term."%')");
+                $brandsAll = $wpdb->get_results("SELECT brand_id, brands.name, last_name, text, statuses.name as status_name, post_status FROM brands INNER JOIN statuses on brands.status_id = statuses.status_id INNER JOIN wp_posts on ID = wp_post_id WHERE (last_name LIKE '%".$term."%' OR brands.name LIKE '%".$term."%' OR m_last_name LIKE '%".$term."%' OR text LIKE '%".$term."%') LIMIT ".$pageAll.", 15");
+                $brandsAllCount = $wpdb->get_results("SELECT COUNT(brand_id) as cont FROM brands INNER JOIN wp_posts on ID = wp_post_id WHERE  (last_name LIKE '%".$term."%' OR brands.name LIKE '%".$term."%' OR m_last_name LIKE '%".$term."%' OR text LIKE '%".$term."%')");
+                $brandsReview = $wpdb->get_results("SELECT brand_id, brands.name, last_name, text, statuses.name as status_name, post_status FROM brands INNER JOIN statuses on brands.status_id = statuses.status_id INNER JOIN wp_posts on ID = wp_post_id WHERE brands.status_id < 3 AND (last_name LIKE '%".$term."%' OR brands.name LIKE '%".$term."%' OR m_last_name LIKE '%".$term."%' OR text LIKE '%".$term."%') LIMIT ".$pageR.", 15");
+                $brandsReviewCount = $wpdb->get_results("SELECT COUNT(brand_id)as cont FROM brands INNER JOIN wp_posts on ID = wp_post_id WHERE  brands.status_id < 3 AND (last_name LIKE '%".$term."%' OR brands.name LIKE '%".$term."%' OR m_last_name LIKE '%".$term."%' OR text LIKE '%".$term."%')");
+                $brandsInProcess = $wpdb->get_results("SELECT brand_id, brands.name, last_name, text, statuses.name as status_name, post_status FROM brands INNER JOIN statuses on brands.status_id = statuses.status_id INNER JOIN wp_posts on ID = wp_post_id WHERE brands.status_id = 3 AND (last_name LIKE '%".$term."%' OR brands.name LIKE '%".$term."%' OR m_last_name LIKE '%".$term."%' OR text LIKE '%".$term."%') LIMIT ".$pageP.", 15");
+                $brandsInProcessCount = $wpdb->get_results("SELECT COUNT(brand_id)as cont FROM brands INNER JOIN wp_posts on ID = wp_post_id WHERE  brands.status_id = 3 AND (last_name LIKE '%".$term."%' OR brands.name LIKE '%".$term."%' OR m_last_name LIKE '%".$term."%' OR text LIKE '%".$term."%')");
+                $brandsInExam = $wpdb->get_results("SELECT brand_id, brands.name, last_name, text, statuses.name as status_name, post_status FROM brands INNER JOIN statuses on brands.status_id = statuses.status_id INNER JOIN wp_posts on ID = wp_post_id WHERE brands.status_id = 4 AND (last_name LIKE '%".$term."%' OR brands.name LIKE '%".$term."%' OR m_last_name LIKE '%".$term."%' OR text LIKE '%".$term."%') LIMIT ".$pageP.", 15");
+                $brandsInExamCount = $wpdb->get_results("SELECT COUNT(brand_id)as cont FROM brands INNER JOIN wp_posts on ID = wp_post_id WHERE  brands.status_id = 4 AND (last_name LIKE '%".$term."%' OR brands.name LIKE '%".$term."%' OR m_last_name LIKE '%".$term."%' OR text LIKE '%".$term."%')");
+                $brandsInObstacle = $wpdb->get_results("SELECT brand_id, brands.name, last_name, text, statuses.name as status_name, post_status FROM brands INNER JOIN statuses on brands.status_id = statuses.status_id INNER JOIN wp_posts on ID = wp_post_id WHERE brands.status_id = 5 AND (last_name LIKE '%".$term."%' OR brands.name LIKE '%".$term."%' OR m_last_name LIKE '%".$term."%' OR text LIKE '%".$term."%') LIMIT ".$pageP.", 15");
+                $brandsInObstacleCount = $wpdb->get_results("SELECT COUNT(brand_id)as cont FROM brands INNER JOIN wp_posts on ID = wp_post_id WHERE  brands.status_id = 5 AND (last_name LIKE '%".$term."%' OR brands.name LIKE '%".$term."%' OR m_last_name LIKE '%".$term."%' OR text LIKE '%".$term."%')");
+                $brandsDenied = $wpdb->get_results("SELECT brand_id, brands.name, last_name, text, statuses.name as status_name, post_status FROM brands INNER JOIN statuses on brands.status_id = statuses.status_id INNER JOIN wp_posts on ID = wp_post_id WHERE brands.status_id = 6 AND (last_name LIKE '%".$term."%' OR brands.name LIKE '%".$term."%' OR m_last_name LIKE '%".$term."%' OR text LIKE '%".$term."%') LIMIT ".$pageD.", 15");
+                $brandsDeniedCount = $wpdb->get_results("SELECT COUNT(brand_id)as cont FROM brands INNER JOIN wp_posts on ID = wp_post_id WHERE  brands.status_id = 6 AND (last_name LIKE '%".$term."%' OR brands.name LIKE '%".$term."%' OR m_last_name LIKE '%".$term."%' OR text LIKE '%".$term."%')");
+                $brandsApproved = $wpdb->get_results("SELECT brand_id, brands.name, last_name, text, statuses.name as status_name, post_status FROM brands INNER JOIN statuses on brands.status_id = statuses.status_id INNER JOIN wp_posts on ID = wp_post_id WHERE brands.status_id = 7 AND (last_name LIKE '%".$term."%' OR brands.name LIKE '%".$term."%' OR m_last_name LIKE '%".$term."%' OR text LIKE '%".$term."%') LIMIT ".$pageA.", 15");
+                $brandsApprovedCount = $wpdb->get_results("SELECT COUNT(brand_id)as cont FROM brands INNER JOIN wp_posts on ID = wp_post_id WHERE  brands.status_id = 7 AND (last_name LIKE '%".$term."%' OR brands.name LIKE '%".$term."%' OR m_last_name LIKE '%".$term."%' OR text LIKE '%".$term."%')");
             }else{
-                $brandsAll = $wpdb->get_results("SELECT brand_id, brands.name, last_name, text, statuses.name as status_name FROM brands INNER JOIN statuses on brands.status_id = statuses.status_id INNER JOIN wp_posts on ID = wp_post_id WHERE post_status = 'wc-completed' LIMIT ".$pageAll.", 15");
-                $brandsAllCount = $wpdb->get_results("SELECT COUNT(brand_id) as cont FROM brands INNER JOIN wp_posts on ID = wp_post_id WHERE post_status = 'wc-completed'");
-                $brandsReview = $wpdb->get_results("SELECT brand_id, brands.name, last_name, text, statuses.name as status_name FROM brands INNER JOIN statuses on brands.status_id = statuses.status_id INNER JOIN wp_posts on ID = wp_post_id WHERE brands.status_id < 3 AND post_status = 'wc-completed' LIMIT ".$pageR.", 15");
-                $brandsReviewCount = $wpdb->get_results("SELECT COUNT(brand_id)as cont FROM brands INNER JOIN wp_posts on ID = wp_post_id WHERE post_status = 'wc-completed' AND brands.status_id < 3");
-                $brandsInProcess = $wpdb->get_results("SELECT brand_id, brands.name, last_name, text, statuses.name as status_name FROM brands INNER JOIN statuses on brands.status_id = statuses.status_id INNER JOIN wp_posts on ID = wp_post_id WHERE brands.status_id = 3 AND post_status = 'wc-completed' LIMIT ".$pageP.", 15");
-                $brandsInProcessCount = $wpdb->get_results("SELECT COUNT(brand_id)as cont FROM brands INNER JOIN wp_posts on ID = wp_post_id WHERE post_status = 'wc-completed' AND brands.status_id = 3");
-                $brandsInExam = $wpdb->get_results("SELECT brand_id, brands.name, last_name, text, statuses.name as status_name FROM brands INNER JOIN statuses on brands.status_id = statuses.status_id INNER JOIN wp_posts on ID = wp_post_id WHERE brands.status_id = 4 AND post_status = 'wc-completed' LIMIT ".$pageP.", 15");
-                $brandsInExamCount = $wpdb->get_results("SELECT COUNT(brand_id)as cont FROM brands INNER JOIN wp_posts on ID = wp_post_id WHERE post_status = 'wc-completed' AND brands.status_id = 4");
-                $brandsInObstacle = $wpdb->get_results("SELECT brand_id, brands.name, last_name, text, statuses.name as status_name FROM brands INNER JOIN statuses on brands.status_id = statuses.status_id INNER JOIN wp_posts on ID = wp_post_id WHERE brands.status_id = 5 AND post_status = 'wc-completed' LIMIT ".$pageP.", 15");
-                $brandsInObstacleCount = $wpdb->get_results("SELECT COUNT(brand_id)as cont FROM brands INNER JOIN wp_posts on ID = wp_post_id WHERE post_status = 'wc-completed' AND brands.status_id = 5");
-                $brandsDenied = $wpdb->get_results("SELECT brand_id, brands.name, last_name, text, statuses.name as status_name FROM brands INNER JOIN statuses on brands.status_id = statuses.status_id INNER JOIN wp_posts on ID = wp_post_id WHERE brands.status_id = 6 AND post_status = 'wc-completed' LIMIT ".$pageD.", 15");
-                $brandsDeniedCount = $wpdb->get_results("SELECT COUNT(brand_id)as cont FROM brands INNER JOIN wp_posts on ID = wp_post_id WHERE post_status = 'wc-completed' AND brands.status_id = 6");
-                $brandsApproved = $wpdb->get_results("SELECT brand_id, brands.name, last_name, text, statuses.name as status_name FROM brands INNER JOIN statuses on brands.status_id = statuses.status_id INNER JOIN wp_posts on ID = wp_post_id WHERE brands.status_id = 7 AND post_status = 'wc-completed' LIMIT ".$pageA.", 15");
-                $brandsApprovedCount = $wpdb->get_results("SELECT COUNT(brand_id)as cont FROM brands INNER JOIN wp_posts on ID = wp_post_id WHERE post_status = 'wc-completed' AND brands.status_id = 7");
+                $brandsAll = $wpdb->get_results("SELECT brand_id, brands.name, last_name, text, statuses.name as status_name, post_status FROM brands INNER JOIN statuses on brands.status_id = statuses.status_id INNER JOIN wp_posts on ID = wp_post_id LIMIT ".$pageAll.", 15");
+                $brandsAllCount = $wpdb->get_results("SELECT COUNT(brand_id) as cont FROM brands INNER JOIN wp_posts on ID = wp_post_id");
+                $brandsReview = $wpdb->get_results("SELECT brand_id, brands.name, last_name, text, statuses.name as status_name, post_status FROM brands INNER JOIN statuses on brands.status_id = statuses.status_id INNER JOIN wp_posts on ID = wp_post_id WHERE brands.status_id < 3 LIMIT ".$pageR.", 15");
+                $brandsReviewCount = $wpdb->get_results("SELECT COUNT(brand_id)as cont FROM brands INNER JOIN wp_posts on ID = wp_post_id WHERE  brands.status_id < 3");
+                $brandsInProcess = $wpdb->get_results("SELECT brand_id, brands.name, last_name, text, statuses.name as status_name, post_status FROM brands INNER JOIN statuses on brands.status_id = statuses.status_id INNER JOIN wp_posts on ID = wp_post_id WHERE brands.status_id = 3 LIMIT ".$pageP.", 15");
+                $brandsInProcessCount = $wpdb->get_results("SELECT COUNT(brand_id)as cont FROM brands INNER JOIN wp_posts on ID = wp_post_id WHERE  brands.status_id = 3");
+                $brandsInExam = $wpdb->get_results("SELECT brand_id, brands.name, last_name, text, statuses.name as status_name, post_status FROM brands INNER JOIN statuses on brands.status_id = statuses.status_id INNER JOIN wp_posts on ID = wp_post_id WHERE brands.status_id = 4 LIMIT ".$pageP.", 15");
+                $brandsInExamCount = $wpdb->get_results("SELECT COUNT(brand_id)as cont FROM brands INNER JOIN wp_posts on ID = wp_post_id WHERE  brands.status_id = 4");
+                $brandsInObstacle = $wpdb->get_results("SELECT brand_id, brands.name, last_name, text, statuses.name as status_name, post_status FROM brands INNER JOIN statuses on brands.status_id = statuses.status_id INNER JOIN wp_posts on ID = wp_post_id WHERE brands.status_id = 5 LIMIT ".$pageP.", 15");
+                $brandsInObstacleCount = $wpdb->get_results("SELECT COUNT(brand_id)as cont FROM brands INNER JOIN wp_posts on ID = wp_post_id WHERE  brands.status_id = 5");
+                $brandsDenied = $wpdb->get_results("SELECT brand_id, brands.name, last_name, text, statuses.name as status_name, post_status FROM brands INNER JOIN statuses on brands.status_id = statuses.status_id INNER JOIN wp_posts on ID = wp_post_id WHERE brands.status_id = 6 LIMIT ".$pageD.", 15");
+                $brandsDeniedCount = $wpdb->get_results("SELECT COUNT(brand_id)as cont FROM brands INNER JOIN wp_posts on ID = wp_post_id WHERE  brands.status_id = 6");
+                $brandsApproved = $wpdb->get_results("SELECT brand_id, brands.name, last_name, text, statuses.name as status_name, post_status FROM brands INNER JOIN statuses on brands.status_id = statuses.status_id INNER JOIN wp_posts on ID = wp_post_id WHERE brands.status_id = 7 LIMIT ".$pageA.", 15");
+                $brandsApprovedCount = $wpdb->get_results("SELECT COUNT(brand_id)as cont FROM brands INNER JOIN wp_posts on ID = wp_post_id WHERE  brands.status_id = 7");
             }
             ?>
+            <div class="hidden"><?php print_r($brandsAll); ?></div>
             <div class="tab-content">
                 <div role="tabpanel" id="all" class="tab-pane fade <?php if($tab=='all'){echo ("in active");} ?>">
                     <table class="admin-table">
@@ -90,6 +101,7 @@ switch($tab){
                         <tr>
                             <th>Nombre</th>
                             <!--<th>Razón Social</th>-->
+                            <th>Estado de pago</th>
                             <th>Estado</th>
                         </tr>
                         </thead>
@@ -99,6 +111,7 @@ switch($tab){
                             <tr>
                                 <td><?php echo ($brand->name." ".$brand->last_name) ?></td>
                                 <!--<td><?php echo ($brand->social_reason." ".$brand->text) ?></td>-->
+                                <td><?php echo $order_statuses[$brand->post_status] ?></td>
                                 <td><a href="<?php echo home_url().'/actualizar-solicitud?id='.$brand->brand_id?>"><?php echo ($brand->status_name) ?></a></td>
                             </tr>
                         <?php } ?>
@@ -131,6 +144,7 @@ switch($tab){
                         <tr>
                             <th>Nombre</th>
                             <!--<th>Razón Social</th>-->
+                            <th>Estado de pago</th>
                             <th>Estado</th>
                         </tr>
                         </thead>
@@ -140,6 +154,7 @@ switch($tab){
                             <tr>
                                 <td><?php echo ($brand->name." ".$brand->last_name) ?></td>
                                 <!--<td><?php echo ($brand->social_reason." ".$brand->text) ?></td>-->
+                                <td><?php echo $order_statuses[$brand->post_status] ?></td>
                                 <td><a href="<?php echo home_url().'/actualizar-solicitud?id='.$brand->brand_id?>"><?php echo ($brand->status_name) ?></a></td>
                             </tr>
                         <?php } ?>
@@ -171,6 +186,7 @@ switch($tab){
                         <tr>
                             <th>Nombre</th>
                             <!--<th>Razón Social</th>-->
+                            <th>Estado de pago</th>
                             <th>Estado</th>
                         </tr>
                         </thead>
@@ -180,7 +196,8 @@ switch($tab){
                             <tr>
                                 <td><?php echo ($brand->name." ".$brand->last_name) ?></td>
                                 <!--<td><?php echo ($brand->social_reason." ".$brand->text) ?></td>-->
-                            <td><a href="<?php echo home_url().'/actualizar-solicitud?id='.$brand->brand_id?>"><?php echo ($brand->status_name) ?></a></td>
+                                <td><?php echo $order_statuses[$brand->post_status] ?></td>
+                                <td><a href="<?php echo home_url().'/actualizar-solicitud?id='.$brand->brand_id?>"><?php echo ($brand->status_name) ?></a></td>
                         </tr>
                         <?php } ?>
                         </tbody>
@@ -211,6 +228,7 @@ switch($tab){
                         <tr>
                             <th>Nombre</th>
                             <!--<th>Razón Social</th>-->
+                            <th>Estado de pago</th>
                             <th>Estado</th>
                         </tr>
                         </thead>
@@ -220,6 +238,7 @@ switch($tab){
                             <tr>
                                 <td><?php echo ($brand->name." ".$brand->last_name) ?></td>
                                 <!--<td><?php echo ($brand->social_reason." ".$brand->text) ?></td>-->
+                                <td><?php echo $order_statuses[$brand->post_status] ?></td>
                                 <td><a href="<?php echo home_url().'/actualizar-solicitud?id='.$brand->brand_id?>"><?php echo ($brand->status_name) ?></a></td>
                             </tr>
                         <?php } ?>
@@ -251,6 +270,7 @@ switch($tab){
                         <tr>
                             <th>Nombre</th>
                             <!--<th>Razón Social</th>-->
+                            <th>Estado de pago</th>
                             <th>Estado</th>
                         </tr>
                         </thead>
@@ -260,6 +280,7 @@ switch($tab){
                             <tr>
                                 <td><?php echo ($brand->name." ".$brand->last_name) ?></td>
                                 <!--<td><?php echo ($brand->social_reason." ".$brand->text) ?></td>-->
+                                <td><?php echo $order_statuses[$brand->post_status] ?></td>
                                 <td><a href="<?php echo home_url().'/actualizar-solicitud?id='.$brand->brand_id?>"><?php echo ($brand->status_name) ?></a></td>
                             </tr>
                         <?php } ?>
@@ -292,6 +313,7 @@ switch($tab){
                         <tr>
                             <th>Nombre</th>
                             <!--<th>Razón Social</th>-->
+                            <th>Estado de pago</th>
                             <th>Estado</th>
                         </tr>
                         </thead>
@@ -301,6 +323,7 @@ switch($tab){
                             <tr>
                                 <td><?php echo ($brand->name." ".$brand->last_name) ?></td>
                                 <!--<td><?php echo ($brand->social_reason." ".$brand->text) ?></td>-->
+                                <td><?php echo $order_statuses[$brand->post_status] ?></td>
                                 <td><a href="<?php echo home_url().'/actualizar-solicitud?id='.$brand->brand_id?>"><?php echo ($brand->status_name) ?></a></td>
                             </tr>
                         <?php } ?>
@@ -332,6 +355,7 @@ switch($tab){
                         <tr>
                             <th>Nombre</th>
                             <!--<th>Razón Social</th>-->
+                            <th>Estado de pago</th>
                             <th>Estado</th>
                         </tr>
                         </thead>
@@ -341,6 +365,7 @@ switch($tab){
                             <tr>
                                 <td><?php echo ($brand->name." ".$brand->last_name) ?></td>
                                 <!--<td><?php echo ($brand->social_reason." ".$brand->text) ?></td>-->
+                                <td><?php echo $order_statuses[$brand->post_status] ?></td>
                                 <td><a href="<?php echo home_url().'/actualizar-solicitud?id='.$brand->brand_id?>"><?php echo ($brand->status_name) ?></a></td>
                             </tr>
                         <?php } ?>

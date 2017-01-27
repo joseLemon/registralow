@@ -82,7 +82,7 @@ if( isset($_POST['status']) ) {
 
     // Additional headers
     $headers .= 'To: <'.$to.'>' . "\r\n";
-    $headers .= 'From: Registralow <pepe.lujan@gmail.com>' . "\r\n";
+    $headers .= 'From: Registralow <hola@registralow.com>' . "\r\n";
 
     // message
     switch( $_POST['status'] ) {
@@ -127,12 +127,24 @@ if( isset($_POST['status']) ) {
             ';
             break;
         case 3:
+	        /*$subject = 'Solicitud en proceso';
+	        $message = '
+            ';*/
             break;
         case 4:
+	        /*$subject = 'En examen de la autoridad';
+	        $message = '
+            ';*/
             break;
         case 5:
+	        /*$subject = 'En obstáculo de la autoridad';
+	        $message = '
+            ';*/
             break;
         case 6:
+	        /*$subject = 'Denegado';
+	        $message = '
+            ';*/
             break;
         case 7:
             $subject = '¡Tu marca ha sido registrada!';

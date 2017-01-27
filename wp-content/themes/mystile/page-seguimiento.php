@@ -1,5 +1,5 @@
 <?php
-if(isset($_POST['registro'])) {
+if(isset($_POST['register'])) {
     $brand_id = $_GET['id'];
     $wpdb->query("UPDATE `brands` SET  `status_id` = '3', `created_at` = '".date('Y-m-d H:i:s')."' WHERE  `brands`.`brand_id` =".$brand_id.";");
     $woocommerce->cart->empty_cart();

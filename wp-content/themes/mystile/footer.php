@@ -13,7 +13,8 @@
                     <a href="#" data-dialog="modal-login" class="trigger" id="login-modal">LOGIN</a>
                 <?php } ?>-->
                 <!--<a href="contacto">BOLSA DE TRABAJO</a>-->
-                <!--<a href="#">LEGAL</a>-->
+                <a href="<?php echo home_url(); ?>/legal">LEGAL</a>
+                <a href="<?php echo home_url(); ?>/privacidad">AVISO DE PRIVACIDAD</a>
             </div>
             <div class="clearfix"></div>
         </div>

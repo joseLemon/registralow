@@ -2,7 +2,17 @@
 <?php
 $current_user = wp_get_current_user();
 $ID = $current_user->ID;
-$brands = $wpdb->get_results("SELECT text, design, three_dimensional, brand_id, social_reason, brands.name, last_name, brand_types.name AS brand_type_name FROM brands JOIN brand_types ON brands.brand_type_id = brand_types.brand_type_id WHERE user_id = ".$ID." ORDER BY created_at ASC");
+$brands = $wpdb->get_results("SELECT text, design, three_dimensional, brand_id, social_reason, brands.name, last_name, brand_types.name AS brand_type_name, post_status FROM brands JOIN brand_types ON brands.brand_type_id = brand_types.brand_type_id INNER JOIN wp_posts on ID = wp_post_id WHERE user_id = ".$ID." ORDER BY created_at DESC");
+
+$order_statuses = array(
+    'wc-pending'    => ( 'Pago pendiente'),
+    'wc-processing' => ( 'Procesando'),
+    'wc-on-hold'    => ( 'En espera'),
+    'wc-completed'  => ( 'Completado'),
+    'wc-cancelled'  => ( 'Cancelado'),
+    'wc-refunded'   => ( 'Reembolsado'),
+    'wc-failed'     => ( 'Fallido'),
+);
 ?>
     <div class="registro wrapper">
         <div class="container">
@@ -32,6 +42,7 @@ $brands = $wpdb->get_results("SELECT text, design, three_dimensional, brand_id, 
                             <th>
                                 <h3 class="white">Nombre</h3>
                             </th>
+                            <th><h3 class="white">Estado de pago</h3></th>
                             <th></th>
                         </tr>
                         </thead>
@@ -49,6 +60,9 @@ $brands = $wpdb->get_results("SELECT text, design, three_dimensional, brand_id, 
                                 </td>
                                 <td>
                                     <p class="text no-margin"><?php echo $brand->name.' '.$brand->last_name ?></p>
+                                </td>
+                                <td>
+                                    <p class="text no-margin"><?php echo $order_statuses[$brand->post_status] ?></p>
                                 </td>
                                 <td>
                                     <a class="btn blue-btn white text-center" href="<?php echo home_url() . '/seguimiento/?id=' . $brand->brand_id; ?>">Ver Seguimiento</a>
