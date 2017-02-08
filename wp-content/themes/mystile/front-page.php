@@ -18,22 +18,19 @@
                 $username = $current_user->user_login;
                 ?>
                 <img src="<?php echo bloginfo('template_directory').'/'; ?>img/index/icons/r-green.png" alt="Logo Registralow" class="box-logo">
-                <h1 class="white">BIENVENIDO <?php if( $first_name != "" ) { echo $first_name; } else { echo $username; } ?></h1>
+                <h1 class="white">BIENVENIDO, <?php if( $first_name != "" ) { echo $first_name; } else { echo $username; } ?></h1>
                 <div class="yellow-divider"></div>
-                <h3 class="white">¿QUÉ PROYECTO HAREMOS HOY?</h3>
+                <a href="mi-cuenta" class="btn yellow-btn white">MIS SOLICITUDES</a>
             <?php } ?>
             <?php if( !is_user_logged_in() ) { ?>
-                <h1 class="white bold">QUE NADIE SE TE ADELANTE</h1>
                 <img src="<?php echo bloginfo('template_directory').'/'; ?>img/index/icons/r-green.png" alt="Logo Registralow" class="box-logo">
-                <p class="white text">
-                    Somos una red de abogados profesionales con la misión de ayudar a
-                    proteger la propiedad inteluctual de cualquier tipo de negocio o
-                    proyecto de una manera segura, confiable y cómoda, con precios
-                    justos que comprenden las necesidades de nuestros usuarios.
-                </p>
+                <h1 class="white bold">QUE NADIE SE TE ADELANTE</h1>
+                <div class="yellow-divider"></div>
+                <a href="registro" class="btn yellow-btn white">REGISTRAR</a>
             <?php } ?>
             <div class="green-block right"></div>
         </div>
+        <a href="#nosotros" id="scrollDown"><img src="<?php echo bloginfo('template_url').'/'; ?>img/index/icons/down.png" alt="Scroll"></a>
     </div>
     <!-- ================================== -->
 
@@ -56,6 +53,49 @@
                         <li>Un panel de administración para dar seguimiento a tus trámites</li>
                         <li>Recibir promociones con precios aún más low</li>
                     </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- ================================== -->
+
+    <!-- ///////////  PRECIOSLOW  \\\\\\\\\\\ -->
+
+    <!-- ================================== -->
+    <div class="precioslow" id="precioslow">
+        <div class="container">
+            <div class="row no-margin">
+                <div class="col-sm-4">
+                    <div class="vertical-align">
+                        <h3 class="white">¡Comienza con tu sueño hoy!</h3>
+                        <div class="yellow-divider"></div>
+                        <h5 class="white italic">¡Nuestros <span class="bold">Precioslow</span> son los mejores del mercado!</h5>
+                    </div>
+                </div>
+                <div class="col-sm-4 precios text-center">
+                    <h3 class="white">Búsqueda de Marca</h3>
+                    <div class="yellow-divider sm-divider"></div>
+                    <p class="white">
+                        Revisamos si tu marca se puede registrar en México.
+                    </p>
+                    <h2 class="whole-price"><span class="dollar-sign white">$ </span><span class="price yellow">199</span><span class="cents yellow">.00</span></h2>
+                    <div class="clearfix"></div>
+                    <a href="<?php echo home_url();?>/revision" class="btn sm-btn yellow-btn">REVISAR</a>
+                    <div class="clearfix"></div>
+                    <img src="<?php echo bloginfo('template_url').'/'; ?>img/index/precioslow/busqueda.png" alt="Búsqueda" class="img-responsive">
+                </div>
+                <div class="col-sm-4 precios text-center">
+                    <h3 class="white">Registro de Marca</h3>
+                    <div class="yellow-divider sm-divider"></div>
+                    <p class="white">
+                        (Precio por clase)<br>
+                        Protegemos todo tu esfuerzo, originalidad y prestigio..
+                    </p>
+                    <h2 class="whole-price"><span class="dollar-sign white">$ </span><span class="price yellow">4,999</span><span class="cents yellow">.00</span></h2>
+                    <div class="clearfix"></div>
+                    <a href="<?php echo home_url();?>/registro" class="btn sm-btn yellow-btn">REGISTRAR</a>
+                    <div class="clearfix"></div>
+                    <img src="<?php echo bloginfo('template_url').'/'; ?>img/index/precioslow/registro.png" alt="Búsqueda" class="img-responsive">
                 </div>
             </div>
         </div>
@@ -181,7 +221,7 @@
             </div>
         </div>
     </div>
-    <?php if( !is_user_logged_in() ) { ?>
+<?php if( !is_user_logged_in() ) { ?>
     <!-- ================================== -->
 
     <!-- ///////////  PARALLAX  \\\\\\\\\\\ -->
@@ -246,46 +286,7 @@
             </div>
         </div>
     </div>
-    <?php } ?>
-    <!-- ================================== -->
-
-    <!-- ///////////  PARALLAX  \\\\\\\\\\\ -->
-
-    <!-- ================================== -->
-    <div class="parallax-container precioslow" id="precioslow">
-        <div class="parallax">
-            <img src="<?php bloginfo('template_directory'); ?>/img/index/parallax/2.jpg" alt="Parallax Background">
-        </div>
-        <div class="decoration transform-center-vertical"></div>
-        <div class="container">
-            <div class="text-center">
-                <h2 class="white">¡Comienza con tu sueño hoy!</h2>
-                <div class="yellow-divider"></div>
-                <h4 class="white italic">¡Nuestros <span class="bold">Precioslow son los mejores del mercado!</span></h4>
-            </div>
-            <div class="row no-margin">
-                <div class="col-sm-6">
-                    <h3 class="white">Búsqueda <br>de marca</h3>
-                    <h2 class="whole-price"><span class="dollar-sign white">$</span><span class="price yellow">199</span><span class="cents yellow">.00</span></h2>
-                    <p class="white">
-                        Revisamos si tu marca se puede registrar en México.
-                    </p>
-                    <a href="<?php echo home_url();?>/revision" class="btn sm-btn yellow-btn">REVISAR</a>
-                </div>
-                <div class="col-sm-6 text-right">
-                    <h2 class="whole-price"><span class="dollar-sign white">$</span><span class="price yellow">4,999</span><span class="cents yellow">.00</span></h2>
-                    <h3 class="white">Registro <br>de Marca</h3>
-                    <div class="clearfix"></div>
-                    <p class="white pull-right">
-                        (Precio por clase)<br>
-                        Protegemos todo tu esfuerzo, originalidad y prestigio..
-                    </p>
-                    <div class="clearfix"></div>
-                    <a href="<?php echo home_url();?>/registro" class="btn sm-btn yellow-btn">REGISTRAR</a>
-                </div>
-            </div>
-        </div>
-    </div>
+<?php } ?>
     <!-- ================================== -->
 
     <!-- ///////////  ALIANZAS  \\\\\\\\\\\ -->

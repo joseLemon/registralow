@@ -33,3 +33,10 @@ $('#scrollRegistro').click(function (e) {
         $('#registro').removeClass('active');
     }, 2500 );
 });
+
+$("#scrollDown").click(function(e) {
+    e.preventDefault();
+    $('html, body').animate({
+        scrollTop: $("#precioslow").offset().top
+    }, 800, 'swing');
+});

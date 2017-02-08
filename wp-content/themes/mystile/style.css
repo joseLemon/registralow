@@ -84,7 +84,7 @@ a {
     min-height: calc( 100vh - 303px );
 }
 
-.transform-center-vertical, .transform-center-vertical-banner {
+.transform-center-vertical, .transform-center-vertical-banner, .vertical-align {
     position: relative;
     top: 50%;
     -webkit-transform: translateY(-50%);
@@ -189,8 +189,15 @@ a.text {
     background-color: #c4c332;
 }
 
-.green-btn {
-    background-color: #10cc45;
+.banner-box .yellow-btn {
+    letter-spacing: 2px;
+    font-size: 18px;
+    width: 100%;
+    max-width: 220px;
+    border-radius: 12px;
+    color: #fff!important;
+    padding-top: 10px;
+    padding-bottom: 10px;
 }
 
 .sm-btn, #respond input[type=submit] {
@@ -207,10 +214,6 @@ a.text {
     letter-spacing: 2px;
     font-size: 17px;
     font-weight: bold;
-}
-
-.green-btn:hover {
-    background-color: #0eb33d;
 }
 
 .blue-btn, #respond input[type=submit], .button.alt, .login-submit #wp-submit {
@@ -242,6 +245,10 @@ a.text {
     width: 80%;
     background-color: #dfde3b;
     margin: 12px auto;
+}
+
+.banner-box .yellow-divider {
+    margin: 30px auto;
 }
 
 .vertical-yellow-divider {
@@ -627,6 +634,15 @@ td {
     margin: 0 auto;
 }
 
+.inicio #scrollDown {
+    position: absolute;
+    bottom: 40px;
+    left: 50%;
+    -webkit-transform: translateX(-50%);
+    -moz-transform: translateX(-50%);
+    transform: translateX(-50%);
+}
+
 .box-logo {
     padding: 30px 0;
 }
@@ -736,11 +752,6 @@ td {
 /* END PROCEDIMIENTO */
 
 /* BEGIN PRECIOS */
-.precios {
-    background: url(img/index/background/blue-triangles.png) no-repeat center center;
-    background-size: cover;
-}
-
 .pricing {
     background-color: rgba(255, 255, 255, 0.26);
     border-radius: 5px;
@@ -880,72 +891,17 @@ td {
 /* END NOSOTROS */
 
 /* PARALLAX */
-.knowledge,
 .precioslow {
     position: relative;
-}
-
-.knowledge .container::before,
-.precioslow .container::before {
-    content: '';
-    position: absolute;
-    display: block;
-    width: 100vw;
-    height: calc(100% - 150px);
-    min-height: 240px;
-    top: 50%;
-    -webkit-transform: translateY(-50%);
-    -moz-transform: translateY(-50%);
-    transform: translateY(-50%);
-    left: 0;
     background-color: #19a7e0;
-    mix-blend-mode: multiply;
-    z-index: -1;
+    overflow: hidden;
 }
 
-.precioslow .container::before {
-    height: calc(100% - 110px);
-}
-
-.knowledge .container,
 .precioslow .container {
-    height: 500px;
-    padding: 75px 0;
 }
 
-.knowledge h1 {
-    margin-bottom: 120px;
-}
-
-.knowledge p {
-    margin-bottom: 20px;
-}
-
-.knowledge .decoration {
-    position: absolute;
-    height: 100%;
-    width: 100%;
-    bottom: 75px;
-    background: url(img/index/decorations/2.png) no-repeat center -10px;
-    z-index: 10;
-    pointer-events: none;
-}
-
-.precioslow h2:nth-of-type(1) {
-    margin: 0;
-}
-
-.precioslow h3:nth-of-type(1) {
-    margin-bottom: 0;
-}
-
-.precioslow .decoration {
-    position: absolute;
-    height: 100%;
-    width: 100%;
-    background: url(img/index/decorations/4.png) no-repeat center;
-    z-index: 10;
-    pointer-events: none;
+.precioslow .yellow-divider {
+    margin: 15px 0 15px 0;
 }
 
 .precioslow .row h2,
@@ -964,23 +920,83 @@ td {
 }
 
 .precioslow .row .cents {
-    top: -9px;
-    font-size: 16px;
+    top: -10px;
+    font-size: 20px;
     position: relative;
+    font-weight: bold;
 }
 
-.precioslow .row h2::after {
+.precioslow .col-sm-4 {
+    z-index: 1;
+    height: 508px;
+}
+
+.precioslow .precios::after {
+    content: '';
+    background-color: #1084b3;
+    height: 100%;
+    width: calc(100% - 20px);
+    display: block;
+    position: absolute;
+    top: 0;
+    z-index: -1;
+    left: 10px;
+}
+
+.precioslow .precios h3 {
+    background-color: #e0e035;
+    max-width: 100%;
+    width: 280px;
+    text-align: center;
+    padding: 8px 0;
+    border-radius: 12px;
+    color: #19a7e0;
+    font-weight: bold;
+    margin-top: 30px;
+}
+
+.precioslow .precios .sm-divider {
+    margin-left: auto;
+    margin-right: auto;
+    height: 2px;
+    max-width: 100px;
+}
+
+.precioslow .row .precios h2::after {
     content: ' MXN';
     color: #fff;
     font-size: 12px;
 }
-
-.precioslow .row p {
-    margin-top: 80px;
+.precioslow .precios p {
+    height: 60px;
 }
 
-.precioslow .row .col-sm-6:nth-of-type(1) p {
-    max-width: 300px;
+.precioslow .dollar-sign {
+    font-style: italic;
+}
+
+.precioslow .price {
+    font-size: 35px;
+    font-weight: bold;
+}
+
+.precioslow .precios .btn {
+    margin: 20px 0 20px 0;
+}
+
+.precioslow .precios img {
+    left: 50%;
+    bottom: 0;
+    position: absolute;
+    display: block;
+}
+
+.precioslow .precios:nth-of-type(2) img {
+    transform: translateX(calc(-50% - -20px));
+}
+
+.precioslow .precios:nth-of-type(3) img {
+    transform: translateX(calc(-50% - +10px));
 }
 
 /* CARACTERISTICAS */
@@ -2072,6 +2088,21 @@ section.canvas {
 }
 
 @media (max-width: 480px) {
+    .inicio .banner-box {
+        padding: 30px 60px;
+    }
+    .inicio .banner-box .yellow-divider {
+        margin: 15px auto;
+    }
+    .inicio .banner-box .yellow-btn {
+        font-size: 15px;
+    }
+    .inicio #scrollDown {
+        bottom: 20px;
+    }
+    .inicio #scrollDown img {
+        width: 60px;
+    }
     .number {
         font-size: 60px;
     }
