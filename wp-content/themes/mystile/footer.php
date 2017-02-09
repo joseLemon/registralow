@@ -5,16 +5,19 @@
             <img class="pull-left img-responsive" src="<?php bloginfo('template_directory'); ?>/img/index/logo-footer.png" alt="Logo Footer">
             <div class="pull-right menu">
                 <a href="<?php echo home_url(); ?>">INICIO</a>
-                <a href="nosotros">¿QUIÉNES SOMOS?</a>
-                <a href="blog">BLOG</a>
+                <a href="nosotros">¿DUDAS?</a>
                 <a href="contacto">CONTACTO</a>
-                <a href="<?php echo home_url(); ?>/faqs">FAQS</a>
+                <a href="blog">BLOG</a>
+                <!--<a href="<?php echo home_url(); ?>/faqs">FAQS</a>-->
                 <!--<?php if( !is_user_logged_in() ) { ?>
                     <a href="#" data-dialog="modal-login" class="trigger" id="login-modal">LOGIN</a>
                 <?php } ?>-->
                 <!--<a href="contacto">BOLSA DE TRABAJO</a>-->
                 <a href="<?php echo home_url(); ?>/legal">LEGAL</a>
-                <a href="<?php echo home_url(); ?>/privacidad">AVISO DE PRIVACIDAD</a>
+                <!--<a href="<?php echo home_url(); ?>/privacidad">AVISO DE PRIVACIDAD</a>-->
+                <?php if(!is_user_logged_in()) { ?>
+                <a href="#" data-dialog2="modal-login-footer" class="trigger" id="modal-login-footer">LOGIN</a>
+                <?php } ?>
             </div>
             <div class="clearfix"></div>
         </div>

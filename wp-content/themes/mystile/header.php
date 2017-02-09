@@ -45,11 +45,11 @@
                 <div class="collapse navbar-collapse pull-right" id="navbar-collapse">
                     <ul class="nav navbar-nav">
                         <li><a href="<?php echo home_url(); ?>">INICIO</a></li>
-                        <li><a href="nosotros">¿QUIENES SOMOS?</a></li>
-                        <li><a id="scrollPrecios" <?php if(!is_front_page()){ echo 'href="'.home_url().'#preciosLow"'; } ?> >PRECIOSLOW</a></li>
-                        <li><a href="<?php echo home_url(); ?>/faqs">FAQS</a></li>
-                        <li><a href="blog">BLOG</a></li>
+                        <li><a href="nosotros">¿DUDAS?</a></li>
+                        <!--<li><a id="scrollPrecios" <?php if(!is_front_page()){ echo 'href="'.home_url().'#preciosLow"'; } ?> >PRECIOSLOW</a></li>
+                        <li><a href="<?php echo home_url(); ?>/faqs">FAQS</a></li>-->
                         <li><a href="contacto">CONTACTO</a></li>
+                        <li><a href="blog">BLOG</a></li>
                         <li class="dropdown">
                             <?php
                             if ( current_user_can( 'manage_options' ) ) {

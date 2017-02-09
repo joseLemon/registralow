@@ -448,16 +448,3 @@ $(document).ready(function() {
     });
     $.datepicker.regional[ "es" ];
 });
-
-$('#nosotrosCarousel').bind('slide.bs.carousel', function (e) {
-    var $nosotros = $('.nosotros');
-    var $slideTo = $(e.relatedTarget).index();
-
-    if($slideTo == 0) {
-        $nosotros.animate({'background-color': '#456170'});
-    } else if($slideTo == 1) {
-        $nosotros.animate({'background-color': '#1da6df'});
-    } else if($slideTo == 2) {
-        $nosotros.animate({'background-color': '#e0e035'});
-    }
-});

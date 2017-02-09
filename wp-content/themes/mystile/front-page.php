@@ -105,146 +105,85 @@
     <!-- ///////////  NOSOTROS  \\\\\\\\\\\ -->
 
     <!-- ================================== -->
-    <div class="nosotros light-spacing" id="nosotros">
+    <div class="container text-center light-spacing main-title">
+        <h1 class="blue header">¿Cómo funciona <img src="<?php echo bloginfo('template_url').'/'; ?>img/index/icons/registralow.png" alt="Registralow."> ?</h1>
+    </div>
+    <div class="nosotros" id="nosotros">
         <div class="container">
-            <div id="nosotrosCarousel" class="carousel slide" data-ride="carousel" data-interval="7000">
-                <div class="row no-margin">
-                    <?php if( !is_user_logged_in() ) { ?>
-                        <div class="col-sm-5">
-                            <h2 class="white text-center">¡Comienza ahora y registra las marcas que quieras!</h2>
-                            <div class="registration-form center-block">
-                                <?php echo do_shortcode('[custom_registration]'); ?>
-                            </div>
-                        </div>
-                    <?php } ?>
-                    <div class="<?php if( !is_user_logged_in() ) { ?>col-sm-7<?php } else { ?>col-sm-12 logged<?php } ?>">
-                        <h2 class="white text-center">
-                            ¿Cómo funciona <img src="<?php echo bloginfo('template_url').'/'; ?>img/index/icons/registralow.png" alt="Registralow."> ?
-                        </h2>
+            <div class="col-sm-4">
+                <h2 class="number light-green bold">1.</h2>
+                <img src="<?php echo bloginfo('template_url').'/'; ?>img/index/nosotros/1.png" alt="Paso 1" class="center-block img-responsive">
+                <h2 class="blue step bold text-center">Revisamos la disponibilidad de tu marca</h2>
+                <div class="hover">
+                    <p class="text white">
+                        Revisamos la disponibilidad de tu marca.
+                        <br><br>
+                        Nuestro experimentado equipo de abogados
+                        especialistas hace una revisión completa de la
+                        disponibilidad de tu idea para garantizar que
+                        inviertas correctamente tu dinero.
+                    </p>
+                    <img src="<?php echo bloginfo('template_url').'/'; ?>img/index/nosotros/h1.png" alt="Búsqueda" class="img-responsive">
+                </div>
+            </div>
 
-                        <!-- Wrapper for slides -->
-                        <div class="carousel-inner" role="listbox">
-                            <div class="item active">
-                                <?php if( is_user_logged_in() ) { ?>
-                                <div class="col-sm-7 pull-right">
-                                    <?php } ?>
-                                    <div class="row no-margin">
-                                        <div class="col-md-2 col-sm-3 col-xs-3">
-                                            <h2 class="number light-green bold">1.</h2>
-                                        </div>
-                                        <div class="col-md-10 col-sm-9 col-xs-9">
-                                            <h2 class="blue step bold">Revisamos la disponibilidad<?php if( !is_user_logged_in() ) { ?><br><?php } ?> de tu marca</h2>
-                                        </div>
-                                    </div>
-                                    <p class="text white">
-                                        Somos una red de abogados profesionales con la misión
-                                        de ayudar a proteger la propiedad inteluctual de
-                                        cualquier tipo de negocio o proyecto de una manera
-                                        segura, confiable y cómoda, con precios justos que
-                                        comprenden las necesidades de nuestros usuarios.
-                                    </p>
-                                    <?php if( is_user_logged_in() ) { ?>
-                                </div>
-                                <div class="col-sm-5 pull-left">
-                                    <?php } ?>
-                                    <img src="<?php echo bloginfo('template_url').'/'; ?>img/index/nosotros/1.png" alt="Paso 1" class="center-block img-responsive">
-                                    <?php if( is_user_logged_in() ) { ?>
-                                </div>
-                            <?php } ?>
-                            </div>
+            <div class="col-sm-4">
+                <h2 class="number dark-gray bold">2.</h2>
+                <img src="<?php echo bloginfo('template_url').'/'; ?>img/index/nosotros/2.png" alt="Paso 2" class="center-block img-responsive">
+                <h2 class="white step bold text-center">Registramos tu marca</h2>
+                <div class="hover">
+                    <p class="text white">
+                        Preparamos formalmente la solicitud de tu marca
+                        para registrarla dentro de una clase y la presentamos
+                        correctamente vía online llevando el proceso hasta el final.
+                    </p>
+                    <img src="<?php echo bloginfo('template_url').'/'; ?>img/index/nosotros/h3.png" alt="Búsqueda" class="img-responsive">
+                </div>
+            </div>
 
-                            <div class="item">
-                                <?php if( is_user_logged_in() ) { ?>
-                                <div class="col-sm-7 pull-right">
-                                    <?php } ?>
-                                    <div class="row no-margin">
-                                        <div class="col-md-2 col-sm-3 col-xs-3">
-                                            <h2 class="number dark-gray bold">2.</h2>
-                                        </div>
-                                        <div class="col-md-10 col-sm-9 col-xs-9">
-                                            <h2 class="white step bold">Registramos<?php if( !is_user_logged_in() ) { ?><br><?php } ?> tu marca</h2>
-                                        </div>
-                                    </div>
-                                    <p class="text white">
-                                        Preparamos formalmente la solicitud de tu marca
-                                        para registrarla dentro de una clase y la presentamos
-                                        correctamente vía online llevando el proceso hasta el final.
-                                    </p>
-                                    <?php if( is_user_logged_in() ) { ?>
-                                </div>
-                                <div class="col-sm-5 pull-left">
-                                    <?php } ?>
-                                    <img src="<?php echo bloginfo('template_url').'/'; ?>img/index/nosotros/2.png" alt="Paso 2" class="center-block img-responsive">
-                                    <?php if( is_user_logged_in() ) { ?>
-                                </div>
-                            <?php } ?>
-                            </div>
-
-                            <div class="item">
-                                <?php if( is_user_logged_in() ) { ?>
-                                <div class="col-sm-7 pull-right">
-                                    <?php } ?>
-                                    <div class="row no-margin">
-                                        <div class="col-md-2 col-sm-3 col-xs-3">
-                                            <h2 class="number white bold">3.</h2>
-                                        </div>
-                                        <div class="col-md-10 col-sm-9 col-xs-9">
-                                            <h2 class="blue step bold">Tu marca<?php if( !is_user_logged_in() ) { ?><br><?php } ?> crece</h2>
-                                        </div>
-                                    </div>
-                                    <p class="text dark-gray">
-                                        Al tener una marca registrada cuentas con la exclusividad
-                                        para utilizarla sólo tu, prohibiendo que otros usen algo
-                                        igual o similar para el mismo giro, logrando ser el único
-                                        reconocido bajo tu imagen, entre otros beneficios.
-                                    </p>
-                                    <?php if( is_user_logged_in() ) { ?>
-                                </div>
-                                <div class="col-sm-5 pull-left">
-                                    <?php } ?>
-                                    <img src="<?php echo bloginfo('template_url').'/'; ?>img/index/nosotros/3.png" alt="Paso 2" class="center-block img-responsive">
-                                    <?php if( is_user_logged_in() ) { ?>
-                                </div>
-                            <?php } ?>
-                            </div>
-
-                            <!-- Indicators -->
-                            <ol class="carousel-indicators">
-                                <li data-target="#nosotrosCarousel" data-slide-to="0" class="active"></li>
-                                <li data-target="#nosotrosCarousel" data-slide-to="1"></li>
-                                <li data-target="#nosotrosCarousel" data-slide-to="2"></li>
-                            </ol>
-                        </div>
-                    </div>
-
+            <div class="col-sm-4">
+                <h2 class="number white bold">3.</h2>
+                <img src="<?php echo bloginfo('template_url').'/'; ?>img/index/nosotros/3.png" alt="Paso 2" class="center-block img-responsive">
+                <h2 class="blue step bold text-center">Tu marca crece</h2>
+                <div class="hover">
+                    <p class="text dark-gray">
+                        Al tener una marca registrada cuentas con la exclusividad
+                        para utilizarla sólo tu, prohibiendo que otros usen algo
+                        igual o similar para el mismo giro, logrando ser el único
+                        reconocido bajo tu imagen, entre otros beneficios.
+                    </p>
+                   s <img rc="<?php echo bloginfo('template_url').'/'; ?>img/index/nosotros/h2.png" alt="Búsqueda" class="img-responsive">
                 </div>
             </div>
         </div>
     </div>
-<?php if( !is_user_logged_in() ) { ?>
     <!-- ================================== -->
 
-    <!-- ///////////  PARALLAX  \\\\\\\\\\\ -->
+    <!-- ///////////  CONOCIMIENTO  \\\\\\\\\\\ -->
 
     <!-- ================================== -->
-    <div class="parallax-container knowledge">
-        <div class="parallax">
-            <img src="<?php bloginfo('template_directory'); ?>/img/index/parallax/1.jpg" alt="Parallax Background">
-        </div>
-        <div class="decoration"></div>
+    <div class="knowledge light-spacing">
         <div class="container">
-            <div class="transform-center-vertical">
-                <div class="row no-margin">
-                    <div class="col-sm-6"></div>
-                    <div class="col-sm-6">
-                        <h1 class="white header">! Sabemos lo que hacemos y lo hacemos bien !</h1>
-                        <p class="white text">
-                            Tenemos el compromiso de ofrecerte la mejor claidad,
-                            tratando a tu proyecto como si fuera nuestro, buscando
-                            siempre darte un servicio profesional y además
-                            ahorrandote costos.
-                        </p>
-                    </div>
+            <div class="row no-margin">
+                <div class="col-sm-7"></div>
+                <div class="col-sm-5">
+                    <h2 class="blue">¡ Sabemos lo que hacemos y lo hacemos bien !</h2>
+                    <div class="divider decoration"></div>
+                    <p class="text dark-gray">
+                        Somos una red de abogados profesionales con la misión
+                        de ayudar a proteger la propiedad inteluctual de cualquier
+                        tipo de negocio o proyecto de una manera segura, confiable
+                        y cómoda, con precios justos que comprenden las necesidades
+                        de nuestros usuarios.
+                        <br><br>
+                        Tenemos el compromiso de ofrecerte la mejor claidad,
+                        tratando a tu proyecto como si fuera nuestro, buscando
+                        siempre darte un servicio profesional y además
+                        ahorrandote costos.
+                    </p>
+                    <h2 class="blue">Síguenos en:</h2>
+                    <a href="#"><img src="<?php echo bloginfo('template_url').'/'; ?>img/index/icons/fb.png" alt="Facebook"></a>
+                    <a href="#"><img src="<?php echo bloginfo('template_url').'/'; ?>img/index/icons/yt.png" alt="YouTube"></a>
                 </div>
             </div>
         </div>
@@ -254,14 +193,11 @@
     <!-- ///////////  CARACTERÍSTICAS  \\\\\\\\\\\ -->
 
     <!-- ================================== -->
-    <div class="caracteristicas light-spacing" id="caracteristicas">
+    <div class="caracteristicas" id="caracteristicas">
         <div class="container">
             <div class="row no-margin">
-                <img src="<?php echo bloginfo('template_url').'/'; ?>img/index/decorations/3.png" alt="Registralow in Hand" class="decoration">
-                <div class="col-sm-6">
-                    <h2 class="white">Nuestra experiencia nos permite dar un servicio...</h2>
-                </div>
-                <div class="col-sm-6">
+                <div class="col-sm-6 light-spacing">
+                    <h3 class="white">Nuestra experiencia<br> nos permite dar un servicio...</h3>
                     <h3 class="yellow">Eficaz</h3>
                     <p class="white text">
                         Tenemos el propósito de que el registro de tu marca se
@@ -283,10 +219,10 @@
                         la legalidad y la protección del patrimonio.
                     </p>
                 </div>
+                <img src="<?php echo bloginfo('template_url').'/'; ?>img/index/decorations/experiencia.png" alt="Registralow in Hand" class="decoration">
             </div>
         </div>
     </div>
-<?php } ?>
     <!-- ================================== -->
 
     <!-- ///////////  ALIANZAS  \\\\\\\\\\\ -->
@@ -295,7 +231,7 @@
     <div class="alianzas spacing" id="alianzas">
         <div class="row no-margin">
             <div class="col-sm-6 text-right title">
-                <h2 class="white">ALIANZAS</h2><img src="<?php echo bloginfo('template_url').'/';?>img/index/icons/registralow.png" alt="Registralow">
+                <h2 class="white">ALIANZAS</h2><img src="<?php echo bloginfo('template_url').'/';?>img/index/icons/registralow-white.png" alt="Registralow">
             </div>
         </div>
         <div class="row no-margin">
