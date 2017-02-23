@@ -152,8 +152,33 @@ if($payment_status->post_status == 'wc-cancelled' || $payment_status->post_statu
                 <!--<div class="info">
                     <a href=""><img src="<?php echo bloginfo('template_url'); ?>/img/icons/info.png" alt=""></a>
                 </div>-->
-                <h1 class="header blue text-center normal-weight">SEGUIMIENTO</h1>
-                <div class="row text-center margin-bottom">
+
+                <div class="row no-margin">
+                    <div class="col-sm-7">
+                        <h1 class="header blue normal-weight">ESTATUS DE SOLICITUD</h1>
+                        <p class="text">Consulta el estado de tus solicitudes</p>
+                    </div>
+                    <div class="col-sm-5 text-right">
+                        <a href="mi-cuenta" class="btn blue-btn auto-width">MIS SOLICITUDES</a>
+                    </div>
+                </div>
+
+                <div class="indicators blue text-center row no-margin">
+                    <div class="col-sm-4">
+                        <h4 class="blue">En Proceso</h4>
+                        <div class="circle"></div>
+                    </div>
+                    <div class="col-sm-4">
+                        <h4 class="blue">Presentada</h4>
+                        <div class="circle"></div>
+                    </div>
+                    <div class="col-sm-4">
+                        <h4 class="blue">Concluida</h4>
+                        <div class="circle"></div>
+                    </div>
+                </div>
+
+                <!--<div class="row text-center margin-bottom">
                     <div class="col-sm-4 margin-top">
                         <p class="gray text-center">Solicitud</p>
                         <input type="text" class="hidden" value="">
@@ -170,175 +195,78 @@ if($payment_status->post_status == 'wc-cancelled' || $payment_status->post_statu
                         <img src="<?php echo $registro; ?>"  alt="Registro">
                         <hr class="left">
                     </div>
-                </div>
+                </div>-->
                 <div class="row light-spacing">
-                    <div class="row no-margin brand-container">
-                        <?php
-                        echo '
-                        <h3 class="blue text-center to-uppercase">
-                            REGISTRO DE TIPO: '.$brands->brand_type_name.'
-                        </h3>
-                        ';
-                        switch($brands->brand_type_id) {
-                            //  SOLO TEXTO
-                            case 1:
-                                echo '
-                                <h4 class="gray text-center">
-                                '.$brands->text.'
-                                </h4>
-                                ';
-                                break;
-                            //  TEXTO Y DISEÑO
-                            case 2:
-                                echo '
-                                <div class="col-sm-6">
-                                    <h4 class="gray text-center">
-                                        '.$brands->text.'
-                                    </h4>
-                                </div>
-                                <div class="col-sm-6 img-container">
-                                    <img class="center-block" src="'.get_bloginfo('template_directory') .'/uploads/' . $brands->brand_id . '_design.png'.'" alt="Diseño">
-                                </div>
-                                ';
-                                break;
-                            //  TRIDIMENSIONAL
-                            case 3:
-                                echo '
-                                <div class="img-container">
-                                    <img class="center-block" src="'.get_bloginfo('template_directory') .'/uploads/' . $brands->brand_id . '_three_dimensional.png'.'" alt="Tridimensional">
-                                </div>
-                                ';
-                                break;
-                            //  TEXTO Y TRIDIMENSIONAL
-                            case 4:
-                                echo '
-                                <div class="col-sm-6">
-                                    <h4 class="gray text-center">
-                                        '.$brands->text.'
-                                    </h4>
-                                </div>
-                                <div class="col-sm-6 img-container">
-                                    <img class="center-block" src="'.get_bloginfo('template_directory') .'/uploads/' . $brands->brand_id . '_three_dimensional.png'.'" alt="Tridimensional">
-                                </div>
-                                ';
-                                break;
-                            //  TRIDIMENSIONAL Y DISEÑO
-                            case 5:
-                                echo '
-                                <div class="col-sm-6 img-container">
-                                    <img class="center-block" src="'.get_bloginfo('template_directory') .'/uploads/' . $brands->brand_id . '_three_dimensional.png'.'" alt="Tridimensional">
-                                </div>
-                                <div class="col-sm-6 img-container">
-                                    <img class="center-block" src="'.get_bloginfo('template_directory') .'/uploads/' . $brands->brand_id . '_design.png'.'" alt="Diseño">
-                                </div>
-                                ';
-                                break;
-                        }
-                        ?>
-                    </div>
-                    <h3 class="blue text-center">INFORMACIÓN DEL SOLICITANTE</h3>
-                    <table>
-                        <thead class="white">
-                        <tr>
-                            <th>Nombre</th>
-                            <!--<th>Razón Social</th>-->
-                            <th>Fecha de Nacimiento</th>
-                            <th>Teléfono</th>
-                            <th>Correo Electrónico</th>
-                        </tr>
-                        </thead>
-                        <tbody class="text">
-                        <tr>
-                            <td><?php echo $brands->name." ".$brands->last_name." ".$brands->m_last_name; ?></td>
-                            <!--<td><?php //echo $brands->social_reason; ?></td>-->
-                            <td><?php echo $brands->birthday; ?></td>
-                            <td><?php echo $brands->phone; ?></td>
-                            <td><?php echo $brands->email; ?></td>
-                        </tr>
-                        </tbody>
-                    </table>
-                    <div style="margin: 10px 0;" class="center-block"></div>
-                    <h3 class="blue text-center">DOMICILIO DEL SOLICITANTE</h3>
-                    <table>
-                        <thead class="white">
-                        <tr>
-                            <th>Calle</th>
-                            <th>Número Exterior</th>
-                            <th>Número Interior</th>
-                            <th>Código Postal</th>
-                        </tr>
-                        </thead>
-                        <tbody class="text">
-                        <tr>
-                            <td><?php echo $brands->street; ?></td>
-                            <td><?php echo $brands->ext_num; ?></td>
-                            <td><?php echo $brands->int_num; ?></td>
-                            <td><?php echo $brands->postal_code; ?></td>
-                        </tr>
-                        </tbody>
-                    </table>
-                    <table>
-                        <thead class="white">
-                        <tr>
-                            <th>Colonia</th>
-                            <th>Municipio</th>
-                            <!--<th>Localidad</th>-->
-                            <th>Estado</th>
-                            <th>País</th>
-                        </tr>
-                        </thead>
-                        <tbody class="text">
-                        <tr>
-                            <td><?php echo $brands->colony; ?></td>
-                            <td><?php echo $brands->town; ?></td>
-                            <!--<td><?php //echo $brands->locality; ?></td>-->
-                            <td><?php echo $brands->state; ?></td>
-                            <td><?php echo $brands->country; ?></td>
-                        </tr>
-                        </tbody>
-                    </table>
-                    <h3 class="blue text-center">GIRO COMERCIAL</h3>
-                    <p class="text"><span class="blue">Tipo: </span><?php echo $brands->business_course; ?></p>
-                    <?php if( $brands->bussiness_course == 'Productos' ) { ?>
-                        <p class="text"><span class="blue">Tipo de Producto: </span><?php echo $brands->product_type; ?></p>
-                    <?php } ?>
-                    <?php if( !$brands->brand_first_use_date == NULL ) { ?>
-                        <p class="text">
-                            <span class="blue">Usado desde:</span>
-                            <?php echo $brands->brand_first_use_date; ?>
-                        </p>
-                    <?php } ?>
-                    <p class="text text-justify">
-                        <?php echo $brands->bussiness_course_description; ?>
-                    </p>
-                    <?php if( !$brands->brand_first_use_date == NULL ) { ?>
-                        <h3 class="blue text-center">ESTABLECIMIENTO</h3>
+                    <div class="slim-yellow-divider"></div>
+                    <div class="col-sm-12">
                         <table>
                             <thead class="white">
                             <tr>
-                                <th>Colonia</th>
-                                <th>Municipio</th>
-                                <!--<th>Localidad</th>-->
-                                <th>Estado</th>
-                                <th>País</th>
+                                <th><span>FOLIO</span></th>
+                                <!--<th>Razón Social</th>-->
+                                <th><span>SOLICITUD</span></th>
+                                <th><span>DENOMINACIÓN</span></th>
+                                <th><span class="red">ETAPA</span></th>
                             </tr>
                             </thead>
                             <tbody class="text">
                             <tr>
-                                <td><?php echo $brands->b_colony; ?></td>
-                                <td><?php echo $brands->b_town; ?></td>
-                                <!--<td><?php echo $brands->b_locality; ?></td>-->
-                                <td><?php echo $brands->b_state; ?></td>
-                                <td><?php echo $brands->b_country; ?></td>
+                                <td><?php echo $brands->name." ".$brands->last_name." ".$brands->m_last_name; ?></td>
+                                <!--<td><?php //echo $brands->social_reason; ?></td>-->
+                                <td><?php echo $brands->birthday; ?></td>
+                                <td><?php echo $brands->phone; ?></td>
+                                <td><?php echo $brands->email; ?></td>
                             </tr>
                             </tbody>
                         </table>
-                    <?php } ?>
-                    <h3 class="blue text-center">COMENTARIOS</h3>
-                    <textarea name="" id="" cols="30" rows="10" readonly><?php echo $brands->comments; ?></textarea>
+                        <div style="margin: 15px 0;"></div>
+                    </div>
+                    <div class="col-sm-8">
+                        <table>
+                            <thead class="white">
+                            <tr>
+                                <th><span>TIPO DE REGISTRO</span></th>
+                                <th><span>----</span></th>
+                            </tr>
+                            </thead>
+                            <tbody class="text">
+                            <tr>
+                                <td><?php echo $brands->colony; ?></td>
+                                <td><?php echo $brands->town; ?></td>
+                            </tr>
+                            </tbody>
+                        </table>
+                        <div style="margin: 15px 0;"></div>
+                    </div>
+                    <div class="col-sm-12">
+                        <span class="blue-table-header white">COMENTRAIOS DE NUESTRO EQUIPO</span>
+                        <textarea class="admin-comment" name="" id="" cols="30" rows="10" readonly><?php echo $brands->comments; ?></textarea>
+                    </div>
+                    <div class="row no-margin">
+                        <div class="col-sm-6 text-right">
+                            <a href="solicitud" class="btn blue-btn auto-width">BUSCAR OTRA MARCA</a>
+                        </div>
+                        <div class="col-sm-6 text-left">
+                            <a href="solictud" class="btn green-btn auto-width">REGISTRAR</a>
+                        </div>
+                    </div>
                 </div>
             </div>
         </div>
         <?php if(isset($modal)){ echo $modal; } ?>
+    </div>
+    <div class="footer-contacto">
+        <div class="container">
+            <div class="col-sm-6 spacing pull-right">
+                <h2 class="white">¿Necesitas ayuda?</h2>
+                <p class="text white">
+                    Consulta nuestro <span class="chat">Chat en línea</span> para
+                    más información.
+                </p>
+            </div>
+            <div class="col-sm-6 pull-left">
+                <img src="<?php echo bloginfo('template_url').'/'; ?>img/index/decorations/contacto.png" alt="Abogádo">
+            </div>
+        </div>
     </div>
 <?php include('footer.php'); ?>

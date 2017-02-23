@@ -11,6 +11,9 @@
         <link rel="stylesheet" href="https://ajax.googleapis.com/ajax/libs/jqueryui/1.12.0/themes/smoothness/jquery-ui.css">
         <link rel="stylesheet" href="<?php bloginfo('stylesheet_url'); ?>">
         <script type="text/javascript" src="http://registralow.api.oneall.com/socialize/library.js?lang=es"></script>
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
+        <script src="http://ajax.googleapis.com/ajax/libs/jqueryui/1.9.1/jquery-ui.min.js"></script>
+        <script src="<?php bloginfo('template_directory'); ?>/js/bootstrap.min.js"></script>
         <?php
         $isIE10 = (preg_match("/(?i)msie [10]/",$_SERVER['HTTP_USER_AGENT']));
         $isIE11UP = strpos($_SERVER['HTTP_USER_AGENT'], 'Trident/7.0; rv:11.0') !== false;
@@ -45,7 +48,7 @@
                 <div class="collapse navbar-collapse pull-right" id="navbar-collapse">
                     <ul class="nav navbar-nav">
                         <li><a href="<?php echo home_url(); ?>">INICIO</a></li>
-                        <li><a href="nosotros">¿DUDAS?</a></li>
+                        <li><a href="faqs">¿DUDAS?</a></li>
                         <!--<li><a id="scrollPrecios" <?php if(!is_front_page()){ echo 'href="'.home_url().'#preciosLow"'; } ?> >PRECIOSLOW</a></li>
                         <li><a href="<?php echo home_url(); ?>/faqs">FAQS</a></li>-->
                         <li><a href="contacto">CONTACTO</a></li>

@@ -1,5 +1,5 @@
-# Translation of WordPress - Development in Spanish (Spain)
-# This file is distributed under the same license as the WordPress - Development package.
+# Translation of WordPress - 4.7.x in Spanish (Spain)
+# This file is distributed under the same license as the WordPress - 4.7.x package.
 msgid ""
 msgstr ""
 "PO-Revision-Date: 2016-12-30 11:20:49+0000\n"
@@ -9,7 +9,7 @@ msgstr ""
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
 "X-Generator: GlotPress/2.3.0-alpha\n"
 "Language: es\n"
-"Project-Id-Version: WordPress - Development\n"
+"Project-Id-Version: WordPress - 4.7.x\n"
 
 #. translators: Translate this to the correct language tag for your locale, see
 #. https://www.w3.org/International/articles/language-tags/ for reference. Do
@@ -1417,7 +1417,7 @@ msgstr "Se necesita un nombre de autor y una dirección de correo electrónico v
 msgid "Cannot create existing comment."
 msgstr "No se puede crear un comentario ya existente."
 
-#: wp-includes/comment.php:3063
+#: wp-includes/comment.php:3057
 #: wp-includes/rest-api/endpoints/class-wp-rest-comments-controller.php:379
 #: wp-includes/rest-api/endpoints/class-wp-rest-comments-controller.php:396
 msgid "Sorry, you must be logged in to comment."
@@ -2543,15 +2543,15 @@ msgctxt "comment status"
 msgid "Spam"
 msgstr "Spam"
 
-#: wp-includes/comment.php:1138
+#: wp-includes/comment.php:1132
 msgid "<strong>ERROR</strong>: your name is too long."
 msgstr "<strong>ERROR</strong>: tu nombre es demasiado largo."
 
-#: wp-includes/comment.php:1142
+#: wp-includes/comment.php:1136
 msgid "<strong>ERROR</strong>: your email address is too long."
 msgstr "<strong>ERROR</strong>: tu dirección de correo electrónico es demasiado larga."
 
-#: wp-includes/comment.php:1146
+#: wp-includes/comment.php:1140
 msgid "<strong>ERROR</strong>: your url is too long."
 msgstr "<strong>ERROR</strong>: tu url es demasiado larga."
 
@@ -2560,7 +2560,7 @@ msgctxt "comment status"
 msgid "Trash"
 msgstr "Papelera"
 
-#: wp-includes/comment.php:1150
+#: wp-includes/comment.php:1144
 msgid "<strong>ERROR</strong>: your comment is too long."
 msgstr "<strong>ERROR</strong>: tu comentario es demasiado largo."
 
@@ -4810,7 +4810,7 @@ msgstr "Tu navegador no soporta acceso directo al portapapeles. Por favor, usa l
 msgid "No plugins found. Try a different search."
 msgstr "No se encontraron plugins. Prueba una búsqueda diferente."
 
-#: wp-includes/comment.php:3103
+#: wp-includes/comment.php:3097
 msgid "<strong>ERROR</strong>: The comment could not be saved. Please try again later."
 msgstr "<strong>ERROR</strong>: El comentario no se pudo guardar. Por favor, inténtalo de nuevo más tarde."
 
@@ -7052,15 +7052,15 @@ msgstr "El tamaño del archivo %s excede el tamaño permitido en este sitio."
 msgid "Feedback"
 msgstr "Sugerencias"
 
-#: wp-includes/comment.php:3073
+#: wp-includes/comment.php:3067
 msgid "<strong>ERROR</strong>: please enter a valid email address."
 msgstr "<strong>ERROR</strong>: Por favor, introduce un correo electrónico válido."
 
-#: wp-includes/comment.php:3078
+#: wp-includes/comment.php:3072
 msgid "<strong>ERROR</strong>: please type a comment."
 msgstr "<strong>ERROR</strong>: Por favor, introduce un comentario."
 
-#: wp-includes/comment.php:3071
+#: wp-includes/comment.php:3065
 msgid "<strong>ERROR</strong>: please fill the required fields (name, email)."
 msgstr "<strong>ERROR:</strong> por favor, completa los campos requeridos (nombre, correo electrónico)."
 
@@ -8945,7 +8945,7 @@ msgstr "El autor es %s"
 msgid "Duplicate comment detected; it looks as though you&#8217;ve already said that!"
 msgstr "Comentario duplicado: ¡parece que ya había sido enviado antes!"
 
-#: wp-includes/comment.php:2101
+#: wp-includes/comment.php:2095
 msgid "Could not update comment status"
 msgstr "No ha sido posible actualizar el estado del comentario"
 
@@ -9845,7 +9845,7 @@ msgstr "Seguridad de la contraseña"
 msgid "Widgets"
 msgstr "Widgets"
 
-#: wp-includes/class-wp-xmlrpc-server.php:3553 wp-includes/comment.php:2989
+#: wp-includes/class-wp-xmlrpc-server.php:3553 wp-includes/comment.php:2983
 #: wp-includes/rest-api/endpoints/class-wp-rest-comments-controller.php:449
 msgid "Sorry, comments are closed for this item."
 msgstr "Disculpa, los comentarios están cerrados."

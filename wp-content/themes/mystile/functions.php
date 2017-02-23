@@ -111,8 +111,9 @@ function my_awesome_publication_notification() {
 }
 add_filter('login_redirect', 'login_redirect', 10, 3);*/
 
-
-
+if($_COOKIE['firstVisit'] != false) {
+    setcookie('firstVisit', false, time() + (10 * 365 * 24 * 60 * 60), "/"); // delete in ten years
+}
 
 /*-----------------------------------------------------------------------------------*/
 /* Don't add any code below here or the sky will fall down */

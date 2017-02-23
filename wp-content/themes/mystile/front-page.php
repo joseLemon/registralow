@@ -59,49 +59,6 @@
     </div>
     <!-- ================================== -->
 
-    <!-- ///////////  PRECIOSLOW  \\\\\\\\\\\ -->
-
-    <!-- ================================== -->
-    <div class="precioslow" id="precioslow">
-        <div class="container">
-            <div class="row no-margin">
-                <div class="col-sm-4">
-                    <div class="vertical-align">
-                        <h3 class="white">¡Comienza con tu sueño hoy!</h3>
-                        <div class="yellow-divider"></div>
-                        <h5 class="white italic">¡Nuestros <span class="bold">Precioslow</span> son los mejores del mercado!</h5>
-                    </div>
-                </div>
-                <div class="col-sm-4 precios text-center">
-                    <h3 class="white">Búsqueda de Marca</h3>
-                    <div class="yellow-divider sm-divider"></div>
-                    <p class="white">
-                        Revisamos si tu marca se puede registrar en México.
-                    </p>
-                    <h2 class="whole-price"><span class="dollar-sign white">$ </span><span class="price yellow">199</span><span class="cents yellow">.00</span></h2>
-                    <div class="clearfix"></div>
-                    <a href="<?php echo home_url();?>/revision" class="btn sm-btn yellow-btn">REVISAR</a>
-                    <div class="clearfix"></div>
-                    <img src="<?php echo bloginfo('template_url').'/'; ?>img/index/precioslow/busqueda.png" alt="Búsqueda" class="img-responsive">
-                </div>
-                <div class="col-sm-4 precios text-center">
-                    <h3 class="white">Registro de Marca</h3>
-                    <div class="yellow-divider sm-divider"></div>
-                    <p class="white">
-                        (Precio por clase)<br>
-                        Protegemos todo tu esfuerzo, originalidad y prestigio..
-                    </p>
-                    <h2 class="whole-price"><span class="dollar-sign white">$ </span><span class="price yellow">4,999</span><span class="cents yellow">.00</span></h2>
-                    <div class="clearfix"></div>
-                    <a href="<?php echo home_url();?>/registro" class="btn sm-btn yellow-btn">REGISTRAR</a>
-                    <div class="clearfix"></div>
-                    <img src="<?php echo bloginfo('template_url').'/'; ?>img/index/precioslow/registro.png" alt="Búsqueda" class="img-responsive">
-                </div>
-            </div>
-        </div>
-    </div>
-    <!-- ================================== -->
-
     <!-- ///////////  NOSOTROS  \\\\\\\\\\\ -->
 
     <!-- ================================== -->
@@ -137,7 +94,7 @@
                         para registrarla dentro de una clase y la presentamos
                         correctamente vía online llevando el proceso hasta el final.
                     </p>
-                    <img src="<?php echo bloginfo('template_url').'/'; ?>img/index/nosotros/h3.png" alt="Búsqueda" class="img-responsive">
+                    <img src="<?php echo bloginfo('template_url').'/'; ?>img/index/nosotros/h2.png" alt="Búsqueda" class="img-responsive">
                 </div>
             </div>
 
@@ -152,7 +109,7 @@
                         igual o similar para el mismo giro, logrando ser el único
                         reconocido bajo tu imagen, entre otros beneficios.
                     </p>
-                   s <img rc="<?php echo bloginfo('template_url').'/'; ?>img/index/nosotros/h2.png" alt="Búsqueda" class="img-responsive">
+                    <img src="<?php echo bloginfo('template_url').'/'; ?>img/index/nosotros/h3.png" alt="Búsqueda" class="img-responsive">
                 </div>
             </div>
         </div>
@@ -165,7 +122,9 @@
     <div class="knowledge light-spacing">
         <div class="container">
             <div class="row no-margin">
-                <div class="col-sm-7"></div>
+                <div class="col-sm-7">
+                    <iframe src="https://www.youtube.com/embed/0ibZGJjIurA" frameborder="0" allowfullscreen></iframe>
+                </div>
                 <div class="col-sm-5">
                     <h2 class="blue">¡ Sabemos lo que hacemos y lo hacemos bien !</h2>
                     <div class="divider decoration"></div>
@@ -182,8 +141,51 @@
                         ahorrandote costos.
                     </p>
                     <h2 class="blue">Síguenos en:</h2>
-                    <a href="#"><img src="<?php echo bloginfo('template_url').'/'; ?>img/index/icons/fb.png" alt="Facebook"></a>
-                    <a href="#"><img src="<?php echo bloginfo('template_url').'/'; ?>img/index/icons/yt.png" alt="YouTube"></a>
+                    <a href="https://www.facebook.com/registralow/" target="_blank"><img src="<?php echo bloginfo('template_url').'/'; ?>img/index/icons/fb.png" alt="Facebook"></a>
+                    <a href="https://www.instagram.com/registralow/" target="_blank"><img src="<?php echo bloginfo('template_url').'/'; ?>img/index/icons/inst.png" alt="Instagram"></a>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- ================================== -->
+
+    <!-- ///////////  PRECIOSLOW  \\\\\\\\\\\ -->
+
+    <!-- ================================== -->
+    <div class="precioslow" id="precioslow">
+        <div class="container">
+            <div class="row no-margin">
+                <div class="col-sm-4">
+                    <div class="vertical-align">
+                        <h3 class="white">¡Comienza con tu sueño hoy!</h3>
+                        <div class="yellow-divider"></div>
+                        <h5 class="white italic">¡Nuestros <span class="bold">Precioslow</span> son los mejores del mercado!</h5>
+                    </div>
+                </div>
+                <div class="col-sm-4 precios text-center">
+                    <h3 class="white">Búsqueda de Marca</h3>
+                    <div class="yellow-divider sm-divider"></div>
+                    <p class="white">
+                        Revisamos si tu marca se puede registrar en México.
+                    </p>
+                    <h2 class="whole-price"><span class="dollar-sign white">$ </span><span class="price yellow">199</span><span class="cents yellow">.00</span></h2>
+                    <div class="clearfix"></div>
+                    <a href="<?php echo home_url();?>/solicitud" class="btn sm-btn yellow-btn">REVISAR</a>
+                    <div class="clearfix"></div>
+                    <img src="<?php echo bloginfo('template_url').'/'; ?>img/index/precioslow/busqueda.png" alt="Búsqueda" class="img-responsive">
+                </div>
+                <div class="col-sm-4 precios text-center">
+                    <h3 class="white">Registro de Marca</h3>
+                    <div class="yellow-divider sm-divider"></div>
+                    <p class="white">
+                        (Precio por clase)<br>
+                        Protegemos todo tu esfuerzo, originalidad y prestigio..
+                    </p>
+                    <h2 class="whole-price"><span class="dollar-sign white">$ </span><span class="price yellow">4,999</span><span class="cents yellow">.00</span></h2>
+                    <div class="clearfix"></div>
+                    <a href="<?php echo home_url();?>/solicitud" class="btn sm-btn yellow-btn">REGISTRAR</a>
+                    <div class="clearfix"></div>
+                    <img src="<?php echo bloginfo('template_url').'/'; ?>img/index/precioslow/registro.png" alt="Búsqueda" class="img-responsive">
                 </div>
             </div>
         </div>
@@ -196,6 +198,7 @@
     <div class="caracteristicas" id="caracteristicas">
         <div class="container">
             <div class="row no-margin">
+                <div class="col-sm-6"></div>
                 <div class="col-sm-6 light-spacing">
                     <h3 class="white">Nuestra experiencia<br> nos permite dar un servicio...</h3>
                     <h3 class="yellow">Eficaz</h3>
@@ -296,4 +299,26 @@
     <!--
 <a href="<?php echo $woocommerce->cart->get_checkout_url() ?>">checkout</a>
 <a href="<?php echo WC()->cart->get_cart_url();  ?>">cart</a>-->
+<?php if($_COOKIE['firstVisit'] != false) { ?>
+    <div class="video-modal modal fade" id="video-modal" role="dialog">
+        <div class="modal-dialog video-modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header text-right">
+                    <button type="button" class="close" data-dismiss="modal">&times;</button>
+                </div>
+                <div class="modal-body">
+                    <iframe src="https://www.youtube.com/embed/0ibZGJjIurA?rel=0&autoplay=1" frameborder="0" allowfullscreen></iframe>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        $('#video-modal').modal('show');
+
+        $('#video-modal').on('hidden.bs.modal', function () {
+            $(this).find('iframe').attr('src','');
+        })
+    </script>
+<?php } ?>
 <?php get_footer(); ?>

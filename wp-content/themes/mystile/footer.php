@@ -1,11 +1,13 @@
 <footer class="text-center">
     <div class="footer-top">
         <div class="container">
-            <div class="clearfix"></div>
-            <img class="pull-left img-responsive" src="<?php bloginfo('template_directory'); ?>/img/index/logo-footer.png" alt="Logo Footer">
+            <div class="text-left pull-left social">
+                <a href="https://www.facebook.com/registralow/" target="_blank"><img src="<?php echo bloginfo('template_url').'/'; ?>img/index/icons/fb.png" alt="Facebook"></a>
+                <a href="https://www.instagram.com/registralow/" target="_blank"><img src="<?php echo bloginfo('template_url').'/'; ?>img/index/icons/inst.png" alt="Instagram"></a>
+            </div>
             <div class="pull-right menu">
                 <a href="<?php echo home_url(); ?>">INICIO</a>
-                <a href="nosotros">¿DUDAS?</a>
+                <a href="faqs">¿DUDAS?</a>
                 <a href="contacto">CONTACTO</a>
                 <a href="blog">BLOG</a>
                 <!--<a href="<?php echo home_url(); ?>/faqs">FAQS</a>-->
@@ -30,11 +32,8 @@
         </div>
     </div>
 </footer>
-<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
-<script src="http://ajax.googleapis.com/ajax/libs/jqueryui/1.9.1/jquery-ui.min.js"></script>
 <script src="<?php bloginfo('template_directory'); ?>/js/parallax.js"></script>
 <script src="<?php bloginfo('template_directory'); ?>/js/app.js"></script>
-<script src="<?php bloginfo('template_directory'); ?>/js/bootstrap.min.js"></script>
 <script src="<?php bloginfo('template_directory'); ?>/js/modernizr.custom.js"></script>
 <script src="<?php bloginfo('template_directory'); ?>/js/dialogFx.js"></script>
 <script src="<?php bloginfo('template_directory'); ?>/js/classie.js"></script>

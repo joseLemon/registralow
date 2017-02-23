@@ -1,14 +1,37 @@
 <?php get_header(); ?>
     <div class="wrapper registro forma-registro">
-        <div class="container tab-content">
-            <div name="error" id="error" class="alert alert-danger hidden"></div>
+        <div class="container tab-content spacing">
+            <div class="indicators blue text-center row no-margin">
+                <div class="col-sm-3">
+                    <h4 class="blue">Pago</h4>
+                    <div class="circle active"></div>
+                </div>
+                <div class="col-sm-3">
+                    <h4 class="blue">Tus Datos</h4>
+                    <div class="circle"></div>
+                </div>
+                <div class="col-sm-3">
+                    <h4 class="blue">Tu Marca</h4>
+                    <div class="circle"></div>
+                </div>
+                <div class="col-sm-3">
+                    <h4 class="blue">Presentación</h4>
+                    <div class="circle"></div>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-sm-12">
+                    <div name="error" id="error" class="alert alert-danger hidden"></div>
+                </div>
+            </div>
             <form action="<?php echo home_url().'/submitsolicitor';?>" id="solicitorForm" method="post" enctype="multipart/form-data">
-                <div role="tabpanel" class="form-container spacing tab-pane fade in active" id="registro">
+                <div role="tabpanel" class="form-container tab-pane fade in active" id="registro">
                     <div class="row no-margin header-info-container">
-                        <h1 class="header blue text-center normal-weight">SOLICITA TU SERVICIO</h1>
-                        <div class="info">
+                        <h1 class="header blue text-center normal-weight">TUS DATOS</h1>
+                        <!-- INFO BUTTON -->
+                        <!--<div class="info">
                             <button type="button" data-toggle="modal" data-target="#info-first">i</button>
-                        </div>
+                        </div>-->
                     </div>
                     <div class="info-modal modal fade" id="info-first" role="dialog">
                         <div class="modal-dialog">
@@ -40,21 +63,21 @@
                             <label for="m_last_name">Apellido Materno</label><input type="text" id="m_last_name" name="m_last_name">
                         </div>
                     </div>
-                    <div class="row">
+                    <!--<div class="row">
                         <div class="col-sm-6">
                             <label for="rfc">RFC</label><input type="text" id="rfc" name="rfc">
                         </div>
                         <div class="col-sm-6">
                             <label for="date">Fecha de Nacimiento (DD/MM/AAAA)</label><input type="text" id="date" name="date" placeholder="">
                         </div>
-                        <!--<div class="col-sm-3 ">
+                        <div class="col-sm-3 ">
                             <label for="social">Razón Social</label><input type="text" id="social" name="social">
-                        </div>-->
-                    </div>
-                    <div class="row">
-                        <div class="col-sm-6">
-                            <label for="phone">Teléfono</label><input type="text" id="phone" name="phone">
                         </div>
+                    </div>-->
+                    <div class="row">
+                        <!--<div class="col-sm-6">
+                            <label for="phone">Teléfono</label><input type="text" id="phone" name="phone">
+                        </div>-->
                         <div class="col-sm-6">
                             <label for="email">Email</label><input type="text" id="email" name="email">
                         </div>
@@ -65,10 +88,10 @@
                             <label for="street">Calle</label><input type="text" id="street" name="street">
                         </div>
                         <div class="col-sm-3 ">
-                            <label for="exterior">Número Exterior</label><input type="text" id="exterior" name="exterior">
+                            <label for="exterior">Núm. Exterior</label><input type="text" id="exterior" name="exterior">
                         </div>
                         <div class="col-sm-3 ">
-                            <label for="interior">Número Interior</label><input type="text" id="interior" name="interior">
+                            <label for="interior">Núm. Interior</label><input type="text" id="interior" name="interior">
                         </div>
                     </div>
                     <div class="row">
@@ -135,7 +158,7 @@
                         <button id="validationOne" href="" onclick="validateOne()" class="white blue-btn btn center-block text-center smoothScroll" aria-controls="marca" role="tab" data-toggle="tab">SIGUIENTE</button>
                     </div>
                 </div>
-                <div role="tabpanel" class="form-container spacing tab-pane fade" id="marca">
+                <div role="tabpanel" class="form-container tab-pane fade" id="marca">
                     <div class="row no-margin header-info-container">
                         <h1 class="header blue text-left normal-weight register-header">¿QUÉ TIPO DE MARCA QUIERES REGISTRAR?</h1>
                         <div class="info">
@@ -203,7 +226,7 @@
                     </div>
                 </div>
 
-                <div role="tabpanel" class="giro text-center form-container spacing tab-pane fade" id="giro">
+                <div role="tabpanel" class="giro text-center form-container tab-pane fade" id="giro">
                     <div class="row no-margin header-info-container">
                         <h1 class="header blue text-left normal-weight register-header">¿QUÉ GIRO TIENE TU MARCA?</h1>
                         <div class="info">
@@ -418,6 +441,18 @@
                     </div>
                 </div>
             </form>
+            <div class="text-center">
+                <p class="text" style="margin-top: 30px">
+                    ¿Cómo tratamos tus datos personales? Consulta:<br>
+                    <a href="legal">Aviso de Privacidad</a>
+                </p>
+            </div>
         </div>
     </div>
+    <script>
+        $('a[data-toggle="tab"], button[data-toggle="tab"').on('shown.bs.tab', function (e) {
+            $('.indicators .circle').removeClass('active');
+            $('.indicators div[class*=col]:nth-of-type('+($('div[role=tabpanel].active').index()+1)+') .circle').addClass('active');
+        });
+    </script>
 <?php get_footer(); ?>

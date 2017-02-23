@@ -135,9 +135,9 @@ function validateOne(){
     lastName = document.getElementById("last_name").value;
     mLastName = document.getElementById("m_last_name").value;
     //social = document.getElementById("social").value;
-    rfc = document.getElementById("rfc").value;
-    date = document.getElementById("date").value;
-    phone = document.getElementById("phone").value;
+    //rfc = document.getElementById("rfc").value;
+    //date = document.getElementById("date").value;
+    //phone = document.getElementById("phone").value;
     email = document.getElementById("email").value;
     street = document.getElementById("street").value;
     exterior = document.getElementById("exterior").value;
@@ -165,30 +165,30 @@ function validateOne(){
     /*if( social == null || social.length == 0 || /^\s+$/.test(social) ) {
         errors += "La razón social es obligatoria<br>";
     }*/
-    if( rfc == null || rfc.length == 0 || /^\s+$/.test(rfc) ) {
+    /*if( rfc == null || rfc.length == 0 || /^\s+$/.test(rfc) ) {
         errors += "El RFC es obligatorio<br>"
     } else {
         var regExPattern = /^([A-ZÑ\x26]{3,4}([0-9]{2})(0[1-9]|1[0-2])(0[1-9]|1[0-9]|2[0-9]|3[0-1]))((-)?([A-Z\d]{3}))?$/;
         if(!(rfc.match(regExPattern))) {
             errors += "Introduce un RFC válido<br>"
         }
-    }
-    if( date == null || date.length == 0 || /^\s+$/.test(date) ) {
+    }*/
+    /*if( date == null || date.length == 0 || /^\s+$/.test(date) ) {
         errors += "La fecha de nacimiento es obligatoria<br>";
     }else {
         var regExPattern = /^\d{1,2}\/\d{1,2}\/\d{2,4}$/;
         if (!(date.match(regExPattern))) {
             errors += "Introduce una fecha de nacimiento en formato correcto<br>";
         }
-    }
-    if( phone == null || phone.length == 0 || /^\s+$/.test(phone) ) {
+    }*/
+    /*if( phone == null || phone.length == 0 || /^\s+$/.test(phone) ) {
         errors += "El teléfono es obligatorio<br>";
     }else{
         var phonePattern=/^([0-9]+){10,15}$/;
         if (!(phone.match(phonePattern))) {
             errors +=  "Introduce tu número telefónico con clave lada mínimo 10 caracteres<br>";
         }
-    }
+    }*/
     if( email == null || email.length == 0 || /^\s+$/.test(email) ) {
         errors += "El correo electrónico es obligatorio<br>";
     }else{
@@ -244,7 +244,7 @@ function validateOne(){
         $('#validationOne').attr('href', '#marca');
         $('#error').removeClass('active').addClass('hidden');
 
-    }else{
+    } else {
         //colorear los campos mal ingresados
         $("#error").removeClass('hidden').addClass('active').html("Lo sentimos :( <br>"+errors);
     }
@@ -363,7 +363,7 @@ function validateTree(e){
     }else{
         //colorear los campos mal ingresados
         $("#error").html(errors);
-        $("#error").removeClass('hidden').addClass('active').html("Lo sentimos :( <br>"+errors);
+        $("#error").removeClass('hidden').addClass('active').html('<a href="#" class="close" data-dismiss="alert" aria-label="close">&times;</a><br>Lo sentimos :( <br>' + errors);
         e.preventDefault();
         setTimeout(function () {
             $('html, body').stop().animate({

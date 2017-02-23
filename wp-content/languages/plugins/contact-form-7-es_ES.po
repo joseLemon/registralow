@@ -2,7 +2,7 @@
 # This file is distributed under the same license as the Plugins - Contact Form 7 - Stable (latest release) package.
 msgid ""
 msgstr ""
-"PO-Revision-Date: 2016-10-05 11:58:20+0000\n"
+"PO-Revision-Date: 2016-12-28 10:56:10+0000\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
@@ -10,6 +10,46 @@ msgstr ""
 "X-Generator: GlotPress/2.3.0-alpha\n"
 "Language: es\n"
 "Project-Id-Version: Plugins - Contact Form 7 - Stable (latest release)\n"
+
+#: includes/functions.php:351
+msgid "%1$s is <strong>deprecated</strong> since Contact Form 7 version %2$s! Use %3$s instead."
+msgstr "¡%1$s es <strong>obsoleto</strong> desde la versión %2$s de Contact Form 7! Utiliza %3$s en su lugar."
+
+#: admin/includes/welcome-panel.php:34
+msgid "Flamingo"
+msgstr "Flamingo"
+
+#: admin/includes/welcome-panel.php:34
+msgid "Install a message storage plugin before this happens to you. %s saves all messages through contact forms into the database. Flamingo is a free WordPress plugin created by the same author as Contact Form 7."
+msgstr "Instala un plugin de almacenamiento de mensajes antes de que te pase esto. %s guarda todos los mensajes de tus formularios de contacto en la base de datos. Flamingo es un plugin WordPress creado por el mismo autor de Contact Form 7."
+
+#: admin/includes/welcome-panel.php:32
+msgid "Contact Form 7 doesn&#8217;t store submitted messages anywhere. Therefore, you may lose important messages forever if your mail server has issues or you make a mistake in mail configuration."
+msgstr "Contact Form 7 no almacena en ninguna parte los mensajes enviados. Por tanto, puede que pierdas mensajes importantes para siempre si tu servidor de correo tiene problemas o si cometes un error en la configuración de correo electrónico."
+
+#: admin/includes/welcome-panel.php:30
+msgid "Before you cry over spilt mail&#8230;"
+msgstr "Antes de llorar por perder correos&#8230;"
+
+#: admin/includes/welcome-panel.php:26
+msgid "comment blacklist"
+msgstr "lista negra de comentarios"
+
+#: admin/includes/welcome-panel.php:26
+msgid "http://contactform7.com/comment-blacklist/"
+msgstr "http://contactform7.com/comment-blacklist/"
+
+#: admin/includes/welcome-panel.php:26
+msgid "Contact Form 7 supports spam-filtering with %1$s. Intelligent %2$s blocks annoying spambots. Plus, using %3$s, you can block messages containing specified keywords or those sent from specified IP addresses."
+msgstr "Contact Form 7 es compatible con el filtrado de spam de %1$s. El sistema inteligente de %2$s bloquea los incordiantes spambots. Además, usando %3$s, puedes bloquear mensajes que contengan palabras clave específicas o las que se envíen desde direcciones IP específicas."
+
+#: admin/includes/welcome-panel.php:24
+msgid "Spammers target everything; your contact forms aren&#8217;t an exception. Before you get spammed, protect your contact forms with the powerful anti-spam features Contact Form 7 provides."
+msgstr "Los spammers atacan todo; y tus formularios de contacto no son una excepción. Antes de que te llegue spam protege tus formularios de contacto con las potentes características anti spam que ofrece Contact Form 7."
+
+#: admin/includes/welcome-panel.php:22
+msgid "Getting spammed? You have protection."
+msgstr "¿Recibes spam? Puedes protegerte."
 
 #: includes/config-validator.php:327
 msgid "http://contactform7.com/configuration-errors/#messages:error_html_in_message"
@@ -95,19 +135,19 @@ msgstr "El número es menor que el mínimo permitido."
 msgid "The number format is invalid."
 msgstr "El formato de número no es válido."
 
-#: modules/file.php:211
+#: modules/file.php:214
 msgid "There was an error uploading the file."
 msgstr "Se ha producido un error subiendo la imagen"
 
-#: modules/file.php:206
+#: modules/file.php:209
 msgid "The file is too big."
 msgstr "El archivo es demasiado grande."
 
-#: modules/file.php:201
+#: modules/file.php:204
 msgid "You are not allowed to upload files of this type."
 msgstr "No tienes permisos para subir archivos de este tipo."
 
-#: modules/file.php:196
+#: modules/file.php:199
 msgid "There was an unknown error uploading the file."
 msgstr "Hubo un error desconocido subiendo el archivo."
 
@@ -445,7 +485,7 @@ msgstr "Preguntas y respuestas"
 
 #: modules/quiz.php:174
 msgid "Quiz"
-msgstr "Pregunta"
+msgstr "Cuestionario"
 
 #: modules/quiz.php:174
 msgid "http://contactform7.com/quiz/"
@@ -457,7 +497,7 @@ msgstr "Generar una etiqueta de formulario para un par pregunta/respuesta. Para 
 
 #: modules/quiz.php:164
 msgid "quiz"
-msgstr "pregunta"
+msgstr "cuestionario"
 
 #: modules/quiz.php:152
 msgid "Sender doesn't enter the correct answer to the quiz"
@@ -499,51 +539,51 @@ msgstr "El número es menor que el límite permitido"
 msgid "Number format that the sender entered is invalid"
 msgstr "El formato de número que introdujo el usuario es incorrecto"
 
-#: modules/file.php:317
+#: modules/file.php:320
 msgid "This contact form contains file uploading fields, but the temporary folder for the files (%s) does not exist or is not writable. You can create the folder or change its permission manually."
 msgstr "Este formulario de contacto contiene campos para carga de archivos, pero la carpeta temporal para los archivos (%s) no existe o no tiene permisos de escritura. Puedes crear una carpeta nueva o cambiar los permisos de forma manual."
 
-#: modules/file.php:291
+#: modules/file.php:294
 msgid "To attach the file uploaded through this field to mail, you need to insert the corresponding mail-tag (%s) into the File Attachments field on the Mail tab."
 msgstr "Para adjuntar el archivo subido a través de este campo al mensaje de correo electrónico, debes insertar la etiqueta de correo correspondiente (%s) en el campo Archivos adjuntos de la pestaña Correo electrónico."
 
-#: modules/file.php:263
+#: modules/file.php:266
 msgid "Acceptable file types"
 msgstr "Formatos de archivo aceptados"
 
-#: modules/file.php:258
+#: modules/file.php:261
 msgid "File size limit (bytes)"
 msgstr "Límite de tamaño de archivo (bytes)"
 
-#: modules/file.php:233
+#: modules/file.php:236
 msgid "File Uploading and Attachment"
 msgstr "Carga de archivos y adjuntos"
 
-#: modules/file.php:233
+#: modules/file.php:236
 msgid "http://contactform7.com/file-uploading-and-attachment/"
 msgstr "http://contactform7.com/file-uploading-and-attachment/"
 
-#: modules/file.php:231
+#: modules/file.php:234
 msgid "Generate a form-tag for a file uploading field. For more details, see %s."
 msgstr "Generar una etiqueta de formulario para un campo de carga de archivo. Para más detalles, vea %s."
 
-#: modules/file.php:223
+#: modules/file.php:226
 msgid "file"
 msgstr "archivo"
 
-#: modules/file.php:210
+#: modules/file.php:213
 msgid "Uploading a file fails for PHP error"
 msgstr "La carga del archivo ha fallado por error de PHP"
 
-#: modules/file.php:205
+#: modules/file.php:208
 msgid "Uploaded file is too large"
 msgstr "El archivo subido es demasiado grande"
 
-#: modules/file.php:200
+#: modules/file.php:203
 msgid "Uploaded file is not allowed for file type"
 msgstr "El archivo subido no tiene un formato permitido"
 
-#: modules/file.php:195
+#: modules/file.php:198
 msgid "Uploading a file fails for any reason"
 msgstr "La carga del archivo ha fallado por alguna razón"
 
@@ -619,14 +659,14 @@ msgstr "Pon primero una etiqueta, la casilla de verificación al final"
 msgid "One option per line."
 msgstr "Una opción por línea."
 
-#: modules/checkbox.php:307 modules/date.php:167 modules/file.php:247
+#: modules/checkbox.php:307 modules/date.php:167 modules/file.php:250
 #: modules/number.php:175 modules/select.php:185 modules/text.php:242
 #: modules/textarea.php:154
 msgid "Required field"
 msgstr "Campo requerido"
 
 #: modules/checkbox.php:303 modules/checkbox.php:306 modules/date.php:163
-#: modules/date.php:166 modules/file.php:243 modules/file.php:246
+#: modules/date.php:166 modules/file.php:246 modules/file.php:249
 #: modules/number.php:166 modules/number.php:169 modules/select.php:181
 #: modules/select.php:184 modules/text.php:238 modules/text.php:241
 #: modules/textarea.php:150 modules/textarea.php:153
@@ -702,7 +742,7 @@ msgid "To use CAPTCHA, you need <a href=\"http://wordpress.org/extend/plugins/re
 msgstr "Para usar CAPTCHA, necesita tener instalado el plugin <a href=\"https://wordpress.org/plugins/really-simple-captcha/\">Really Simple CAPTCHA</a>."
 
 #: modules/acceptance.php:189 modules/checkbox.php:353 modules/date.php:219
-#: modules/file.php:286 modules/number.php:227 modules/quiz.php:218
+#: modules/file.php:289 modules/number.php:227 modules/quiz.php:218
 #: modules/really-simple-captcha.php:283 modules/recaptcha.php:476
 #: modules/select.php:227 modules/submit.php:90 modules/text.php:306
 #: modules/textarea.php:189
@@ -710,7 +750,7 @@ msgid "Insert Tag"
 msgstr "Insertar"
 
 #: modules/acceptance.php:176 modules/checkbox.php:340 modules/date.php:207
-#: modules/file.php:273 modules/number.php:215 modules/quiz.php:205
+#: modules/file.php:276 modules/number.php:215 modules/quiz.php:205
 #: modules/really-simple-captcha.php:256 modules/really-simple-captcha.php:271
 #: modules/recaptcha.php:463 modules/select.php:214 modules/submit.php:77
 #: modules/text.php:293 modules/textarea.php:176
@@ -718,7 +758,7 @@ msgid "Class attribute"
 msgstr "Atributo de clase"
 
 #: modules/acceptance.php:171 modules/checkbox.php:335 modules/date.php:202
-#: modules/file.php:268 modules/number.php:210 modules/quiz.php:200
+#: modules/file.php:271 modules/number.php:210 modules/quiz.php:200
 #: modules/really-simple-captcha.php:251 modules/really-simple-captcha.php:266
 #: modules/recaptcha.php:458 modules/select.php:209 modules/submit.php:72
 #: modules/text.php:288 modules/textarea.php:171
@@ -740,7 +780,7 @@ msgid "Options"
 msgstr "Opciones"
 
 #: modules/acceptance.php:155 modules/checkbox.php:314 modules/date.php:173
-#: modules/file.php:253 modules/number.php:181 modules/quiz.php:184
+#: modules/file.php:256 modules/number.php:181 modules/quiz.php:184
 #: modules/really-simple-captcha.php:241 modules/select.php:191
 #: modules/text.php:248 modules/textarea.php:160
 msgid "Name"
@@ -876,7 +916,7 @@ msgstr "Mientras que las etiquetas de formulario tienen una sintaxis relativamen
 
 #: admin/includes/help-tabs.php:75
 msgid "A form-tag is a short code enclosed in square brackets used in a form content. A form-tag generally represents an input field, and its components can be separated into four parts: type, name, options, and values. Contact Form 7 supports several types of form-tags including text fields, number fields, date fields, checkboxes, radio buttons, menus, file-uploading fields, CAPTCHAs, and quiz fields."
-msgstr "Una etiqueta de formulario es un código abreviado entre corchetes, usado en el contenido del formulario. Una etiqueta de formulario generalmente representa un campo de entrada, y sus componentes se pueden dividir en cuatro partes: tipo, nombre, opciones y valores. Contact Form 7 es compatible con varios tipos de etiquetas de formulario que incluyen campos de texto, campos de número, campos de fecha, casillas de verificación, botones de selección, menús, campos de carga de archivos, CAPTCHAs, y campos de preguntas."
+msgstr "Una etiqueta de formulario es un código abreviado entre corchetes, usado en el contenido del formulario. Una etiqueta de formulario generalmente representa un campo de entrada, y sus componentes se pueden dividir en cuatro partes: tipo, nombre, opciones y valores. Contact Form 7 es compatible con varios tipos de etiquetas de formulario que incluyen campos de texto, campos de número, campos de fecha, casillas de verificación, botones de selección, menús, campos de carga de archivos, CAPTCHAs, y campos de cuestionario."
 
 #: admin/includes/help-tabs.php:73
 msgid "<strong>Additional Settings</strong> provides a place where you can customize the behavior of this contact form by adding code snippets."
@@ -1215,7 +1255,7 @@ msgstr "Editar formulario de contacto"
 msgid "Contact"
 msgstr "Contacto"
 
-#. #-#-#-#-#  tmp-contact-form-7.pot (Contact Form 7 4.6)  #-#-#-#-#
+#. #-#-#-#-#  tmp-contact-form-7.pot (Contact Form 7 4.6.1)  #-#-#-#-#
 #. Plugin Name of the plugin/theme
 #: admin/admin.php:21 modules/flamingo.php:138
 msgid "Contact Form 7"

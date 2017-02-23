@@ -2,7 +2,8 @@
     <div class="contacto faqs">
         <div class="container spacing">
             <div class="col-sm-5">
-                <h1 class="blue header">¿Dudas?</h1>
+                <h1 class="blue">¿Dudas?</h1>
+                <img class="img-responsive" src="<?php echo bloginfo('template_url').'/';?>img/faqs/abogado.png" alt="Abogado" />
             </div>
             <div class="col-sm-7 contact-form">
                 <div class="vertical-yellow-divider"></div>
@@ -54,7 +55,7 @@
                         <div class="card-header" role="tab" id="headingFour">
                             <h5 class="mb-0">
                                 <a class="collapsed" data-toggle="collapse" data-parent="#accordion" href="#collapseFour" aria-expanded="false" aria-controls="collapseFour">
-                                    ¿Y Cuáles son los derechos que obtengo con el registro de mi marca?
+                                    ¿Cuáles son los derechos que obtengo con el registro de mi marca?
                                 </a>
                             </h5>
                         </div>
@@ -79,7 +80,7 @@
                             </div>
                         </div>
                     </div>
-                    <div class="card panel">
+                    <!--<div class="card panel">
                         <div class="card-header" role="tab" id="headingSix">
                             <h5 class="mb-0">
                                 <a class="collapsed" data-toggle="collapse" data-parent="#accordion" href="#collapseSix" aria-expanded="false" aria-controls="collapseSix">
@@ -108,7 +109,7 @@
                                 – Finalmente, otorgará o negará el registro de una marca.
                             </div>
                         </div>
-                    </div>
+                    </div>-->
                     <div class="card panel">
                         <div class="card-header" role="tab" id="headingEight">
                             <h5 class="mb-0">
@@ -163,7 +164,7 @@
                         <div class="card-header" role="tab" id="headingEleven">
                             <h5 class="mb-0">
                                 <a class="collapsed" data-toggle="collapse" data-parent="#accordion" href="#collapseEleven" aria-expanded="false" aria-controls="collapseEleven">
-                                    ¿Puedo presentar en Registralow más de una marca con un solo trámite?
+                                    ¿Puedo presentar en REGISTRALOW más de una marca con un solo trámite?
                                 </a>
                             </h5>
                         </div>
@@ -173,7 +174,7 @@
                             </div>
                         </div>
                     </div>
-                    <div class="card panel">
+                    <!--<div class="card panel">
                         <div class="card-header" role="tab" id="headingTwelve">
                             <h5 class="mb-0">
                                 <a class="collapsed" data-toggle="collapse" data-parent="#accordion" href="#collapseTwelve" aria-expanded="false" aria-controls="collapseTwelve">
@@ -230,10 +231,25 @@
                                 Ejemplo: Suele ocurrir que una cafetería, además de preparar y servir el café, vende el café molido empaquetado. Esto significa que tu marca tiene dos giros comerciales: La de café-bar (43) y la de productos de café (30). Por tanto, deberías presentar dos solicitudes de marca para proteger ambos giros.
                             </div>
                         </div>
+                    </div>-->
+                </div>
+                <div class="clearfix"></div>
+                <div class="text-right">
+                    <p class="text">
+                        ¿Tienes un nuevo proyecto?<br>
+                        Comienza ahora.
+                    </p>
+                    <div>
+                        <a href="solicitud" class="btn blue-btn">BÚSQUEDA</a>
+                        <a href="solicitud" class="btn blue-btn">REGISTRO</a>
                     </div>
+                    <h2 class="blue">¿Necesitas ayuda?</h2>
+                    <p class="text">
+                        Consulta nuestro <span class="chat">Chat en línea</span> para
+                        más información.
+                    </p>
                 </div>
             </div>
         </div>
-        <img class="decoration" src="http://localhost/projects/registralow/wp-content/uploads/2016/03/contact.png" alt="" />
     </div>
 <?php include('footer.php'); ?>

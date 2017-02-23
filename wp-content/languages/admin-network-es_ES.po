@@ -1,15 +1,15 @@
-# Translation of WordPress - Development - Administration - Network Admin in Spanish (Spain)
-# This file is distributed under the same license as the WordPress - Development - Administration - Network Admin package.
+# Translation of WordPress - 4.7.x - Administration - Network Admin in Spanish (Spain)
+# This file is distributed under the same license as the WordPress - 4.7.x - Administration - Network Admin package.
 msgid ""
 msgstr ""
-"PO-Revision-Date: 2016-11-28 17:14:10+0000\n"
+"PO-Revision-Date: 2017-01-04 18:02:43+0000\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
 "X-Generator: GlotPress/2.3.0-alpha\n"
 "Language: es\n"
-"Project-Id-Version: WordPress - Development - Administration - Network Admin\n"
+"Project-Id-Version: WordPress - 4.7.x - Administration - Network Admin\n"
 
 #: wp-admin/network/index.php:51 wp-admin/network/site-info.php:31
 #: wp-admin/network/site-new.php:30 wp-admin/network/site-settings.php:30
@@ -135,12 +135,12 @@ msgstr "Como estás usando %1$s los sitios de tu red WordPress deben usar subdir
 #. translators: %s: host name
 #: wp-admin/includes/network.php:248 wp-admin/includes/network.php:297
 msgid "The internet address of your network will be %s."
-msgstr "La dirección de Internet de tu red será %s."
+msgstr "La dirección de internet de tu red será %s."
 
 #. translators: 1: site url 2: host name 3. www
 #: wp-admin/includes/network.php:237
 msgid "We recommend you change your siteurl to %1$s before enabling the network feature. It will still be possible to visit your site using the %3$s prefix with an address like %2$s but any links will not have the %3$s prefix."
-msgstr "Recomendamos que cambies la url del sitio a %1$s antes de activar la característica de red. Todavía será posible visitar tu sitio usando el prefijo %3$s con una dirección como %2$s pero los enlaces no tendrán el prefijo %3$s. "
+msgstr "Recomendamos que cambies la url de tu sitio a %1$s antes de activar la característica de red. Todavía será posible visitar tu sitio usando el prefijo %3$s con una dirección como %2$s pero los enlaces no tendrán el prefijo %3$s. "
 
 #: wp-admin/includes/network.php:203
 msgid "You cannot change this later."
@@ -289,7 +289,7 @@ msgstr "Archivar"
 
 #: wp-admin/includes/class-wp-ms-sites-list-table.php:529
 msgid "Unarchive"
-msgstr "Desarchivar"
+msgstr "Restaurar"
 
 #: wp-admin/includes/class-wp-ms-sites-list-table.php:360
 msgid "Never"
@@ -484,7 +484,7 @@ msgstr "<a href=\"https://codex.wordpress.org/Network_Admin_Settings_Screen\">Do
 #. translators: 1: site url, 2: server error message
 #: wp-admin/network/upgrade.php:87
 msgid "Warning! Problem updating %1$s. Your server may not be able to connect to sites running on it. Error message: %2$s"
-msgstr "¡Atención! Problema actualizando %1$s. El servidor parece no ser capaz de conectar con los sitios corriendo en el multisitio. Mensaje de error: %2$s"
+msgstr "¡Atención! Problema al actualizar %1$s. Parece que tu servidor no es capaz de conectar con los sitios activos en la red. Mensaje de error: %2$s"
 
 #: wp-admin/network/themes.php:131
 msgid "You are about to remove the following themes:"
@@ -518,15 +518,15 @@ msgstr[1] "%s temas eliminados."
 
 #: wp-admin/network/themes.php:163
 msgid "Yes, delete these themes"
-msgstr "Si, borra estos temas"
+msgstr "Sí, elimina estos temas"
 
 #: wp-admin/network/themes.php:129
 msgid "Delete Themes"
-msgstr "Eliminar Temas"
+msgstr "Eliminar temas"
 
 #: wp-admin/network/settings.php:132
 msgid "New registrations settings"
-msgstr "Nuevos ajustes de registros"
+msgstr "Ajustes de nuevos registros"
 
 #: wp-admin/network/settings.php:317
 msgid "Size in kilobytes"
@@ -534,7 +534,7 @@ msgstr "Tamaño en kilobytes"
 
 #: wp-admin/network/settings.php:301
 msgid "Allowed file types. Separate types by spaces."
-msgstr "Tipos de archivos permitidos. Separar por espacios."
+msgstr "Tipos de archivos permitidos. Separa los tipos con espacios."
 
 #: wp-admin/network/site-info.php:197
 msgid "Set site attributes"
@@ -551,7 +551,7 @@ msgstr "Añade lo siguiente a tu archivo %1$s en %2$s, <strong>remplazando</stro
 
 #: wp-admin/network/sites.php:100
 msgid "Confirm your action"
-msgstr "Confirma esta acción"
+msgstr "Confirma tu acción"
 
 #: wp-admin/network/settings.php:116
 msgid "This email address will receive notifications. Registration and support emails will also come from this address."
@@ -611,15 +611,15 @@ msgstr "Desde aquí puedes:"
 
 #: wp-admin/network/index.php:22
 msgid "Welcome to your Network Admin. This area of the Administration Screens is used for managing all aspects of your Multisite Network."
-msgstr "Bienvenido a la administración de la red (Network Admin). Esta área de administración se utiliza para gestionar todos los aspectos de tu red multisitio (Multisite Network)"
+msgstr "Bienvenido a la administración de la red. Este área de las pantallas de administración se utiliza para gestionar todos los aspectos de tu red multisitio."
 
 #: wp-admin/network/upgrade.php:126
 msgid "WordPress has been updated! Before we send you on your way, we need to individually upgrade the sites in your network."
-msgstr "¡WordPress está actualizado\" Antes de devolverte a tus cosas tenemos que actualizar los sitios de tu red uno a uno."
+msgstr "¡WordPress se ha actualizado! Antes de que vuelvas a lo tuyo tenemos que actualizar los sitios de tu red uno a uno."
 
 #: wp-admin/network/upgrade.php:22
 msgid "Only use this screen once you have updated to a new version of WordPress through Updates/Available Updates (via the Network Administration navigation menu or the Toolbar). Clicking the Upgrade Network button will step through each site in the network, five at a time, and make sure any database updates are applied."
-msgstr "Usa esta pantalla solamente una vez hayas actualizado a  una nueva versión de WordPress desde Actualizaciones disponibles (en el menú de navegación o barra de Administración de la red). Haciendo clic en el botón Actualizar red va sitio a sitio de la red, cinco cada vez, y se asegura de que se actualizan las bases de datos."
+msgstr "Usa esta pantalla solamente una vez hayas actualizado a una nueva versión de WordPress desde Actualizaciones/Actualizaciones disponibles (en el menú de navegación o barra de administración de la red). Al hacer clic en el botón Actualizar red se empezará a actualizar sitio a sitio de la red, cinco cada vez, asegurándose de que se actualizan las bases de datos."
 
 #: wp-admin/network/menu.php:22 wp-admin/network/upgrade.php:15
 #: wp-admin/network/upgrade.php:39 wp-admin/network/upgrade.php:130
@@ -654,7 +654,7 @@ msgstr "Los super administadores ya no pueden añadirse en la pantalla de Ajuste
 
 #: wp-admin/network/menu.php:19
 msgid "Updates"
-msgstr "Actualizar"
+msgstr "Actualizaciones"
 
 #: wp-admin/network/site-new.php:23
 msgid "This screen is for Super Admins to add new sites to the network. This is not affected by the registration settings."
@@ -662,7 +662,7 @@ msgstr "Esta pantalla es para que los Super administradores añadan nuevos sitio
 
 #: wp-admin/network/sites.php:31
 msgid "An Edit link to a separate Edit Site screen."
-msgstr "Un enlace de Editar que lleva a otra pantalla de Editar sitio."
+msgstr "Un enlace de editar que lleva la pantalla de Editar sitio."
 
 #: wp-admin/network/themes.php:224
 msgid "Themes can be enabled on a site by site basis by the network admin on the Edit Site screen (which has a Themes tab); get there via the Edit action link on the All Sites screen. Only network admins are able to install or edit themes."
@@ -780,7 +780,7 @@ msgstr "Los temas activos para la red no se muestran en esta pantalla."
 
 #: wp-admin/network/menu.php:55 wp-admin/network/settings.php:19
 msgid "Network Settings"
-msgstr "Ajustes de red"
+msgstr "Ajustes de la red"
 
 #: wp-admin/network/themes.php:125
 msgid "Delete Theme"
@@ -792,15 +792,15 @@ msgstr "Este tema podría estar activo en otros sitios de la red."
 
 #: wp-admin/network/themes.php:127
 msgid "You are about to remove the following theme:"
-msgstr "Estás a punto de borrar el siguiente tema:"
+msgstr "Estás a punto de eliminar el siguiente tema:"
 
 #: wp-admin/network/themes.php:161
 msgid "Yes, delete this theme"
-msgstr "Si, borra este tema"
+msgstr "Si, elimina este tema"
 
 #: wp-admin/network/themes.php:148
 msgid "Are you sure you wish to delete these themes?"
-msgstr "¿Estás seguro de que quieres borrar estos temas?"
+msgstr "¿Estás seguro de que quieres eliminar estos temas?"
 
 #: wp-admin/network/site-new.php:178 wp-admin/network/site-new.php:188
 msgid "Add New Site"
@@ -911,7 +911,7 @@ msgstr "Una vez se haya creado la red ya podrás reactivar tus plugins."
 
 #: wp-admin/network.php:64
 msgid "The choice of subdirectory sites is disabled if this setup is more than a month old because of permalink problems with &#8220;/blog/&#8221; from the main site. This disabling will be addressed in a future version."
-msgstr "La elección de sitios como subdirectorios está desactivada si esta instalación es de hace más de un mes para evitar problemas con la estructura &#8220;/blog/&#8221; de los enlaces permanentes. Esta desactivación y cómo evitarla será abordado en futuras versiones de WordPress."
+msgstr "La elección de sitios como subdirectorios está desactivada si esta instalación es de hace más de un mes para evitar problemas con la estructura &#8220;/blog/&#8221; de los enlaces permanentes del sitio principal. Se solucionará esta desactivación en futuras versiones de WordPress."
 
 #: wp-admin/includes/network.php:160
 msgid "Welcome to the Network installation process!"
@@ -935,7 +935,7 @@ msgstr "La siguiente pantalla para configurar la red te ofrecerá líneas de có
 
 #: wp-admin/network.php:60
 msgid "Choose subdomains or subdirectories; this can only be switched afterwards by reconfiguring your install. Fill out the network details, and click install. If this does not work, you may have to add a wildcard DNS record (for subdomains) or change to another setting in Permalinks (for subdirectories)."
-msgstr "Elige subdominios o subdirectorios. Esto solo puede cambiarse reconfigurando tu instalación. Rellena los detalles de la red y haz clic en instalar. Si no funciona, deberás añadir un registro DNS wildcard (para los subdominios) o cambiar a otro ajuste de enlaces permanentes (para los subdirectorios)."
+msgstr "Elige subdominios o subdirectorios. Esto solo puede cambiarse posteriormente reconfigurando tu instalación. Rellena los detalles de la red y haz clic en instalar. Si no funciona deberás añadir un registro DNS comodín (para los subdominios) o cambiar a otro ajuste de enlaces permanentes (para los subdirectorios)."
 
 #: wp-admin/includes/network.php:475
 msgid "To make your installation more secure, you should also add:"
@@ -952,7 +952,7 @@ msgstr "¡Aviso!"
 
 #: wp-admin/includes/network.php:204
 msgid "You will need a wildcard DNS record if you are going to use the virtual host (sub-domain) functionality."
-msgstr "Necesitaremos un registro DNS comodín si vas a usar la funcionalidad de alojamiento virtual (subdominio)."
+msgstr "Necesitarás un registro DNS comodín si vas a usar la funcionalidad de alojamiento virtual (subdominio)."
 
 #: wp-admin/includes/network.php:122
 msgid "You cannot install a network of sites with your server address."
@@ -1004,7 +1004,7 @@ msgstr "Instalación en subdominios"
 
 #: wp-admin/includes/network.php:277
 msgid "Because your install is in a directory, the sites in your WordPress network must use sub-directories."
-msgstr "Como tu instalación está hecha en un directorio los sitios de tu red WordPress deberán usar subdirectorios."
+msgstr "Como tu instalación está hecha en un directorio los sitios de tu red WordPress deben usar subdirectorios."
 
 #: wp-admin/includes/network.php:270 wp-admin/includes/network.php:280
 #: wp-admin/includes/network.php:287
@@ -1064,7 +1064,7 @@ msgstr "Visitar para ir a la portada del sitio público."
 
 #: wp-admin/network/users.php:174
 msgid "You can make an existing user an additional super admin by going to the Edit User profile page and checking the box to grant that privilege."
-msgstr "Puedes hacer a un usuario existente Super Admin. Ve a la página del perfil Editar usuario y marca la casilla para darle este privilegio."
+msgstr "Puedes convertir en super administrador a un usuario existente yendo a la página de edición del perfil del usuario y marcando la casilla que le da este privilegio."
 
 #: wp-admin/network/users.php:169
 msgid "This table shows all users across the network and the sites to which they are assigned."
@@ -1129,7 +1129,7 @@ msgstr "No se puede crear un sitio vacío."
 
 #: wp-admin/network/settings.php:197
 msgid "If you want to ban domains from site registrations. One domain per line."
-msgstr "Si quieres banear dominios del registro de sitios. Un dominio por línea."
+msgstr "Si quieres prohibir dominios del registro de sitios. Un dominio por línea."
 
 #: wp-admin/network/settings.php:186
 msgid "If you want to limit site registrations to certain domains. One domain per line."
@@ -1165,7 +1165,7 @@ msgstr "Usuarios eliminados."
 
 #: wp-admin/network/sites.php:251
 msgid "Site unarchived."
-msgstr "Sitio desarchivado."
+msgstr "Sitio restaurado."
 
 #: wp-admin/network/sites.php:254
 msgid "Site activated."
@@ -1229,19 +1229,19 @@ msgstr "¡Todo hecho!"
 
 #: wp-admin/network/settings.php:133
 msgid "Registration is disabled."
-msgstr "Los registros están deshabilitados."
+msgstr "El registro está inhabilitado."
 
 #: wp-admin/network/settings.php:134
 msgid "User accounts may be registered."
-msgstr "Solo las cuentas de usuario pueden ser creadas."
+msgstr "Se pueden crear cuentas de usuario."
 
 #: wp-admin/network/settings.php:136
 msgid "Both sites and user accounts can be registered."
-msgstr "Pueden crearse sitios y usuarios."
+msgstr "Pueden crearse sitios y cuentas de usuario."
 
 #: wp-admin/network/settings.php:135
 msgid "Logged in users may register new sites."
-msgstr "Solo los usuarios identificados, pueden crear sitios."
+msgstr "Los usuarios conectados pueden crear sitios nuevos."
 
 #: wp-admin/network/settings.php:121
 msgid "Registration Settings"
@@ -1281,7 +1281,7 @@ msgstr "Los usuarios no tienes permiso para crear estos sitios. Separa los nombr
 
 #: wp-admin/network/settings.php:157
 msgid "Send the network admin an email notification every time someone registers a site or user account."
-msgstr "Enviar al administrador de la red  un correo electrónico cada vez que alguien se registre o registre un sitio."
+msgstr "Envía al administrador de la red un correo electrónico cada vez que alguien se registre o registre un sitio."
 
 #: wp-admin/network/settings.php:287
 msgid "Site upload space"
@@ -1362,7 +1362,7 @@ msgstr "Limitar el registro por correo electrónico"
 
 #: wp-admin/network/settings.php:169
 msgid "Banned Names"
-msgstr "Nombre no permitidos"
+msgstr "Nombres prohibidos"
 
 #: wp-admin/network/settings.php:162
 msgid "Add New Users"

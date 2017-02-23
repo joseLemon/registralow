@@ -2,7 +2,7 @@
 <?php
 $current_user = wp_get_current_user();
 $ID = $current_user->ID;
-$brands = $wpdb->get_results("SELECT text, design, three_dimensional, brand_id, social_reason, brands.name, last_name, brand_types.name AS brand_type_name, post_status FROM brands JOIN brand_types ON brands.brand_type_id = brand_types.brand_type_id INNER JOIN wp_posts on ID = wp_post_id WHERE user_id = ".$ID." ORDER BY created_at DESC");
+$brands = $wpdb->get_results("SELECT text, design, three_dimensional, brand_id, social_reason, brands.name, last_name, brand_types.name AS brand_type_name/*, post_status*/ FROM brands JOIN brand_types ON brands.brand_type_id = brand_types.brand_type_id /*INNER JOIN wp_posts on ID = wp_post_id*/ WHERE user_id = ".$ID." ORDER BY created_at DESC");
 
 $order_statuses = array(
     'wc-pending'    => ( 'Pago pendiente'),
@@ -14,7 +14,7 @@ $order_statuses = array(
     'wc-failed'     => ( 'Fallido'),
 );
 ?>
-    <div class="registro wrapper">
+    <div class="registro wrapper mi-cuenta">
         <div class="container">
             <?php if( empty($brands) ) { ?>
                 <div class="form-container active">
@@ -22,59 +22,80 @@ $order_statuses = array(
                         <h1 class="blue text-center header normal-weight">NO SE HA REALIZADO NINGUNA SOLICITUD</h1>
                     </div>
                 </div>
-            <?php }  ?>
-            <div class="form-container active mi-cuenta">
-                <div class="row no-margin spacing">
-                    <h2 class="blue text-center header normal-weight">SOLICITUDES DE REGISTRO</h2>
-                    <table>
-                        <colgroup>
-                            <col style="width: 5%;">
-                            <col style="width: 40%;">
-                            <col style="width: 30%;">
-                            <col style="width: 25%;">
-                        </colgroup>
-                        <thead>
-                        <tr>
-                            <th></th>
-                            <th>
-                                <h3 class="white">Tipo de Registro</h3>
-                            </th>
-                            <th>
-                                <h3 class="white">Nombre</h3>
-                            </th>
-                            <th><h3 class="white">Estado de pago</h3></th>
-                            <th></th>
-                        </tr>
-                        </thead>
-                        <tbody>
-                        <?php
-                        $counter = 1;
-                        foreach($brands as $brand ) {
-                            ?>
+            <?php } else {  ?>
+                <div class="form-container active mi-cuenta">
+                    <div class="row no-margin spacing">
+                        <div class="row no-margin">
+                            <div class="col-sm-5">
+                                <h1 class="blue header normal-weight">MIS SOLICITUDES</h1>
+                                <p class="text">
+                                    Consulta el estado de tus solicitudes.<br><br><br>
+                                </p>
+                                <p class="text">
+                                    ¿Tienes un nuevo proyecto?<br>
+                                    Comienza ahora.
+                                </p>
+                                <div class="col-sm-6 text-left">
+                                    <a href="" class="btn blue-btn">BÚSQUEDA</a>
+                                </div>
+                                <div class="col-sm-6 text-right">
+                                    <a href="" class="btn blue-btn">REGISTRO</a>
+                                </div>
+                            </div>
+                            <div class="col-sm-7">
+                                <img src="<?php echo bloginfo('template_url').'/'; ?>/img/index/decorations/solicitudes.png" alt="Hombre con gorra">
+                            </div>
+                            <div class="clearfix"></div>
+                            <div class="slim-yellow-divider"></div>
+                        </div>
+                        <table>
+                            <colgroup>
+                                <col style="width: 10%;">
+                                <col style="width: 30%;">
+                                <col style="width: 30%;">
+                                <col style="width: 10%;">
+                                <col style="width: 10%;">
+                            </colgroup>
+                            <thead>
                             <tr>
-                                <td>
-                                    <p class="text no-margin"><?php echo $counter; ?></p>
-                                </td>
-                                <td>
-                                    <p class="text no-margin"><?php echo $brand->brand_type_name ?></p>
-                                </td>
-                                <td>
-                                    <p class="text no-margin"><?php echo $brand->name.' '.$brand->last_name ?></p>
-                                </td>
-                                <td>
-                                    <p class="text no-margin"><?php echo $order_statuses[$brand->post_status] ?></p>
-                                </td>
-                                <td>
-                                    <a class="btn blue-btn white text-center" href="<?php echo home_url() . '/seguimiento/?id=' . $brand->brand_id; ?>">Ver Seguimiento</a>
-                                </td>
+                                <th class="white">
+                                    <span>FOLIO</span>
+                                </th>
+                                <th class="white">
+                                    <span>SOLICITUD</span>
+                                </th>
+                                <th class="white">
+                                    <span>DENOMINACIÓN</span>
+                                </th>
+                                <th class="white">
+                                    <span>ETAPA</span>
+                                </th>
+                                <th></th>
                             </tr>
-                            <?php
-                            $counter++;
-                        }
-                        ?>
-                        </tbody>
-                    </table>
-                    <!--<div class="col-sm-4 text-center">
+                            </thead>
+                            <tbody>
+                            <?php foreach($brands as $brand ) { ?>
+                                <tr>
+                                    <td>
+                                        <p class="text no-margin"><?php echo $brand->brand_id ?></p>
+                                    </td>
+                                    <td>
+                                        <p class="text no-margin"><?php echo $brand->brand_type_name ?></p>
+                                    </td>
+                                    <td>
+                                        <p class="text no-margin"><?php echo $brand->name.' '.$brand->last_name ?></p>
+                                    </td>
+                                    <td>
+                                        <!--<p class="text no-margin"><?php echo $order_statuses[$brand->post_status] ?></p>-->
+                                    </td>
+                                    <td>
+                                        <a class="btn red-btn white text-center" href="<?php echo home_url() . '/seguimiento/?id=' . $brand->brand_id; ?>">VER</a>
+                                    </td>
+                                </tr>
+                            <?php } ?>
+                            </tbody>
+                        </table>
+                        <!--<div class="col-sm-4 text-center">
                         <div class="brand-info row no-margin">
                             <div class="row no-margin">
                                 <div class="col-sm-6 logo-container">
@@ -96,7 +117,22 @@ $order_statuses = array(
                             </div>
                         </div>
                     </div>-->
+                    </div>
                 </div>
+            <?php } ?>
+        </div>
+    </div>
+    <div class="footer-contacto">
+        <div class="container">
+            <div class="col-sm-6 spacing pull-right">
+                <h2 class="white">¿Necesitas ayuda?</h2>
+                <p class="text white">
+                    Consulta nuestro <span class="chat">Chat en línea</span> para
+                    más información.
+                </p>
+            </div>
+            <div class="col-sm-6 pull-left">
+                <img src="<?php echo bloginfo('template_url').'/'; ?>img/index/decorations/contacto.png" alt="Abogádo">
             </div>
         </div>
     </div>
