@@ -21,11 +21,30 @@ foreach( $_POST as $key => $P) {
 //return print_r($array);
 
 if ( isset($_POST['submit']) ) {
-    $wpdb->query("INSERT INTO `brands` (`brand_id`, `brand_type_id`, `text`, `design`, `three_dimensional`, `business_course`, `product_type`, `bussiness_course_description`, `brand_first_use_date`, `status_id`, `first_time`, `user_id`, `street`, `ext_num`, `int_num`, `postal_code`, `colony`, `town`, `state`, `country`, `b_street`, `b_ext_num`, `b_int_num`, `b_postal_code`, `b_colony`, `b_town`, `b_state`, `b_country`, `name`, `last_name`, `m_last_name`, `birthday`, `phone`, `email`, `created_at`, `rfc`  ) VALUES (NULL, ".$array['options'].", '".$array['text']."', '".$array['design']."', '".$array['three_dimensional']."', '".$array['business_course']."', '".$array['product_course']."', '".$array['description']."', '$b_date', '3', 1, '".$ID."', '".$array['street']."', '".$array['exterior']."', '".$array['interior']."', ".$array['postal'].", '".$array['colony']."', '".$array['town']."', '".$array['state']."', '".$array['country']."', '".$array['b_street']."', '".$array['b_exterior']."', '".$array['b_interior']."', ".$array['b_postal'].", '".$array['b_colony']."', '".$array['b_town']."', '".$array['b_state']."', '".$array['b_country']."', '".$array['solicitor_name']."', '".$array['last_name']."', '".$array['m_last_name']."', '$date', '".$array['phone']."', '".$array['email']."', '".date('Y-m-d H:i:s')."', '".$array['rfc']."')");
+    $wpdb->query("UPDATE `brands` SET `name` = '".$array['solicitor_name']."',`last_name` = '".$array['last_name']."',`m_last_name` = '".$array['m_last_name']."',`email` = '".$array['email']."',`street` = '".$array['street']."',`ext_num` = '".$array['exterior']."',`int_num` = '".$array['interior']."',`colony` = '".$array['colony']."',`postal_code` = '".$array['postal']."',`town` = '".$array['town']."',`postal_code` = '".$array['town']."',`state` = '".$array['state']."',`country` = '".$array['country']."',`business_course_id` = '".$array['bussiness_course']."',`business_course_id` = '".$array['bussiness_course']."' WHERE `brands`.`brand_id` = ".$array['brand_id'].";");
 } else if( isset($_POST['submit_revision']) ) {
     $wpdb->query("INSERT INTO `brands` (`brand_id`, `brand_type_id`, `text`, `design`, `three_dimensional`, `business_course`, `product_type`, `bussiness_course_description`, `brand_first_use_date`, `status_id`, `first_time`, `user_id`, `street`, `ext_num`, `int_num`, `postal_code`, `colony`, `town`, `state`, `country`, `b_street`, `b_ext_num`, `b_int_num`, `b_postal_code`, `b_colony`, `b_town`, `b_state`, `b_country`, `name`, `last_name`, `m_last_name`, `birthday`, `phone`, `email`, `created_at`, `rfc`  ) VALUES (NULL, ".$array['options'].", '".$array['text']."', '".$array['design']."', '".$array['three_dimensional']."', '".$array['business_course']."', '".$array['product_course']."', '".$array['description']."', '$b_date', '0', 1, '".$ID."', '".$array['street']."', '".$array['exterior']."', '".$array['interior']."', ".$array['postal'].", '".$array['colony']."', '".$array['town']."', '".$array['state']."', '".$array['country']."', '".$array['b_street']."', '".$array['b_exterior']."', '".$array['b_interior']."', ".$array['b_postal'].", '".$array['b_colony']."', '".$array['b_town']."', '".$array['b_state']."', '".$array['b_country']."', '".$array['solicitor_name']."', '".$array['last_name']."', '".$array['m_last_name']."', '$date', '".$array['phone']."', '".$array['email']."', '".date('Y-m-d H:i:s')."', '".$array['rfc']."')");
 } else if( isset($_POST['submit_cambiar']) ) {
     $wpdb->query("UPDATE `brands` SET  `text` =  '".$array['text']."', `status_id` = '0', `first_time` =  '2', `created_at` = '".date('Y-m-d H:i:s')."' WHERE  `brands`.`brand_id` =".$brand_id.";");
+}
+
+if( isset($_POST['requestType']) ) {
+
+    if( $_POST['requestType'] == 'revision' ) {//user_id harcodeado
+        $query_report = "INSERT INTO `brands` (`business_course_id`, `status_id`, `user_id`, `name`, `last_name`, `m_last_name`, `email`, `paid`, `created_at`) VALUES ('".$_POST['bussiness_course']."', '0', '1', '".$_POST['solicitor_name']."', '".$_POST['last_name']."', '".$_POST['m_last_name']."', '".$_POST['email']."', '0', CURRENT_TIMESTAMP);";
+        $wpdb->query( $query_report );
+        echo 'revision';
+        return true;
+    }
+
+    if( $_POST['requestType'] == 'register' ) {
+        $query_report = "INSERT INTO `brands` (`business_course_id`, `status_id`, `user_id`, `name`, `last_name`, `m_last_name`, `email`, `paid`, `created_at`) VALUES ('".$_POST['bussiness_course']."', '3', '1', '".$_POST['solicitor_name']."', '".$_POST['last_name']."', '".$_POST['m_last_name']."', '".$_POST['email']."', '0', CURRENT_TIMESTAMP);";
+        $wpdb->query( $query_report );
+        echo 'registro';
+    }
+
+    print_r($_POST);
+    return;
 }
 
 if( isset($_POST['submit_cambiar']) ) {

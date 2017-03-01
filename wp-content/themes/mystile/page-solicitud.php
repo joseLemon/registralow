@@ -8,7 +8,7 @@
                         <div name="error" id="error" class="alert alert-danger hidden"></div>
                     </div>
                 </div>
-                <form action="<?php echo get_bloginfo('template_url'); ?>/controller.php" id="requestForm" method="POST">
+                <form action="<?php echo home_url(); ?>/submitsolicitor" id="requestForm" method="POST">
                     <div class="row">
                         <div class="col-sm-6">
                             <label for="solicitor_name">Nombre(s)</label><input type="text" id="solicitor_name" name="solicitor_name">
@@ -25,11 +25,27 @@
                             <label for="bussiness_course">Giro Comcercial</label>
                             <select name="bussiness_course" id="bussiness_course">
                                 <option selected disabled>---PRODUCTOS---</option>
-                                <option value="0">ejemplo</option>
-                                <option value="2">ejemplo</option>
-                                <option selected disabled>---SERVICIOS---</option>
-                                <option value="3">ejemplo</option>
-                                <option value="3">ejemplo</option>
+                                <?php $results = $wpdb->get_results( "SELECT * FROM `business_course`" );
+                                foreach ($results as $result){
+                                    $needDescription = "";
+                                    if($result->need_description == 1){
+                                        $needDescription = 'class = "description"';
+                                    }
+                                    if($result->is_product == 1){
+                                        echo "<option $needDescription value='$result->business_course_id'>$result->business_course_name</option>";
+                                    }
+                                }
+                                echo '<option disabled>---SERVICIOS---</option>';
+                                foreach ($results as $result){
+                                    $needDescription = "";
+                                    if($result->need_description == 1){
+                                        $needDescription = 'class = "description"';
+                                    }
+                                    if($result->is_product == 0){
+                                        echo "<option $needDescription value='$result->business_course_id'>$result->business_course_name</option>";
+                                    }
+                                }
+                                ?>
                             </select>
                             <label for="email">Email</label><input type="text" id="email" name="email">
                             <label for="email_confirm">Confirmación de Email</label><input type="text" id="email_confirm" name="email_confirm">

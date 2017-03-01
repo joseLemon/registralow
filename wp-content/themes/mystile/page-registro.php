@@ -52,15 +52,16 @@
                             </div>
                         </div>
                     </div>
+                    <?php $brand = $wpdb->get_results( "SELECT * FROM `brands` WHERE brand_id =".$_GET['id']." limit 1" )[0]; ?>
                     <div class="row">
                         <div class="col-sm-6">
-                            <label for="solicitor_name">Nombre(s)</label><input type="text" id="solicitor_name" name="solicitor_name">
+                            <label for="solicitor_name">Nombre(s)</label><input type="text" id="solicitor_name" name="solicitor_name" value="<?php echo $brand->name ?>">
                         </div>
                         <div class="col-sm-3">
-                            <label for="last_name">Apellido Paterno</label><input type="text" id="last_name" name="last_name">
+                            <label for="last_name">Apellido Paterno</label><input type="text" id="last_name" name="last_name" value="<?php echo $brand->last_name ?>">
                         </div>
                         <div class="col-sm-3">
-                            <label for="m_last_name">Apellido Materno</label><input type="text" id="m_last_name" name="m_last_name">
+                            <label for="m_last_name">Apellido Materno</label><input type="text" id="m_last_name" name="m_last_name" value="<?php echo $brand->m_last_name ?>">
                         </div>
                     </div>
                     <!--<div class="row">
@@ -79,30 +80,30 @@
                             <label for="phone">Teléfono</label><input type="text" id="phone" name="phone">
                         </div>-->
                         <div class="col-sm-6">
-                            <label for="email">Email</label><input type="text" id="email" name="email">
+                            <label for="email">Email</label><input type="text" id="email" name="email" value="<?php echo $brand->email ?>">
                         </div>
                     </div>
                     <h1 class="header blue text-center normal-weight">DOMICILIO</h1>
                     <div class="row">
                         <div class="col-sm-6">
-                            <label for="street">Calle</label><input type="text" id="street" name="street">
+                            <label for="street">Calle</label><input type="text" id="street" name="street"  value="<?php echo $brand->street ?>">
                         </div>
                         <div class="col-sm-3 ">
-                            <label for="exterior">Núm. Exterior</label><input type="text" id="exterior" name="exterior">
+                            <label for="exterior">Núm. Exterior</label><input type="text" id="exterior" name="exterior"  value="<?php echo $brand->ext_num ?>">
                         </div>
                         <div class="col-sm-3 ">
-                            <label for="interior">Núm. Interior</label><input type="text" id="interior" name="interior">
+                            <label for="interior">Núm. Interior</label><input type="text" id="interior" name="interior"  value="<?php echo $brand->int_num ?>">
                         </div>
                     </div>
                     <div class="row">
                         <div class="col-sm-6">
-                            <label for="colony">Colonia</label><input type="text" id="colony" name="colony">
+                            <label for="colony">Colonia</label><input type="text" id="colony" name="colony"  value="<?php echo $brand->colony ?>">
                         </div>
                         <div class="col-sm-3 ">
-                            <label for="postal">Código Postal</label><input type="text" id="postal" name="postal">
+                            <label for="postal">Código Postal</label><input type="text" id="postal" name="postal"  value="<?php echo $brand->postal_code ?>">
                         </div>
                         <div class="col-sm-3 ">
-                            <label for="town">Municipio</label><input type="text" id="town" name="town">
+                            <label for="town">Municipio</label><input type="text" id="town" name="town"  value="<?php echo $brand->town ?>">
                         </div>
                     </div>
                     <div class="row">
@@ -409,6 +410,7 @@
                                 </select>
                             </div>
                         </div>
+                        <input type="hidden" id="brand_id" name="brand_id" value="<?php echo $_GET['id'] ?>">
                     </div>
                     <!--<div class="row text-center terms">
                         <div class="col-sm-12">
