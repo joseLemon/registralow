@@ -33,18 +33,22 @@ if( isset($_POST['requestType']) ) {
     if( $_POST['requestType'] == 'revision' ) {//user_id harcodeado
         $query_report = "INSERT INTO `brands` (`business_course_id`, `status_id`, `user_id`, `name`, `last_name`, `m_last_name`, `email`, `paid`, `created_at`) VALUES ('".$_POST['bussiness_course']."', '0', '1', '".$_POST['solicitor_name']."', '".$_POST['last_name']."', '".$_POST['m_last_name']."', '".$_POST['email']."', '0', CURRENT_TIMESTAMP);";
         $wpdb->query( $query_report );
+
+        $brand_id = $wpdb->get_var("SELECT LAST_INSERT_ID();");
+        wp_redirect(home_url().'/pago/?id='.$brand_id);
         echo 'revision';
-        return true;
+        return;
     }
 
     if( $_POST['requestType'] == 'register' ) {
         $query_report = "INSERT INTO `brands` (`business_course_id`, `status_id`, `user_id`, `name`, `last_name`, `m_last_name`, `email`, `paid`, `created_at`) VALUES ('".$_POST['bussiness_course']."', '3', '1', '".$_POST['solicitor_name']."', '".$_POST['last_name']."', '".$_POST['m_last_name']."', '".$_POST['email']."', '0', CURRENT_TIMESTAMP);";
         $wpdb->query( $query_report );
-        echo 'registro';
-    }
 
-    print_r($_POST);
-    return;
+        $brand_id = $wpdb->get_var("SELECT LAST_INSERT_ID();");
+        wp_redirect(home_url().'/pago/?id='.$brand_id);
+        echo 'registro';
+        return;
+    }
 }
 
 if( isset($_POST['submit_cambiar']) ) {
