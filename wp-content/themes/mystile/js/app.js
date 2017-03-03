@@ -129,21 +129,32 @@ $('#call-new-modal').click(function() {
     $('#info-revision').modal('hide');
 });
 
+var name,
+    lastName,
+    mLastName,
+    email,
+    street,
+    exterior,
+    interior,
+    postal,
+    colony,
+    town,
+    state,
+    country;
+
 function validateOne(){
     var errors ="";
     name = document.getElementById("solicitor_name").value;
     lastName = document.getElementById("last_name").value;
     mLastName = document.getElementById("m_last_name").value;
-    //social = document.getElementById("social").value;
-    //rfc = document.getElementById("rfc").value;
-    //date = document.getElementById("date").value;
-    //phone = document.getElementById("phone").value;
     email = document.getElementById("email").value;
     street = document.getElementById("street").value;
     exterior = document.getElementById("exterior").value;
+    interior = document.getElementById("interior").value;
     postal = document.getElementById("postal").value;
     colony = document.getElementById("colony").value;
     town = document.getElementById("town").value;
+    state = document.getElementById("state").value;
     country = document.getElementById("country").value;
     if( name == null || name.length == 0 || /^\s+$/.test(name) ) {
         errors += "El nombre es obligatorio<br>";
@@ -162,33 +173,6 @@ function validateOne(){
     if(mLastName.length > 35){
         errors += "El numero de letras máximo para el Apellido materno es de 35<br>";
     }
-    /*if( social == null || social.length == 0 || /^\s+$/.test(social) ) {
-        errors += "La razón social es obligatoria<br>";
-    }*/
-    /*if( rfc == null || rfc.length == 0 || /^\s+$/.test(rfc) ) {
-        errors += "El RFC es obligatorio<br>"
-    } else {
-        var regExPattern = /^([A-ZÑ\x26]{3,4}([0-9]{2})(0[1-9]|1[0-2])(0[1-9]|1[0-9]|2[0-9]|3[0-1]))((-)?([A-Z\d]{3}))?$/;
-        if(!(rfc.match(regExPattern))) {
-            errors += "Introduce un RFC válido<br>"
-        }
-    }*/
-    /*if( date == null || date.length == 0 || /^\s+$/.test(date) ) {
-        errors += "La fecha de nacimiento es obligatoria<br>";
-    }else {
-        var regExPattern = /^\d{1,2}\/\d{1,2}\/\d{2,4}$/;
-        if (!(date.match(regExPattern))) {
-            errors += "Introduce una fecha de nacimiento en formato correcto<br>";
-        }
-    }*/
-    /*if( phone == null || phone.length == 0 || /^\s+$/.test(phone) ) {
-        errors += "El teléfono es obligatorio<br>";
-    }else{
-        var phonePattern=/^([0-9]+){10,15}$/;
-        if (!(phone.match(phonePattern))) {
-            errors +=  "Introduce tu número telefónico con clave lada mínimo 10 caracteres<br>";
-        }
-    }*/
     if( email == null || email.length == 0 || /^\s+$/.test(email) ) {
         errors += "El correo electrónico es obligatorio<br>";
     }else{

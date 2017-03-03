@@ -52,7 +52,7 @@
                             </div>
                         </div>
                     </div>
-                    <?php $brand = $wpdb->get_results( "SELECT * FROM `brands` WHERE brand_id =".$_GET['id']." limit 1" )[0]; ?>
+                    <?php $brand = $wpdb->get_results( "SELECT * FROM `brands` JOIN business_course ON brands.business_course_id = business_course.business_course_id WHERE brand_id =".$_GET['id']." limit 1" )[0]; ?>
                     <div class="row">
                         <div class="col-sm-6">
                             <label for="solicitor_name">Nombre(s)</label><input type="text" id="solicitor_name" name="solicitor_name" value="<?php echo $brand->name ?>">
@@ -64,21 +64,7 @@
                             <label for="m_last_name">Apellido Materno</label><input type="text" id="m_last_name" name="m_last_name" value="<?php echo $brand->m_last_name ?>">
                         </div>
                     </div>
-                    <!--<div class="row">
-                        <div class="col-sm-6">
-                            <label for="rfc">RFC</label><input type="text" id="rfc" name="rfc">
-                        </div>
-                        <div class="col-sm-6">
-                            <label for="date">Fecha de Nacimiento (DD/MM/AAAA)</label><input type="text" id="date" name="date" placeholder="">
-                        </div>
-                        <div class="col-sm-3 ">
-                            <label for="social">Razón Social</label><input type="text" id="social" name="social">
-                        </div>
-                    </div>-->
                     <div class="row">
-                        <!--<div class="col-sm-6">
-                            <label for="phone">Teléfono</label><input type="text" id="phone" name="phone">
-                        </div>-->
                         <div class="col-sm-6">
                             <label for="email">Email</label><input type="text" id="email" name="email" value="<?php echo $brand->email ?>">
                         </div>
@@ -107,9 +93,6 @@
                         </div>
                     </div>
                     <div class="row">
-                        <!--<div class="col-sm-2 ">
-                            <label for="locality">Localidad</label><input type="text" id="locality" name="locality">
-                        </div>-->
                         <div class="col-sm-6"></div>
                         <div class="col-sm-3">
                             <label for="state">Estado</label>
@@ -198,19 +181,37 @@
                     </div>
                     <div class="row">
                         <div class="col-sm-6">
-                            <label for="options">Opciones</label>
+                            <label for="options"><?php if($brand->is_product) { echo 'Producto'; } else { echo 'Servicio'; } ?></label>
                             <select name="options" id="options">
-                                <?php $brands = $wpdb->get_results("SELECT brand_type_id, name FROM brand_types");
-                                foreach($brands as $brand){ ?>
-                                    <option value="<?php echo $brand->brand_type_id ?>"><?php echo $brand->name ?></option>
-                                <?php }?>
+                                <option disabled>---PRODUCTOS---</option>
+                                <?php $business_course = $wpdb->get_results("SELECT * FROM business_course");
+                                foreach($business_course as $course){
+                                    $needDescription = "";
+                                    if($course->need_description == 1){
+                                        $needDescription = 'class = "description"';
+                                    }
+                                    if( $course->is_product == 1 ) {
+                                        ?>
+                                        <option <?php echo $needDescription; ?> value="<?php echo $course->business_course_id; ?>" <?php if($brand->business_course_id == $course->business_course_id) { echo 'selected'; }; ?>><?php echo $course->business_course_name; ?></option>
+                                        <?php
+                                    }
+                                }
+                                ?>
+                                <option disabled>---SERVICIOS---</option>
+                                <?php
+                                foreach($business_course as $course){
+                                    $needDescription = "";
+                                    if($course->need_description == 1){
+                                        $needDescription = 'class = "description"';
+                                    }
+                                    if( $course->is_product == 0 ) {
+                                        ?>
+                                        <option <?php echo $needDescription; ?> value="<?php echo $course->business_course_id; ?>" <?php if($brand->business_course_id == $course->business_course_id) { echo 'selected'; }; ?>><?php echo $course->business_course_name; ?></option>
+                                        <?php
+                                    }
+                                }
+                                ?>
                             </select>
-                            <label for="option"></label>
-                            <label for="attach" id="adj-label">Adjunta tu logotipo</label>
-                            <input type="file" name="design" id="design_upload" class="inputfile">
-                            <label for="design_upload" id="design"></label>
-                            <input type="file" name="three_dimensional" id="three_dimensional_upload" class="inputfile">
-                            <label for="three_dimensional_upload" id="three_dimensional"></label>
                         </div>
                         <div class="col-sm-6">
                             <label for="text">Denominación o texto de tu marca</label>
@@ -268,7 +269,6 @@
                             <label for="servicios"></label>
                             <span class="blue">Servicios</span>
                         </div>
-                        <!--<input type="text" class="hidden" name="business_course" id="business_course">-->
                     </div>
                     <div class="row hidden" id="productSelect">
                         <div class="col-xs-6">
@@ -281,7 +281,6 @@
                             <label for="commercialization"></label>
                             <span class="blue">Comercialización</span>
                         </div>
-                        <!--<input type="text" class="hidden" name="product_course" id="product_course">-->
                     </div>
                     <div class="row">
                         <div class="col-sm-12">
@@ -363,9 +362,6 @@
                         </div>
                         <div class="row text-left">
                             <div class="col-sm-6"></div>
-                            <!--<div class="col-sm-3">
-                                <label for="b_locality">Localidad</label><input type="text" id="b_locality" name="b_locality">
-                            </div>-->
                             <div class="col-sm-3">
                                 <label for="b_state">Estado</label>
                                 <select name="b_state" id="b_state">
@@ -412,11 +408,6 @@
                         </div>
                         <input type="hidden" id="brand_id" name="brand_id" value="<?php echo $_GET['id'] ?>">
                     </div>
-                    <!--<div class="row text-center terms">
-                        <div class="col-sm-12">
-                            <input type="checkbox" id="termsConditions"><span class="blue">Acepto términos y condiciones</span>
-                        </div>
-                    </div>-->
                     <div class="nav" role="tablist">
                         <div class="col-sm-6">
                             <a href="#marca" class="white blue-btn btn center-block text-center smoothScroll" aria-controls="marca" role="tab" data-toggle="tab">ANTERIOR</a>
