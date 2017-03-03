@@ -1,3 +1,16 @@
+<?php
+$current_user_id = get_current_user_id();
+
+if(isset($_GET['id'])) {
+    $brand_user_id = $wpdb->get_results('SELECT user_id FROM brands WHERE brand_id = '.$_GET['id'])[0];
+
+    if($brand_user_id->user_id != $current_user_id) {
+        wp_redirect(home_url());
+    }
+} else {
+    wp_redirect(home_url());
+}
+?>
 <?php get_header(); ?>
     <div class="wrapper registro forma-registro">
         <div class="container tab-content spacing">
