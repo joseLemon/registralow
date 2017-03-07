@@ -248,16 +248,31 @@ function validateTwo(e){
         errors += "La imagen no puede pesar más de 25Mb. Intenta una imagen más ligera<br>";
     }
     //redireccion
-    if(errors==""){
+    if(errors=="") {
         //Cambiar al segundo tab
         $('#validationTwo').attr('href', '#giro');
         $('#error').removeClass('active').addClass('hidden');
-    }else{
+
+        previewTableInject();
+    } else {
         //colorear los campos mal ingresados
         $("#error").html(errors);
         $("#error").removeClass('hidden').addClass('active').html("Lo sentimos :( <br>"+errors);
         e.preventDefault();
     }
+}
+
+function previewTableInject() {
+    $('#tname').text(name);
+    $('#temail').text(email);
+    $('#taddress').text(street);
+    $('#tintetior').text(interior);
+    $('#textetior').text(exterior);
+    $('#tcolony').text(colony);
+    $('#tpostal').text(postal);
+    $('#ttown').text(town);
+    $('#tstate').text(state);
+    $('#tcountry').text(country);
 }
 
 $('#solicitorForm').submit(function (e) {

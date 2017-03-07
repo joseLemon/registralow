@@ -2,7 +2,7 @@
 <?php
 $current_user = wp_get_current_user();
 $ID = $current_user->ID;
-$brands = $wpdb->get_results("SELECT text, design, three_dimensional, brand_id, social_reason, brands.name, last_name, brand_types.name AS brand_type_name/*, post_status*/ FROM brands JOIN brand_types ON brands.brand_type_id = brand_types.brand_type_id /*INNER JOIN wp_posts on ID = wp_post_id*/ WHERE user_id = ".$ID." ORDER BY created_at DESC");
+$brands = $wpdb->get_results("SELECT * FROM brands WHERE user_id = ".$ID." ORDER BY created_at DESC");
 
 $order_statuses = array(
     'wc-pending'    => ( 'Pago pendiente'),

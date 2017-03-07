@@ -35,8 +35,10 @@ if( isset($_POST['requestType']) ) {
         $wpdb->query( $query_report );
 
         $brand_id = $wpdb->get_var("SELECT LAST_INSERT_ID();");
+
+        uploadFile('busqueda',$brand_id);
+
         wp_redirect(home_url().'/pago/?id='.$brand_id);
-        echo 'revision';
         return;
     }
 
@@ -45,9 +47,42 @@ if( isset($_POST['requestType']) ) {
         $wpdb->query( $query_report );
 
         $brand_id = $wpdb->get_var("SELECT LAST_INSERT_ID();");
-        wp_redirect(home_url().'/pago/?id='.$brand_id);
-        echo 'registro';
+
+        uploadFile('registro',$brand_id);
+
+        //wp_redirect(home_url().'/pago/?id='.$brand_id);
         return;
+    }
+}
+
+function uploadFile($type,$brand_id) {
+    $target_dir = dirname(__FILE__).'\\uploads\\'.$type.'\\'.$brand_id.'\\';
+
+    //  Create temporary directory
+    if(!is_dir($target_dir) && !file_exists($target_dir)) {
+        mkdir($target_dir);
+    }
+
+    if ($_FILES["brand_file"]["size"] > 25000000) {
+        wp_redirect(home_url().'/solicitud/?error=1');
+        return;
+    }
+
+    //  Delete files if they exist
+    $files = glob($target_dir.'/*'); // get all file names
+    foreach($files as $file){ // iterate files
+        if(is_file($file))
+            unlink($file); // delete file
+    }
+
+    if(move_uploaded_file($_FILES["brand_file"]["tmp_name"], $target_dir . 'temp.tmp')) {
+        // Resize it
+        GenerateThumbnail($target_dir . 'temp.tmp',$target_dir . 'brand.png',700,394,1);
+        // Delete full size
+        unlink($target_dir . 'temp.tmp');
+        echo 'file uploaded succesfully';
+    } else {
+        wp_redirect(home_url().'/solicitud/?error=2');
     }
 }
 

@@ -8,7 +8,7 @@
                         <div name="error" id="error" class="alert alert-danger hidden"></div>
                     </div>
                 </div>
-                <form action="<?php echo home_url(); ?>/submitsolicitor" id="requestForm" method="POST">
+                <form action="<?php echo home_url(); ?>/submitsolicitor" id="requestForm" method="POST" enctype="multipart/form-data">
                     <div class="row">
                         <div class="col-sm-6">
                             <label for="solicitor_name">Nombre(s)</label><input type="text" id="solicitor_name" name="solicitor_name">

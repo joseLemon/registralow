@@ -10,6 +10,16 @@ if(isset($_GET['id'])) {
 } else {
     wp_redirect(home_url());
 }
+
+$brand = $wpdb->get_results( "SELECT *, statuses.name as status_name FROM `brands` JOIN business_course ON brands.business_course_id = business_course.business_course_id JOIN statuses ON brands.status_id = statuses.status_id WHERE brand_id =".$_GET['id']." limit 1" )[0];
+
+if (intval($brand->status_id) < 3) {
+    $type = 'BÚSQUEDA';
+    $brand_img_src = get_bloginfo('template_url').'/uploads/busqueda/'.$_GET['id'].'/brand.png';
+} else {
+    $type = 'REGISTRO';
+    $brand_img_src = get_bloginfo('template_url').'/uploads/registro/'.$_GET['id'].'/brand.png';
+}
 ?>
 <?php get_header(); ?>
     <div class="wrapper registro forma-registro">
@@ -65,7 +75,6 @@ if(isset($_GET['id'])) {
                             </div>
                         </div>
                     </div>
-                    <?php $brand = $wpdb->get_results( "SELECT * FROM `brands` JOIN business_course ON brands.business_course_id = business_course.business_course_id WHERE brand_id =".$_GET['id']." limit 1" )[0]; ?>
                     <div class="row">
                         <div class="col-sm-6">
                             <label for="solicitor_name">Nombre(s)</label><input type="text" id="solicitor_name" name="solicitor_name" value="<?php echo $brand->name ?>">
@@ -157,7 +166,7 @@ if(isset($_GET['id'])) {
                 </div>
                 <div role="tabpanel" class="form-container tab-pane fade" id="marca">
                     <div class="row no-margin header-info-container">
-                        <h1 class="header blue text-left normal-weight register-header">¿QUÉ TIPO DE MARCA QUIERES REGISTRAR?</h1>
+                        <h1 class="header blue text-left normal-weight register-header">TU MARCA</h1>
                         <div class="info">
                             <button type="button" href="#info-second" data-toggle="modal" data-target="#info-second">i</button>
                         </div>
@@ -227,215 +236,208 @@ if(isset($_GET['id'])) {
                             </select>
                         </div>
                         <div class="col-sm-6">
-                            <label for="text">Denominación o texto de tu marca</label>
-                            <textarea class="hidden" name="text" id="text" cols="30" rows="10"></textarea>
+                            <label for="text">Vista Previa de la Marca</label>
+                            <div class="img-container preview active">
+                                <img src="<?php echo $brand_img_src; ?>" alt="Marca">
+                            </div>
                         </div>
                     </div>
                     <div class="row nav" role="tablist">
-                        <div class="col-sm-6">
+                        <!--<div class="col-sm-6">
                             <a href="#registro" class="white blue-btn btn center-block text-center smoothScroll" aria-controls="registro" role="tab" data-toggle="tab">ANTERIOR</a>
+                        </div>-->
+                        <div class="col-sm-6 text-right">
+                            <a id="validationTwo" onclick="validateTwo()" href="" class="white blue-btn btn text-center smoothScroll" aria-controls="giro" role="tab" data-toggle="tab">CONFIRMAR</a>
                         </div>
-                        <div class="col-sm-6">
-                            <a id="validationTwo" onclick="validateTwo()" href="" class="white blue-btn btn center-block text-center smoothScroll" aria-controls="giro" role="tab" data-toggle="tab">SIGUIENTE</a>
+                        <div class="col-sm-6 text-left">
+                            <a href="#" class="white red-btn btn text-center">CAMBIAR</a>
                         </div>
                     </div>
                 </div>
 
                 <div role="tabpanel" class="giro text-center form-container tab-pane fade" id="giro">
                     <div class="row no-margin header-info-container">
-                        <h1 class="header blue text-left normal-weight register-header">¿QUÉ GIRO TIENE TU MARCA?</h1>
-                        <div class="info">
-                            <button type="button" href="#info-third" data-toggle="modal" data-target="#info-third">i</button>
-                        </div>
+                        <h2 class="header blue text-left normal-weight register-header">PRESENTACIÓN</h2>
                     </div>
-                    <div class="info-modal modal fade" id="info-third" role="dialog">
-                        <div class="modal-dialog">
-                            <div class="modal-content transform-center-vertical">
-                                <div class="modal-header">
-                                    <button type="button" class="close" data-dismiss="modal">&times;</button>
-                                </div>
-                                <div class="modal-body">
-                                    <p class="text text-left">
-                                        Debes detallar la lista de las cosas que quieras proteger, ya que las marcas se protegen de acuerdo a su giro comercial para evitar
-                                        que otro competidor en México utilice alguna marca igual o similar.<br>
-                                        Esto es para no generar monopolios injustos,  por ejemplo: que alguien que se dedique a vender playeras bajo el nombre de
-                                        “cielo azul”, no se vea impedido a registrar su marca por que ya haya alguien que tenga registrada la misma expresión “cielo azul”
-                                        para vender café.<br><br>
-
-                                        Para esto a nivel internacional se han clasificado los giros en <a href="<?php echo bloginfo('template_url').'/pdf/clases.pdf';?>">45 diversas clases</a>, y para proteger cada una necesitamos un registro.<br><br>
-
-                                        Cuando tu nos dices a lo que te dedicas de manera detallada nuestros especialistas la clasifican y la protegen en el giro legal que
-                                        más te acomode.
-                                    </p>
-                                </div>
-                            </div>
-                        </div>
+                    <div class="col-sm-3"></div>
+                    <div class="col-sm-6">
+                        <img src="<?php echo $brand_img_src; ?>" alt="Marca" class="img-responsive center-block">
                     </div>
-                    <div class="row margin-bottom">
-                        <div class="col-xs-6">
-                            <input type="radio" name="business_course" id="productos" value="Productos">
-                            <label for="productos"></label>
-                            <span class="blue">Productos</span>
-                        </div>
-                        <div class="col-xs-6">
-                            <input type="radio" name="business_course" id="servicios" value="Servicios">
-                            <label for="servicios"></label>
-                            <span class="blue">Servicios</span>
-                        </div>
-                    </div>
-                    <div class="row hidden" id="productSelect">
-                        <div class="col-xs-6">
-                            <input type="radio" id="fabrication" name="product_course" value="Fabricación">
-                            <label for="fabrication"></label>
-                            <span class="blue">Fabricación</span>
-                        </div>
-                        <div class="col-xs-6">
-                            <input type="radio" id="commercialization" name="product_course" value="Comercialización">
-                            <label for="commercialization"></label>
-                            <span class="blue">Comercialización</span>
-                        </div>
-                    </div>
-                    <div class="row">
-                        <div class="col-sm-12">
-                            <label for="description">Descripción detallada del giro comercial</label>
-                            <textarea name="description" id="description" cols="30" rows="10"></textarea>
-                        </div>
-                    </div>
-                    <div class="row margin-bottom">
-                        <p class="blue">Declaro, bajo protesta de decir verdad, que la marca se ha utilizado desde la fecha:</p>
-                        <div class="row">
-                            <div class="col-sm-6 term">
-                                <input type="radio" name="used" id="notUsed" value="false">
-                                <label for="notUsed"></label>
-                                <span class="text">No se ha utilizado en el mercado aún.</span>
-                            </div>
-                            <div class="col-sm-6 term">
-                                <input type="radio" name="used" id="used" value="true">
-                                <label for="used"></label>
-                                <span class="text">Si se ha utilizado.</span>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="row hidden" id="usedDate">
-                        <div class="info">
-                            <button type="button" href="#info-usedate" data-toggle="modal" data-target="#info-usedate">i</button>
-                        </div>
-                        <div class="info-modal modal fade" id="info-usedate" role="dialog" tabindex="-1">
-                            <div class="modal-dialog">
-                                <div class="modal-content transform-center-vertical">
-                                    <div class="modal-header">
-                                        <button type="button" class="close" data-dismiss="modal">&times;</button>
-                                    </div>
-                                    <div class="modal-body">
-                                        <p class="text text-left">
-                                            La Fecha de primer uso es el momento a partir del cual tu marca entró en
-                                            el comercio de manera legal (generalmente la fecha de tu primer factura
-                                            donde este impresa tu marca) o bíen si no aún no tienes fecha, se empieza
-                                            a proteger con la fecha en que se presente el trámite.<br><br>
-
-                                            ¿y por que bajo protesta de decir verdad?, recuerda que un dato falso ante
-                                            la autoridad que revisa el trámite puede traer problemas futuros.<br><br>
-
-                                            En caso de más dudas,  contáctanos.
-                                        </p>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="col-sm-4"></div>
-                        <div class="col-sm-4">
-                            <p class="blue">¿A partir de que fecha se ha usado?</p>
-                            <input type="text" name="b_date" id="b_date">
-                        </div>
-                        <div class="col-sm-4"></div>
+                    <div class="col-sm-12">
+                        <div class="slim-yellow-divider"></div>
                     </div>
                     <div class="row hidden" id="used-establishment">
-                        <p class="blue">¿En qué establecimiento se ha usado?</p>
-                        <div class="row text-left">
-                            <div class="col-sm-6">
-                                <label for="b_street">Calle</label><input type="text" id="b_street" name="b_street">
-                            </div>
-                            <div class="col-sm-3">
-                                <label for="b_exterior">Número Exterior</label><input type="text" id="b_exterior" name="b_exterior">
-                            </div>
-                            <div class="col-sm-3">
-                                <label for="b_interior">Número Interior</label><input type="text" id="b_interior" name="b_interior">
-                            </div>
-                        </div>
-                        <div class="row text-left">
-                            <div class="col-sm-6">
-                                <label for="b_colony">Colonia</label><input type="text" id="b_colony" name="b_colony">
-                            </div>
-                            <div class="col-sm-3">
-                                <label for="b_postal">Código Postal</label><input type="text" id="b_postal" name="b_postal">
-                            </div>
-                            <div class="col-sm-3">
-                                <label for="b_town">Municipio</label><input type="text" id="b_town" name="b_town">
-                            </div>
-                        </div>
-                        <div class="row text-left">
-                            <div class="col-sm-6"></div>
-                            <div class="col-sm-3">
-                                <label for="b_state">Estado</label>
-                                <select name="b_state" id="b_state">
-                                    <option value="Aguascalientes">Aguascalientes</option>
-                                    <option value="Baja California">Baja California</option>
-                                    <option value="Baja California Sur">Baja California Sur</option>
-                                    <option value="Campeche">Campeche</option>
-                                    <option value="Chiapas">Chiapas</option>
-                                    <option value="Chihuahua">Chihuahua</option>
-                                    <option value="Coahuila">Coahuila</option>
-                                    <option value="Colima">Colima</option>
-                                    <option value="Distrito Federal">Distrito Federal</option>
-                                    <option value="Durango">Durango</option>
-                                    <option value="Estado de México">Estado de México</option>
-                                    <option value="Guanajuato">Guanajuato</option>
-                                    <option value="Guerrero">Guerrero</option>
-                                    <option value="Hidalgo">Hidalgo</option>
-                                    <option value="Jalisco">Jalisco</option>
-                                    <option value="Michoacán">Michoacán</option>
-                                    <option value="Morelos">Morelos</option>
-                                    <option value="Nayarit">Nayarit</option>
-                                    <option value="Nuevo León">Nuevo León</option>
-                                    <option value="Oaxaca">Oaxaca</option>
-                                    <option value="Puebla">Puebla</option>
-                                    <option value="Querétaro">Querétaro</option>
-                                    <option value="Quintana Roo">Quintana Roo</option>
-                                    <option value="San Luis Potosí">San Luis Potosí</option>
-                                    <option value="Sinaloa">Sinaloa</option>
-                                    <option value="Sonora">Sonora</option>
-                                    <option value="Tabasco">Tabasco</option>
-                                    <option value="Tamaulipas">Tamaulipas</option>
-                                    <option value="Tlaxcala">Tlaxcala</option>
-                                    <option value="Veracruz">Veracruz</option>
-                                    <option value="Yucatán">Yucatán</option>
-                                    <option value="Zacatecas">Zacatecas</option>
-                                </select>
-                            </div>
-                            <div class="col-sm-3">
-                                <label for="b_country">País</label>
-                                <select id="b_country" name="b_country">
-                                    <option value="México">México</option>
-                                </select>
-                            </div>
-                        </div>
                         <input type="hidden" id="brand_id" name="brand_id" value="<?php echo $_GET['id'] ?>">
                     </div>
                     <div class="nav" role="tablist">
-                        <div class="col-sm-6">
-                            <a href="#marca" class="white blue-btn btn center-block text-center smoothScroll" aria-controls="marca" role="tab" data-toggle="tab">ANTERIOR</a>
+                        <div class="col-sm-12">
+                            <table>
+                                <colgroup>
+                                    <col style="width: 20%;">
+                                    <col style="width: 30%;">
+                                    <col style="width: 30%;">
+                                    <col style="width: 20%;">
+                                </colgroup>
+                                <thead>
+                                <tr>
+                                    <th class="white">
+                                        <span>FOLIO</span>
+                                    </th>
+                                    <th class="white">
+                                        <span>SOLICITUD</span>
+                                    </th>
+                                    <th class="white">
+                                        <span>ETAPA</span>
+                                    </th>
+                                    <th class="white">
+                                        <span style="margin-right: 0"><?php if($brand->is_product) { echo 'PRODUCTO'; } else { echo 'SERVICIO'; } ?></span>
+                                    </th>
+                                </tr>
+                                </thead>
+                                <tbody>
+                                <tr>
+                                    <td>
+                                        <p class="text no-margin"><?php echo $brand->brand_id ?></p>
+                                    </td>
+                                    <td>
+                                        <p class="text no-margin"><?php echo $type ?></p>
+                                    </td>
+                                    <td>
+                                        <p class="text no-margin"><?php echo $brand->status_name ?></p>
+                                    </td>
+                                    <td>
+                                        <p class="text no-margin"><?php echo $course->business_course_name; ?></p>
+                                    </td>
+                                </tr>
+                                </tbody>
+                            </table>
                         </div>
+                        <div class="col-sm-12">
+                            <h2 class="header blue text-left normal-weight register-header">INFORMACIÓN DEL SOLICITANTE</h2>
+                            <table>
+                                <colgroup>
+                                    <col style="width: 50%;">
+                                    <col style="width: 50%;">
+                                </colgroup>
+                                <thead>
+                                <tr>
+                                    <th class="white">
+                                        <span>NOMBRE</span>
+                                    </th>
+                                    <th class="white">
+                                        <span style="margin-right: 0">CORREO ELECTRÓNICO</span>
+                                    </th>
+                                </tr>
+                                </thead>
+                                <tbody>
+                                <tr>
+                                    <td>
+                                        <p class="text no-margin" id="tname"></p>
+                                    </td>
+                                    <td>
+                                        <p class="text no-margin" id="temail"></p>
+                                    </td>
+                                </tr>
+                                </tbody>
+                            </table>
+                            <table>
+                                <colgroup>
+                                    <col style="width: 50%;">
+                                    <col style="width: 25%;">
+                                    <col style="width: 25%;">
+                                </colgroup>
+                                <thead>
+                                <tr>
+                                    <th class="white">
+                                        <span>DIRECCIÓN</span>
+                                    </th>
+                                    <th class="white">
+                                        <span>NÚM. EXTERIOR</span>
+                                    </th>
+                                    <th class="white">
+                                        <span style="margin-right: 0">NÚM. INTERIOR</span>
+                                    </th>
+                                </tr>
+                                </thead>
+                                <tbody>
+                                <tr>
+                                    <td>
+                                        <p class="text no-margin" id="taddress"></p>
+                                    </td>
+                                    <td>
+                                        <p class="text no-margin" id="tintetior"></p>
+                                    </td>
+                                    <td>
+                                        <p class="text no-margin" id="textetior"></p>
+                                    </td>
+                                </tr>
+                                </tbody>
+                            </table>
+                            <table>
+                                <colgroup>
+                                    <col style="width: 50%;">
+                                    <col style="width: 25%;">
+                                    <col style="width: 25%;">
+                                </colgroup>
+                                <thead>
+                                <tr>
+                                    <th class="white">
+                                        <span>COLONIA</span>
+                                    </th>
+                                    <th class="white">
+                                        <span>CÓDIGO POSTAL</span>
+                                    </th>
+                                    <th class="white">
+                                        <span style="margin-right: 0">MUNICIPIO</span>
+                                    </th>
+                                </tr>
+                                </thead>
+                                <tbody>
+                                <tr>
+                                    <td>
+                                        <p class="text no-margin" id="tcolony"></p>
+                                    </td>
+                                    <td>
+                                        <p class="text no-margin" id="tpostal"></p>
+                                    </td>
+                                    <td>
+                                        <p class="text no-margin" id="ttown"></p>
+                                    </td>
+                                </tr>
+                                </tbody>
+                            </table>
+                        </div>
+                        <div class="col-sm-6"></div>
                         <div class="col-sm-6">
-                            <?php
-                            $host = 'http://' . $_SERVER['SERVER_NAME'] . $_SERVER['REQUEST_URI'];
-                            if ( $host == home_url().'/registro/' ) {
-                                ?>
-                                <button class="white btn red-btn" type="submit" name="submit" id="submit">PAGAR</button>
-                            <?php } else if ( $host == home_url().'/revision/' ) {  ?>
-                                <button class="white btn red-btn" type="submit" name="submit_revision" id="submit_revision">PAGAR</button>
-                            <?php } else if ( $host == home_url().'/cambiar-marca/' ) {  ?>
-                                <button class="white btn red-btn" type="submit" name="submit_cambiar" id="submit_cambiar">PAGAR</button>
-                            <?php } ?>
+                            <table>
+                                <colgroup>
+                                    <col style="width: 50%;">
+                                    <col style="width: 50%;">
+                                </colgroup>
+                                <thead>
+                                <tr>
+                                    <th class="white">
+                                        <span>ESTADO</span>
+                                    </th>
+                                    <th class="white">
+                                        <span style="margin-right: 0">PAÍS</span>
+                                    </th>
+                                </tr>
+                                </thead>
+                                <tbody>
+                                <tr>
+                                    <td>
+                                        <p class="text no-margin" id="tstate"></p>
+                                    </td>
+                                    <td>
+                                        <p class="text no-margin" id="tcountry"></p>
+                                    </td>
+                                </tr>
+                                </tbody>
+                            </table>
+                        </div>
+                        <div class="col-sm-12 text-center">
+                            <button class="auto-width white btn green-btn" type="submit" name="submit" id="submit">PRESENTAR Y CONFIRMAR CON CORREO</button>
                         </div>
                     </div>
                 </div>
@@ -457,7 +459,7 @@ if(isset($_GET['id'])) {
     </div>
     <script>
         $('a[data-toggle="tab"], button[data-toggle="tab"').on('shown.bs.tab', function (e) {
-            $('.indicators .circle').removeClass('active');
+            //$('.indicators .circle').removeClass('active');
             $('.indicators div[class*=col]:nth-of-type('+($('div[role=tabpanel].active').index()+1)+') .circle').addClass('active');
         });
     </script>
