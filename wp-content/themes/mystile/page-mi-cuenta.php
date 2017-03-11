@@ -2,17 +2,7 @@
 <?php
 $current_user = wp_get_current_user();
 $ID = $current_user->ID;
-$brands = $wpdb->get_results("SELECT * FROM brands WHERE user_id = ".$ID." ORDER BY created_at DESC");
-
-$order_statuses = array(
-    'wc-pending'    => ( 'Pago pendiente'),
-    'wc-processing' => ( 'Procesando'),
-    'wc-on-hold'    => ( 'En espera'),
-    'wc-completed'  => ( 'Completado'),
-    'wc-cancelled'  => ( 'Cancelado'),
-    'wc-refunded'   => ( 'Reembolsado'),
-    'wc-failed'     => ( 'Fallido'),
-);
+$brands = $wpdb->get_results("SELECT *, statuses.name as status_name FROM brands JOIN business_course ON brands.business_course_id = business_course.business_course_id JOIN statuses ON brands.status_id = statuses.status_id  WHERE user_id = ".$ID." ORDER BY created_at DESC");
 ?>
     <div class="registro wrapper mi-cuenta">
         <div class="container">
@@ -65,9 +55,6 @@ $order_statuses = array(
                                     <span>SOLICITUD</span>
                                 </th>
                                 <th class="white">
-                                    <span>DENOMINACIÓN</span>
-                                </th>
-                                <th class="white">
                                     <span>ETAPA</span>
                                 </th>
                                 <th></th>
@@ -75,20 +62,24 @@ $order_statuses = array(
                             </thead>
                             <tbody>
                             <?php foreach($brands as $brand ) { ?>
+                                <?php
+                                if (intval($brand->status_id) < 3) {
+                                    $type = 'BÚSQUEDA';
+                                } else {
+                                    $type = 'REGISTRO';
+                                }
+                                ?>
                                 <tr>
                                     <td>
                                         <p class="text no-margin"><?php echo $brand->brand_id ?></p>
                                     </td>
                                     <td>
-                                        <p class="text no-margin"><?php echo $brand->brand_type_name ?></p>
+                                        <p class="text no-margin"><?php echo $type ?></p>
                                     </td>
                                     <td>
-                                        <p class="text no-margin"><?php echo $brand->name.' '.$brand->last_name ?></p>
+                                        <p class="text no-margin"><?php echo $brand->status_name ?></p>
                                     </td>
-                                    <td>
-                                        <!--<p class="text no-margin"><?php echo $order_statuses[$brand->post_status] ?></p>-->
-                                    </td>
-                                    <td>
+                                    <td style="background-color: transparent;">
                                         <a class="btn red-btn white text-center" href="<?php echo home_url() . '/seguimiento/?id=' . $brand->brand_id; ?>">VER</a>
                                     </td>
                                 </tr>

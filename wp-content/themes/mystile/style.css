@@ -58,6 +58,10 @@ a:hover {
     color: #1da6df;
 }
 
+p {
+    color: #1a1a1a;
+}
+
 #comments {
     display: none;
 }
@@ -410,6 +414,7 @@ tbody tr {
 td:not(:nth-of-type(5)) {
     background-color: #dedede;
     color: #838383;
+    text-transform: uppercase;
 }
 
 table .btn {
@@ -1062,9 +1067,13 @@ table .btn {
     text-align: center;
     padding: 8px 0;
     border-radius: 12px;
-    color: #19a7e0;
     font-weight: bold;
     margin-top: 30px;
+}
+
+.precioslow .precios h3 a {
+    color: #19a7e0!important;
+    text-decoration: none!important;
 }
 
 .precioslow .precios .sm-divider {
@@ -1436,8 +1445,14 @@ footer .menu a {
     right: 0;
     margin: 0 auto;
 }
+
 .registro .indicators .circle.active::after {
     background: url(img/index/icons/check.png) no-repeat center center #dfde3b;
+    background-size: cover;
+}
+
+.registro .indicators .circle.active.failed::after {
+    background: url(img/index/icons/cross.png) no-repeat center center #e40138;
     background-size: cover;
 }
 
@@ -1456,6 +1471,10 @@ footer .menu a {
 .registro .indicators div[class*=col-sm-4]:not(:nth-of-type(3)) .circle::before {
     width: 33vw;
     max-width: 400px;
+}
+
+.registro .indicators .circle.single::before {
+    display: none!important;
 }
 
 .file-input {
@@ -1481,6 +1500,15 @@ footer .menu a {
 
 .registro input[type=file] {
     display: none;
+}
+
+.registro .process-complete .success {
+    border-bottom: 1px solid #01cc27;
+    display: inline-block;
+}
+
+.registro .process-complete p {
+    margin: 15px 0 35px 0;
 }
 
 .form-container {
@@ -1538,7 +1566,7 @@ footer .menu a {
 
 .form-container .info {
     position: relative;
-    float: right;
+    /*float: right;*/
     display: inline-block;
     text-align: center;
 }
@@ -1553,6 +1581,10 @@ footer .menu a {
     color: #fff!important;
     border: 0;
     outline: none;
+}
+
+.form-container .info.red button {
+    background-color: #e40138;
 }
 
 .form-container ul {
@@ -2077,7 +2109,7 @@ span.submit__error--empty {
 
 .request-list form span:after {
     content: '';
-    background: url(http://www.registralow.com/site/wp-content/themes/mystile/img/icons/search.png)no-repeat center center;
+    background: url(img/icons/search.png)no-repeat center center;
     background-size: contain;
     position: absolute;
     height: 100%;
@@ -2139,8 +2171,7 @@ span.submit__error--empty {
 
 /* MODAL NOTICE */
 .modal-dialog:not(.video-modal-dialog) {
-    height: 100vh;
-    margin: 0 auto;
+    margin-top: 200px;
 }
 /* MODAL NOTICE */
 

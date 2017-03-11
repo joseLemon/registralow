@@ -12,7 +12,7 @@
                     </div>
                     <div class="info-modal modal fade" id="info-first" role="dialog">
                         <div class="modal-dialog">
-                            <div class="modal-content transform-center-vertical">
+                            <div class="modal-content">
                                 <div class="modal-header">
                                     <button type="button" class="close" data-dismiss="modal">&times;</button>
                                 </div>
@@ -144,7 +144,7 @@
                     </div>
                     <div class="info-modal modal fade" id="info-second" role="dialog" tabindex="-1">
                         <div class="modal-dialog">
-                            <div class="modal-content transform-center-vertical">
+                            <div class="modal-content">
                                 <div class="modal-header">
                                     <button type="button" class="close" data-dismiss="modal">&times;</button>
                                 </div>
@@ -211,7 +211,7 @@
                     </div>
                     <div class="info-modal modal fade" id="info-third" role="dialog">
                         <div class="modal-dialog">
-                            <div class="modal-content transform-center-vertical">
+                            <div class="modal-content">
                                 <div class="modal-header">
                                     <button type="button" class="close" data-dismiss="modal">&times;</button>
                                 </div>
@@ -285,7 +285,7 @@
                         </div>
                         <div class="info-modal modal fade" id="info-usedate" role="dialog" tabindex="-1">
                             <div class="modal-dialog">
-                                <div class="modal-content transform-center-vertical">
+                                <div class="modal-content">
                                     <div class="modal-header">
                                         <button type="button" class="close" data-dismiss="modal">&times;</button>
                                     </div>

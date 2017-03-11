@@ -2,7 +2,15 @@
 $current_user_id = get_current_user_id();
 
 if(isset($_GET['id'])) {
+    $brand_status = $wpdb->get_results('SELECT status_id FROM brands WHERE brand_id = '.$_GET['id'])[0];
     $brand_user_id = $wpdb->get_results('SELECT user_id FROM brands WHERE brand_id = '.$_GET['id'])[0];
+    $brand_paid_status = $wpdb->get_results('SELECT is_paid FROM brands WHERE brand_id = '.$_GET['id'])[0];
+
+    if(intval($brand_status->status_id) < 3) {
+        $brand_cost = 199;
+    } else {
+        $brand_cost = 4999;
+    }
 
     if($brand_user_id->user_id != $current_user_id) {
         wp_redirect(home_url());
@@ -18,7 +26,7 @@ if(isset($_GET['id'])) {
             <div class="indicators blue text-center row no-margin">
                 <div class="col-sm-3">
                     <h4 class="blue">Pago</h4>
-                    <div class="circle <?php if(isset($_GET['success'])){ ?>active<?php } ?>"></div>
+                    <div class="circle <?php if($brand_paid_status->is_paid == 1){ ?>active<?php } ?>"></div>
                 </div>
                 <div class="col-sm-3">
                     <h4 class="blue">Tus Datos</h4>
@@ -33,13 +41,13 @@ if(isset($_GET['id'])) {
                     <div class="circle"></div>
                 </div>
             </div>
-            <?php if(!isset($_GET['success'])) {?>
+            <?php if($brand_paid_status->is_paid == 0) {?>
                 <div class="text-center form-container">
                     <h1 class="header blue">ELIGE TU FORMA DE PAGO</h1>
                     <p class="text">
                         Por favor indícanos el medio de pago más cómodo para ti:
                     </p>
-                    <h2 class="price">$4,999.00 pesos M.N.</h2>
+                    <h2 class="price">$<?php echo number_format($brand_cost, 2, '.', ','); ?> pesos M.N.</h2>
                     <div class="row no-margin">
                         <div class="col-sm-6">
                             <p class="text">
@@ -67,7 +75,7 @@ if(isset($_GET['id'])) {
                     <p class="text">
                         Te hemos enviado un correo para completar tu registro y validar el pago de:
                     </p>
-                    <h2 class="price">$4,999.00 pesos M.N.</h2>
+                    <h2 class="price">$<?php echo number_format($brand_cost, 2, '.', ','); ?> pesos M.N.</h2>
                     <div class="row no-margin">
                         <div class="col-sm-6 text-right">
                             <button class="white btn blue-btn auto-width">VOLVER A ENVIAR CORREO</button>

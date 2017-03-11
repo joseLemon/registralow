@@ -30,7 +30,7 @@
             <?php } ?>
             <div class="green-block right"></div>
         </div>
-        <a href="#nosotros" id="scrollDown"><img src="<?php echo bloginfo('template_url').'/'; ?>img/index/icons/down.png" alt="Scroll"></a>
+        <!--<a href="#nosotros" id="scrollDown"><img src="<?php echo bloginfo('template_url').'/'; ?>img/index/icons/down.png" alt="Scroll"></a>-->
     </div>
     <!-- ================================== -->
 
@@ -39,7 +39,7 @@
     <!-- ================================== -->
     <div class="info-modal modal fade" id="info-registro" role="dialog">
         <div class="modal-dialog">
-            <div class="modal-content transform-center-vertical">
+            <div class="modal-content">
                 <div class="modal-header">
                     <button type="button" class="close" data-dismiss="modal">&times;</button>
                 </div>
@@ -85,17 +85,19 @@
             </div>
 
             <div class="col-sm-4">
-                <h2 class="number dark-gray bold">2.</h2>
-                <img src="<?php echo bloginfo('template_url').'/'; ?>img/index/nosotros/2.png" alt="Paso 2" class="center-block img-responsive">
-                <h2 class="white step bold text-center">Registramos tu marca</h2>
-                <div class="hover">
-                    <p class="text white">
-                        Preparamos formalmente la solicitud de tu marca
-                        para registrarla dentro de una clase y la presentamos
-                        correctamente vía online llevando el proceso hasta el final.
-                    </p>
-                    <img src="<?php echo bloginfo('template_url').'/'; ?>img/index/nosotros/h2.png" alt="Búsqueda" class="img-responsive">
-                </div>
+                <a href="<?php echo home_url(); ?>/solicitud">
+                    <h2 class="number dark-gray bold">2.</h2>
+                    <img src="<?php echo bloginfo('template_url').'/'; ?>img/index/nosotros/2.png" alt="Paso 2" class="center-block img-responsive">
+                    <h2 class="white step bold text-center">Registramos tu marca</h2>
+                    <div class="hover">
+                        <p class="text white">
+                            Preparamos formalmente la solicitud de tu marca
+                            para registrarla dentro de una clase y la presentamos
+                            correctamente vía online llevando el proceso hasta el final.
+                        </p>
+                        <img src="<?php echo bloginfo('template_url').'/'; ?>img/index/nosotros/h2.png" alt="Búsqueda" class="img-responsive">
+                    </div>
+                </a>
             </div>
 
             <div class="col-sm-4">
@@ -163,7 +165,7 @@
                     </div>
                 </div>
                 <div class="col-sm-4 precios text-center">
-                    <h3 class="white">Búsqueda de Marca</h3>
+                    <h3 class="white"><a href="<?php echo home_url();?>/solicitud">Búsqueda de Marca</a></h3>
                     <div class="yellow-divider sm-divider"></div>
                     <p class="white">
                         Revisamos si tu marca se puede registrar en México.
@@ -175,7 +177,7 @@
                     <img src="<?php echo bloginfo('template_url').'/'; ?>img/index/precioslow/busqueda.png" alt="Búsqueda" class="img-responsive">
                 </div>
                 <div class="col-sm-4 precios text-center">
-                    <h3 class="white">Registro de Marca</h3>
+                    <h3 class="white"><a href="<?php echo home_url();?>/solicitud">Registro de Marca</a></h3>
                     <div class="yellow-divider sm-divider"></div>
                     <p class="white">
                         (Precio por clase)<br>
@@ -259,7 +261,7 @@
     <!-- ================================== -->
     <div class="info-modal modal fade" id="info-revision" role="dialog">
         <div class="modal-dialog">
-            <div class="modal-content transform-center-vertical">
+            <div class="modal-content">
                 <div class="modal-header">
                     <button type="button" class="close" data-dismiss="modal">&times;</button>
                 </div>
@@ -275,7 +277,7 @@
     </div>
     <div class="info-modal modal fade" id="info-clase" role="dialog">
         <div class="modal-dialog">
-            <div class="modal-content transform-center-vertical">
+            <div class="modal-content">
                 <div class="modal-header">
                     <button type="button" class="close" data-dismiss="modal">&times;</button>
                 </div>

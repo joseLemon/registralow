@@ -62,57 +62,72 @@ $order_statuses = array(
             </ul>
             <?php
             if($flag){
-                $brandsAll = $wpdb->get_results("SELECT brand_id, brands.name, last_name, text, statuses.name as status_name, post_status FROM brands INNER JOIN statuses on brands.status_id = statuses.status_id INNER JOIN wp_posts on ID = wp_post_id WHERE (last_name LIKE '%".$term."%' OR brands.name LIKE '%".$term."%' OR m_last_name LIKE '%".$term."%' OR text LIKE '%".$term."%') LIMIT ".$pageAll.", 15");
-                $brandsAllCount = $wpdb->get_results("SELECT COUNT(brand_id) as cont FROM brands INNER JOIN wp_posts on ID = wp_post_id WHERE  (last_name LIKE '%".$term."%' OR brands.name LIKE '%".$term."%' OR m_last_name LIKE '%".$term."%' OR text LIKE '%".$term."%')");
-                $brandsReview = $wpdb->get_results("SELECT brand_id, brands.name, last_name, text, statuses.name as status_name, post_status FROM brands INNER JOIN statuses on brands.status_id = statuses.status_id INNER JOIN wp_posts on ID = wp_post_id WHERE brands.status_id < 3 AND (last_name LIKE '%".$term."%' OR brands.name LIKE '%".$term."%' OR m_last_name LIKE '%".$term."%' OR text LIKE '%".$term."%') LIMIT ".$pageR.", 15");
-                $brandsReviewCount = $wpdb->get_results("SELECT COUNT(brand_id)as cont FROM brands INNER JOIN wp_posts on ID = wp_post_id WHERE  brands.status_id < 3 AND (last_name LIKE '%".$term."%' OR brands.name LIKE '%".$term."%' OR m_last_name LIKE '%".$term."%' OR text LIKE '%".$term."%')");
-                $brandsInProcess = $wpdb->get_results("SELECT brand_id, brands.name, last_name, text, statuses.name as status_name, post_status FROM brands INNER JOIN statuses on brands.status_id = statuses.status_id INNER JOIN wp_posts on ID = wp_post_id WHERE brands.status_id = 3 AND (last_name LIKE '%".$term."%' OR brands.name LIKE '%".$term."%' OR m_last_name LIKE '%".$term."%' OR text LIKE '%".$term."%') LIMIT ".$pageP.", 15");
-                $brandsInProcessCount = $wpdb->get_results("SELECT COUNT(brand_id)as cont FROM brands INNER JOIN wp_posts on ID = wp_post_id WHERE  brands.status_id = 3 AND (last_name LIKE '%".$term."%' OR brands.name LIKE '%".$term."%' OR m_last_name LIKE '%".$term."%' OR text LIKE '%".$term."%')");
-                $brandsInExam = $wpdb->get_results("SELECT brand_id, brands.name, last_name, text, statuses.name as status_name, post_status FROM brands INNER JOIN statuses on brands.status_id = statuses.status_id INNER JOIN wp_posts on ID = wp_post_id WHERE brands.status_id = 4 AND (last_name LIKE '%".$term."%' OR brands.name LIKE '%".$term."%' OR m_last_name LIKE '%".$term."%' OR text LIKE '%".$term."%') LIMIT ".$pageP.", 15");
-                $brandsInExamCount = $wpdb->get_results("SELECT COUNT(brand_id)as cont FROM brands INNER JOIN wp_posts on ID = wp_post_id WHERE  brands.status_id = 4 AND (last_name LIKE '%".$term."%' OR brands.name LIKE '%".$term."%' OR m_last_name LIKE '%".$term."%' OR text LIKE '%".$term."%')");
-                $brandsInObstacle = $wpdb->get_results("SELECT brand_id, brands.name, last_name, text, statuses.name as status_name, post_status FROM brands INNER JOIN statuses on brands.status_id = statuses.status_id INNER JOIN wp_posts on ID = wp_post_id WHERE brands.status_id = 5 AND (last_name LIKE '%".$term."%' OR brands.name LIKE '%".$term."%' OR m_last_name LIKE '%".$term."%' OR text LIKE '%".$term."%') LIMIT ".$pageP.", 15");
-                $brandsInObstacleCount = $wpdb->get_results("SELECT COUNT(brand_id)as cont FROM brands INNER JOIN wp_posts on ID = wp_post_id WHERE  brands.status_id = 5 AND (last_name LIKE '%".$term."%' OR brands.name LIKE '%".$term."%' OR m_last_name LIKE '%".$term."%' OR text LIKE '%".$term."%')");
-                $brandsDenied = $wpdb->get_results("SELECT brand_id, brands.name, last_name, text, statuses.name as status_name, post_status FROM brands INNER JOIN statuses on brands.status_id = statuses.status_id INNER JOIN wp_posts on ID = wp_post_id WHERE brands.status_id = 6 AND (last_name LIKE '%".$term."%' OR brands.name LIKE '%".$term."%' OR m_last_name LIKE '%".$term."%' OR text LIKE '%".$term."%') LIMIT ".$pageD.", 15");
-                $brandsDeniedCount = $wpdb->get_results("SELECT COUNT(brand_id)as cont FROM brands INNER JOIN wp_posts on ID = wp_post_id WHERE  brands.status_id = 6 AND (last_name LIKE '%".$term."%' OR brands.name LIKE '%".$term."%' OR m_last_name LIKE '%".$term."%' OR text LIKE '%".$term."%')");
-                $brandsApproved = $wpdb->get_results("SELECT brand_id, brands.name, last_name, text, statuses.name as status_name, post_status FROM brands INNER JOIN statuses on brands.status_id = statuses.status_id INNER JOIN wp_posts on ID = wp_post_id WHERE brands.status_id = 7 AND (last_name LIKE '%".$term."%' OR brands.name LIKE '%".$term."%' OR m_last_name LIKE '%".$term."%' OR text LIKE '%".$term."%') LIMIT ".$pageA.", 15");
-                $brandsApprovedCount = $wpdb->get_results("SELECT COUNT(brand_id)as cont FROM brands INNER JOIN wp_posts on ID = wp_post_id WHERE  brands.status_id = 7 AND (last_name LIKE '%".$term."%' OR brands.name LIKE '%".$term."%' OR m_last_name LIKE '%".$term."%' OR text LIKE '%".$term."%')");
+                $brandsAll = $wpdb->get_results("SELECT brand_id, brands.name, last_name, statuses.name as status_name FROM brands INNER JOIN statuses on brands.status_id = statuses.status_id WHERE (last_name LIKE '%".$term."%' OR brands.name LIKE '%".$term."%' OR m_last_name LIKE '%".$term."%' OR text LIKE '%".$term."%') LIMIT ".$pageAll.", 15");
+                $brandsAllCount = $wpdb->get_results("SELECT COUNT(brand_id) as cont FROM brands WHERE  (last_name LIKE '%".$term."%' OR brands.name LIKE '%".$term."%' OR m_last_name LIKE '%".$term."%' OR text LIKE '%".$term."%')");
+                $brandsReview = $wpdb->get_results("SELECT brand_id, brands.name, last_name, statuses.name as status_name FROM brands INNER JOIN statuses on brands.status_id = statuses.status_id WHERE brands.status_id < 3 AND (last_name LIKE '%".$term."%' OR brands.name LIKE '%".$term."%' OR m_last_name LIKE '%".$term."%' OR text LIKE '%".$term."%') LIMIT ".$pageR.", 15");
+                $brandsReviewCount = $wpdb->get_results("SELECT COUNT(brand_id)as cont FROM brands WHERE  brands.status_id < 3 AND (last_name LIKE '%".$term."%' OR brands.name LIKE '%".$term."%' OR m_last_name LIKE '%".$term."%' OR text LIKE '%".$term."%')");
+                $brandsInProcess = $wpdb->get_results("SELECT brand_id, brands.name, last_name, statuses.name as status_name FROM brands INNER JOIN statuses on brands.status_id = statuses.status_id WHERE brands.status_id = 3 AND (last_name LIKE '%".$term."%' OR brands.name LIKE '%".$term."%' OR m_last_name LIKE '%".$term."%' OR text LIKE '%".$term."%') LIMIT ".$pageP.", 15");
+                $brandsInProcessCount = $wpdb->get_results("SELECT COUNT(brand_id)as cont FROM brands WHERE  brands.status_id = 3 AND (last_name LIKE '%".$term."%' OR brands.name LIKE '%".$term."%' OR m_last_name LIKE '%".$term."%' OR text LIKE '%".$term."%')");
+                $brandsInExam = $wpdb->get_results("SELECT brand_id, brands.name, last_name, statuses.name as status_name FROM brands INNER JOIN statuses on brands.status_id = statuses.status_id WHERE brands.status_id = 4 AND (last_name LIKE '%".$term."%' OR brands.name LIKE '%".$term."%' OR m_last_name LIKE '%".$term."%' OR text LIKE '%".$term."%') LIMIT ".$pageP.", 15");
+                $brandsInExamCount = $wpdb->get_results("SELECT COUNT(brand_id)as cont FROM brands WHERE  brands.status_id = 4 AND (last_name LIKE '%".$term."%' OR brands.name LIKE '%".$term."%' OR m_last_name LIKE '%".$term."%' OR text LIKE '%".$term."%')");
+                $brandsInObstacle = $wpdb->get_results("SELECT brand_id, brands.name, last_name, statuses.name as status_name FROM brands INNER JOIN statuses on brands.status_id = statuses.status_id WHERE brands.status_id = 5 AND (last_name LIKE '%".$term."%' OR brands.name LIKE '%".$term."%' OR m_last_name LIKE '%".$term."%' OR text LIKE '%".$term."%') LIMIT ".$pageP.", 15");
+                $brandsInObstacleCount = $wpdb->get_results("SELECT COUNT(brand_id)as cont FROM brands WHERE  brands.status_id = 5 AND (last_name LIKE '%".$term."%' OR brands.name LIKE '%".$term."%' OR m_last_name LIKE '%".$term."%' OR text LIKE '%".$term."%')");
+                $brandsDenied = $wpdb->get_results("SELECT brand_id, brands.name, last_name, statuses.name as status_name FROM brands INNER JOIN statuses on brands.status_id = statuses.status_id WHERE brands.status_id = 6 AND (last_name LIKE '%".$term."%' OR brands.name LIKE '%".$term."%' OR m_last_name LIKE '%".$term."%' OR text LIKE '%".$term."%') LIMIT ".$pageD.", 15");
+                $brandsDeniedCount = $wpdb->get_results("SELECT COUNT(brand_id)as cont FROM brands WHERE  brands.status_id = 6 AND (last_name LIKE '%".$term."%' OR brands.name LIKE '%".$term."%' OR m_last_name LIKE '%".$term."%' OR text LIKE '%".$term."%')");
+                $brandsApproved = $wpdb->get_results("SELECT brand_id, brands.name, last_name, statuses.name as status_name FROM brands INNER JOIN statuses on brands.status_id = statuses.status_id WHERE brands.status_id = 7 AND (last_name LIKE '%".$term."%' OR brands.name LIKE '%".$term."%' OR m_last_name LIKE '%".$term."%' OR text LIKE '%".$term."%') LIMIT ".$pageA.", 15");
+                $brandsApprovedCount = $wpdb->get_results("SELECT COUNT(brand_id)as cont FROM brands WHERE  brands.status_id = 7 AND (last_name LIKE '%".$term."%' OR brands.name LIKE '%".$term."%' OR m_last_name LIKE '%".$term."%' OR text LIKE '%".$term."%')");
             }else{
-                $brandsAll = $wpdb->get_results("SELECT brand_id, brands.name, last_name, text, statuses.name as status_name, post_status FROM brands INNER JOIN statuses on brands.status_id = statuses.status_id INNER JOIN wp_posts on ID = wp_post_id LIMIT ".$pageAll.", 15");
-                $brandsAllCount = $wpdb->get_results("SELECT COUNT(brand_id) as cont FROM brands INNER JOIN wp_posts on ID = wp_post_id");
-                $brandsReview = $wpdb->get_results("SELECT brand_id, brands.name, last_name, text, statuses.name as status_name, post_status FROM brands INNER JOIN statuses on brands.status_id = statuses.status_id INNER JOIN wp_posts on ID = wp_post_id WHERE brands.status_id < 3 LIMIT ".$pageR.", 15");
-                $brandsReviewCount = $wpdb->get_results("SELECT COUNT(brand_id)as cont FROM brands INNER JOIN wp_posts on ID = wp_post_id WHERE  brands.status_id < 3");
-                $brandsInProcess = $wpdb->get_results("SELECT brand_id, brands.name, last_name, text, statuses.name as status_name, post_status FROM brands INNER JOIN statuses on brands.status_id = statuses.status_id INNER JOIN wp_posts on ID = wp_post_id WHERE brands.status_id = 3 LIMIT ".$pageP.", 15");
-                $brandsInProcessCount = $wpdb->get_results("SELECT COUNT(brand_id)as cont FROM brands INNER JOIN wp_posts on ID = wp_post_id WHERE  brands.status_id = 3");
-                $brandsInExam = $wpdb->get_results("SELECT brand_id, brands.name, last_name, text, statuses.name as status_name, post_status FROM brands INNER JOIN statuses on brands.status_id = statuses.status_id INNER JOIN wp_posts on ID = wp_post_id WHERE brands.status_id = 4 LIMIT ".$pageP.", 15");
-                $brandsInExamCount = $wpdb->get_results("SELECT COUNT(brand_id)as cont FROM brands INNER JOIN wp_posts on ID = wp_post_id WHERE  brands.status_id = 4");
-                $brandsInObstacle = $wpdb->get_results("SELECT brand_id, brands.name, last_name, text, statuses.name as status_name, post_status FROM brands INNER JOIN statuses on brands.status_id = statuses.status_id INNER JOIN wp_posts on ID = wp_post_id WHERE brands.status_id = 5 LIMIT ".$pageP.", 15");
-                $brandsInObstacleCount = $wpdb->get_results("SELECT COUNT(brand_id)as cont FROM brands INNER JOIN wp_posts on ID = wp_post_id WHERE  brands.status_id = 5");
-                $brandsDenied = $wpdb->get_results("SELECT brand_id, brands.name, last_name, text, statuses.name as status_name, post_status FROM brands INNER JOIN statuses on brands.status_id = statuses.status_id INNER JOIN wp_posts on ID = wp_post_id WHERE brands.status_id = 6 LIMIT ".$pageD.", 15");
-                $brandsDeniedCount = $wpdb->get_results("SELECT COUNT(brand_id)as cont FROM brands INNER JOIN wp_posts on ID = wp_post_id WHERE  brands.status_id = 6");
-                $brandsApproved = $wpdb->get_results("SELECT brand_id, brands.name, last_name, text, statuses.name as status_name, post_status FROM brands INNER JOIN statuses on brands.status_id = statuses.status_id INNER JOIN wp_posts on ID = wp_post_id WHERE brands.status_id = 7 LIMIT ".$pageA.", 15");
-                $brandsApprovedCount = $wpdb->get_results("SELECT COUNT(brand_id)as cont FROM brands INNER JOIN wp_posts on ID = wp_post_id WHERE  brands.status_id = 7");
+                $brandsAll = $wpdb->get_results("SELECT brand_id, brands.name, last_name, statuses.name as status_name FROM brands INNER JOIN statuses on brands.status_id = statuses.status_id LIMIT ".$pageAll.", 15");
+                $brandsAllCount = $wpdb->get_results("SELECT COUNT(brand_id) as cont FROM brands");
+                $brandsReview = $wpdb->get_results("SELECT brand_id, brands.name, last_name, statuses.name as status_name FROM brands INNER JOIN statuses on brands.status_id = statuses.status_id WHERE brands.status_id < 3 LIMIT ".$pageR.", 15");
+                $brandsReviewCount = $wpdb->get_results("SELECT COUNT(brand_id)as cont FROM brands WHERE  brands.status_id < 3");
+                $brandsInProcess = $wpdb->get_results("SELECT brand_id, brands.name, last_name, statuses.name as status_name FROM brands INNER JOIN statuses on brands.status_id = statuses.status_id WHERE brands.status_id = 3 LIMIT ".$pageP.", 15");
+                $brandsInProcessCount = $wpdb->get_results("SELECT COUNT(brand_id)as cont FROM brands WHERE  brands.status_id = 3");
+                $brandsInExam = $wpdb->get_results("SELECT brand_id, brands.name, last_name, statuses.name as status_name FROM brands INNER JOIN statuses on brands.status_id = statuses.status_id WHERE brands.status_id = 4 LIMIT ".$pageP.", 15");
+                $brandsInExamCount = $wpdb->get_results("SELECT COUNT(brand_id)as cont FROM brands WHERE  brands.status_id = 4");
+                $brandsInObstacle = $wpdb->get_results("SELECT brand_id, brands.name, last_name, statuses.name as status_name FROM brands INNER JOIN statuses on brands.status_id = statuses.status_id WHERE brands.status_id = 5 LIMIT ".$pageP.", 15");
+                $brandsInObstacleCount = $wpdb->get_results("SELECT COUNT(brand_id)as cont FROM brands WHERE  brands.status_id = 5");
+                $brandsDenied = $wpdb->get_results("SELECT brand_id, brands.name, last_name, statuses.name as status_name FROM brands INNER JOIN statuses on brands.status_id = statuses.status_id WHERE brands.status_id = 6 LIMIT ".$pageD.", 15");
+                $brandsDeniedCount = $wpdb->get_results("SELECT COUNT(brand_id)as cont FROM brands WHERE  brands.status_id = 6");
+                $brandsApproved = $wpdb->get_results("SELECT brand_id, brands.name, last_name, statuses.name as status_name FROM brands INNER JOIN statuses on brands.status_id = statuses.status_id WHERE brands.status_id = 7 LIMIT ".$pageA.", 15");
+                $brandsApprovedCount = $wpdb->get_results("SELECT COUNT(brand_id)as cont FROM brands WHERE  brands.status_id = 7");
             }
             ?>
             <div class="hidden"><?php print_r($brandsAll); ?></div>
             <div class="tab-content">
                 <div role="tabpanel" id="all" class="tab-pane fade <?php if($tab=='all'){echo ("in active");} ?>">
                     <table class="admin-table">
-                        <thead class="white">
-                        <tr>
-                            <th>Nombre</th>
-                            <!--<th>Razón Social</th>-->
-                            <th>Estado de pago</th>
-                            <th>Estado</th>
+                        <colgroup>
+                            <col style="width: 10%;">
+                            <col style="width: 30%;">
+                            <col style="width: 30%;">
+                            <col style="width: 10%;">
+                            <col style="width: 10%;">
+                        </colgroup>
+                        <thead>
+                        <tr class="white">
+                            <th><span>FOLIO</span></th>
+                            <th><span>SOLICITUD</span></th>
+                            <th><span>ETAPA</span></th>
                         </tr>
                         </thead>
                         <tbody>
                         <?php
                         foreach($brandsAll as $brand) { ?>
+                            <?php
+                            if (intval($brand->status_id) < 3) {
+                                $type = 'BÚSQUEDA';
+                            } else {
+                                $type = 'REGISTRO';
+                            }
+                            ?>
                             <tr>
-                                <td><?php echo ($brand->name." ".$brand->last_name) ?></td>
-                                <!--<td><?php echo ($brand->social_reason." ".$brand->text) ?></td>-->
-                                <td><?php echo $order_statuses[$brand->post_status] ?></td>
-                                <td><a href="<?php echo home_url().'/actualizar-solicitud?id='.$brand->brand_id?>"><?php echo ($brand->status_name) ?></a></td>
+                                <td><?php echo $brand->brand_id ?></td>
+                                <td><?php echo $type ?></td>
+                                <td><?php echo $brand->status_name ?></td>
+                                <td style="background-color: transparent;">
+                                    <a class="btn red-btn white text-center" href="<?php echo home_url().'/actualizar-solicitud?id='.$brand->brand_id ?>">VER</a>
+                                </td>
                             </tr>
                         <?php } ?>
                         </tbody>
@@ -140,22 +155,37 @@ $order_statuses = array(
                 </div>
                 <div role="tabpanel" id="review" class="tab-pane fade <?php if($tab=='review'){echo ("in active");} ?>">
                     <table class="admin-table">
-                        <thead class="white">
-                        <tr>
-                            <th>Nombre</th>
-                            <!--<th>Razón Social</th>-->
-                            <th>Estado de pago</th>
-                            <th>Estado</th>
+                        <colgroup>
+                            <col style="width: 10%;">
+                            <col style="width: 30%;">
+                            <col style="width: 30%;">
+                            <col style="width: 10%;">
+                            <col style="width: 10%;">
+                        </colgroup>
+                        <thead>
+                        <tr class="white">
+                            <th><span>FOLIO</span></th>
+                            <th><span>SOLICITUD</span></th>
+                            <th><span>ETAPA</span></th>
                         </tr>
                         </thead>
                         <tbody>
                         <?php
                         foreach($brandsReview as $brand) { ?>
+                            <?php
+                            if (intval($brand->status_id) < 3) {
+                                $type = 'BÚSQUEDA';
+                            } else {
+                                $type = 'REGISTRO';
+                            }
+                            ?>
                             <tr>
-                                <td><?php echo ($brand->name." ".$brand->last_name) ?></td>
-                                <!--<td><?php echo ($brand->social_reason." ".$brand->text) ?></td>-->
-                                <td><?php echo $order_statuses[$brand->post_status] ?></td>
-                                <td><a href="<?php echo home_url().'/actualizar-solicitud?id='.$brand->brand_id?>"><?php echo ($brand->status_name) ?></a></td>
+                                <td><?php echo $brand->brand_id ?></td>
+                                <td><?php echo $type ?></td>
+                                <td><?php echo $brand->status_name ?></td>
+                                <td style="background-color: transparent;">
+                                    <a class="btn red-btn white text-center" href="<?php echo home_url().'/actualizar-solicitud?id='.$brand->brand_id ?>">VER</a>
+                                </td>
                             </tr>
                         <?php } ?>
                         </tbody>
@@ -182,23 +212,38 @@ $order_statuses = array(
                 </div>
                 <div role="tabpanel" id="process" class="tab-pane fade <?php if($tab=='process'){echo ("in active");} ?>">
                     <table class="admin-table">
-                        <thead class="white">
-                        <tr>
-                            <th>Nombre</th>
-                            <!--<th>Razón Social</th>-->
-                            <th>Estado de pago</th>
-                            <th>Estado</th>
+                        <colgroup>
+                            <col style="width: 10%;">
+                            <col style="width: 30%;">
+                            <col style="width: 30%;">
+                            <col style="width: 10%;">
+                            <col style="width: 10%;">
+                        </colgroup>
+                        <thead>
+                        <tr class="white">
+                            <th><span>FOLIO</span></th>
+                            <th><span>SOLICITUD</span></th>
+                            <th><span>ETAPA</span></th>
                         </tr>
                         </thead>
                         <tbody>
                         <?php
-                            foreach($brandsInProcess as $brand) { ?>
+                        foreach($brandsInProcess as $brand) { ?>
+                            <?php
+                            if (intval($brand->status_id) < 3) {
+                                $type = 'BÚSQUEDA';
+                            } else {
+                                $type = 'REGISTRO';
+                            }
+                            ?>
                             <tr>
-                                <td><?php echo ($brand->name." ".$brand->last_name) ?></td>
-                                <!--<td><?php echo ($brand->social_reason." ".$brand->text) ?></td>-->
-                                <td><?php echo $order_statuses[$brand->post_status] ?></td>
-                                <td><a href="<?php echo home_url().'/actualizar-solicitud?id='.$brand->brand_id?>"><?php echo ($brand->status_name) ?></a></td>
-                        </tr>
+                                <td><?php echo $brand->brand_id ?></td>
+                                <td><?php echo $type ?></td>
+                                <td><?php echo $brand->status_name ?></td>
+                                <td style="background-color: transparent;">
+                                    <a class="btn red-btn white text-center" href="<?php echo home_url().'/actualizar-solicitud?id='.$brand->brand_id ?>">VER</a>
+                                </td>
+                            </tr>
                         <?php } ?>
                         </tbody>
                     </table>
@@ -224,22 +269,37 @@ $order_statuses = array(
                 </div>
                 <div role="tabpanel" id="exam" class="tab-pane fade <?php if($tab=='exam'){echo ("in active");} ?>">
                     <table class="admin-table">
-                        <thead class="white">
-                        <tr>
-                            <th>Nombre</th>
-                            <!--<th>Razón Social</th>-->
-                            <th>Estado de pago</th>
-                            <th>Estado</th>
+                        <colgroup>
+                            <col style="width: 10%;">
+                            <col style="width: 30%;">
+                            <col style="width: 30%;">
+                            <col style="width: 10%;">
+                            <col style="width: 10%;">
+                        </colgroup>
+                        <thead>
+                        <tr class="white">
+                            <th><span>FOLIO</span></th>
+                            <th><span>SOLICITUD</span></th>
+                            <th><span>ETAPA</span></th>
                         </tr>
                         </thead>
                         <tbody>
                         <?php
                         foreach($brandsInExam as $brand) { ?>
+                            <?php
+                            if (intval($brand->status_id) < 3) {
+                                $type = 'BÚSQUEDA';
+                            } else {
+                                $type = 'REGISTRO';
+                            }
+                            ?>
                             <tr>
-                                <td><?php echo ($brand->name." ".$brand->last_name) ?></td>
-                                <!--<td><?php echo ($brand->social_reason." ".$brand->text) ?></td>-->
-                                <td><?php echo $order_statuses[$brand->post_status] ?></td>
-                                <td><a href="<?php echo home_url().'/actualizar-solicitud?id='.$brand->brand_id?>"><?php echo ($brand->status_name) ?></a></td>
+                                <td><?php echo $brand->brand_id ?></td>
+                                <td><?php echo $type ?></td>
+                                <td><?php echo $brand->status_name ?></td>
+                                <td style="background-color: transparent;">
+                                    <a class="btn red-btn white text-center" href="<?php echo home_url().'/actualizar-solicitud?id='.$brand->brand_id ?>">VER</a>
+                                </td>
                             </tr>
                         <?php } ?>
                         </tbody>
@@ -266,22 +326,37 @@ $order_statuses = array(
                 </div>
                 <div role="tabpanel" id="obstacle" class="tab-pane fade <?php if($tab=='obstacle'){echo ("in active");} ?>">
                     <table class="admin-table">
-                        <thead class="white">
-                        <tr>
-                            <th>Nombre</th>
-                            <!--<th>Razón Social</th>-->
-                            <th>Estado de pago</th>
-                            <th>Estado</th>
+                        <colgroup>
+                            <col style="width: 10%;">
+                            <col style="width: 30%;">
+                            <col style="width: 30%;">
+                            <col style="width: 10%;">
+                            <col style="width: 10%;">
+                        </colgroup>
+                        <thead>
+                        <tr class="white">
+                            <th><span>FOLIO</span></th>
+                            <th><span>SOLICITUD</span></th>
+                            <th><span>ETAPA</span></th>
                         </tr>
                         </thead>
                         <tbody>
                         <?php
                         foreach($brandsInObstacle as $brand) { ?>
+                            <?php
+                            if (intval($brand->status_id) < 3) {
+                                $type = 'BÚSQUEDA';
+                            } else {
+                                $type = 'REGISTRO';
+                            }
+                            ?>
                             <tr>
-                                <td><?php echo ($brand->name." ".$brand->last_name) ?></td>
-                                <!--<td><?php echo ($brand->social_reason." ".$brand->text) ?></td>-->
-                                <td><?php echo $order_statuses[$brand->post_status] ?></td>
-                                <td><a href="<?php echo home_url().'/actualizar-solicitud?id='.$brand->brand_id?>"><?php echo ($brand->status_name) ?></a></td>
+                                <td><?php echo $brand->brand_id ?></td>
+                                <td><?php echo $type ?></td>
+                                <td><?php echo $brand->status_name ?></td>
+                                <td style="background-color: transparent;">
+                                    <a class="btn red-btn white text-center" href="<?php echo home_url().'/actualizar-solicitud?id='.$brand->brand_id ?>">VER</a>
+                                </td>
                             </tr>
                         <?php } ?>
                         </tbody>
@@ -309,22 +384,37 @@ $order_statuses = array(
                 </div>
                 <div role="tabpanel" id="approved" class="tab-pane fade <?php if($tab=='approved'){echo ("in active");} ?>">
                     <table class="admin-table">
-                        <thead class="white">
-                        <tr>
-                            <th>Nombre</th>
-                            <!--<th>Razón Social</th>-->
-                            <th>Estado de pago</th>
-                            <th>Estado</th>
+                        <colgroup>
+                            <col style="width: 10%;">
+                            <col style="width: 30%;">
+                            <col style="width: 30%;">
+                            <col style="width: 10%;">
+                            <col style="width: 10%;">
+                        </colgroup>
+                        <thead>
+                        <tr class="white">
+                            <th><span>FOLIO</span></th>
+                            <th><span>SOLICITUD</span></th>
+                            <th><span>ETAPA</span></th>
                         </tr>
                         </thead>
                         <tbody>
                         <?php
                         foreach($brandsApproved as $brand) { ?>
+                            <?php
+                            if (intval($brand->status_id) < 3) {
+                                $type = 'BÚSQUEDA';
+                            } else {
+                                $type = 'REGISTRO';
+                            }
+                            ?>
                             <tr>
-                                <td><?php echo ($brand->name." ".$brand->last_name) ?></td>
-                                <!--<td><?php echo ($brand->social_reason." ".$brand->text) ?></td>-->
-                                <td><?php echo $order_statuses[$brand->post_status] ?></td>
-                                <td><a href="<?php echo home_url().'/actualizar-solicitud?id='.$brand->brand_id?>"><?php echo ($brand->status_name) ?></a></td>
+                                <td><?php echo $brand->brand_id ?></td>
+                                <td><?php echo $type ?></td>
+                                <td><?php echo $brand->status_name ?></td>
+                                <td style="background-color: transparent;">
+                                    <a class="btn red-btn white text-center" href="<?php echo home_url().'/actualizar-solicitud?id='.$brand->brand_id ?>">VER</a>
+                                </td>
                             </tr>
                         <?php } ?>
                         </tbody>
@@ -351,22 +441,37 @@ $order_statuses = array(
                 </div>
                 <div role="tabpanel" id="decline" class="tab-pane fade <?php if($tab=='decline'){echo ("in active");} ?>">
                     <table class="admin-table">
-                        <thead class="white">
-                        <tr>
-                            <th>Nombre</th>
-                            <!--<th>Razón Social</th>-->
-                            <th>Estado de pago</th>
-                            <th>Estado</th>
+                        <colgroup>
+                            <col style="width: 10%;">
+                            <col style="width: 30%;">
+                            <col style="width: 30%;">
+                            <col style="width: 10%;">
+                            <col style="width: 10%;">
+                        </colgroup>
+                        <thead>
+                        <tr class="white">
+                            <th><span>FOLIO</span></th>
+                            <th><span>SOLICITUD</span></th>
+                            <th><span>ETAPA</span></th>
                         </tr>
                         </thead>
                         <tbody>
                         <?php
-                        foreach($brandsDenied as $brand){ ?>
+                        foreach($brandsDenied as $brand) { ?>
+                            <?php
+                            if (intval($brand->status_id) < 3) {
+                                $type = 'BÚSQUEDA';
+                            } else {
+                                $type = 'REGISTRO';
+                            }
+                            ?>
                             <tr>
-                                <td><?php echo ($brand->name." ".$brand->last_name) ?></td>
-                                <!--<td><?php echo ($brand->social_reason." ".$brand->text) ?></td>-->
-                                <td><?php echo $order_statuses[$brand->post_status] ?></td>
-                                <td><a href="<?php echo home_url().'/actualizar-solicitud?id='.$brand->brand_id?>"><?php echo ($brand->status_name) ?></a></td>
+                                <td><?php echo $brand->brand_id ?></td>
+                                <td><?php echo $type ?></td>
+                                <td><?php echo $brand->status_name ?></td>
+                                <td style="background-color: transparent;">
+                                    <a class="btn red-btn white text-center" href="<?php echo home_url().'/actualizar-solicitud?id='.$brand->brand_id ?>">VER</a>
+                                </td>
                             </tr>
                         <?php } ?>
                         </tbody>

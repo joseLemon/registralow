@@ -20,8 +20,12 @@ foreach( $_POST as $key => $P) {
 
 //return print_r($array);
 
+/*echo "UPDATE `brands` SET `name` = '".$array['solicitor_name']."',`last_name` = '".$array['last_name']."',`m_last_name` = '".$array['m_last_name']."',`email` = '".$array['email']."',`street` = '".$array['street']."',`ext_num` = '".$array['exterior']."',`int_num` = '".$array['interior']."',`colony` = '".$array['colony']."',`postal_code` = '".$array['postal']."',`town` = '".$array['town']."',`state` = '".$array['state']."',`country` = '".$array['country']."',`is_registered` = 1 WHERE `brands`.`brand_id` = ".$array['brand_id'].";";
+
+return;*/
+
 if ( isset($_POST['submit']) ) {
-    $wpdb->query("UPDATE `brands` SET `name` = '".$array['solicitor_name']."',`last_name` = '".$array['last_name']."',`m_last_name` = '".$array['m_last_name']."',`email` = '".$array['email']."',`street` = '".$array['street']."',`ext_num` = '".$array['exterior']."',`int_num` = '".$array['interior']."',`colony` = '".$array['colony']."',`postal_code` = '".$array['postal']."',`town` = '".$array['town']."',`postal_code` = '".$array['town']."',`state` = '".$array['state']."',`country` = '".$array['country']."',`business_course_id` = '".$array['bussiness_course']."',`business_course_id` = '".$array['bussiness_course']."' WHERE `brands`.`brand_id` = ".$array['brand_id'].";");
+    $wpdb->query("UPDATE `brands` SET `name` = '".$array['solicitor_name']."',`last_name` = '".$array['last_name']."',`m_last_name` = '".$array['m_last_name']."',`email` = '".$array['email']."',`street` = '".$array['street']."',`ext_num` = '".$array['exterior']."',`int_num` = '".$array['interior']."',`colony` = '".$array['colony']."',`postal_code` = '".$array['postal']."',`town` = '".$array['town']."',`state` = '".$array['state']."',`country` = '".$array['country']."',`is_registered` = 1 WHERE `brands`.`brand_id` = ".$array['brand_id'].";");
 } else if( isset($_POST['submit_revision']) ) {
     $wpdb->query("INSERT INTO `brands` (`brand_id`, `brand_type_id`, `text`, `design`, `three_dimensional`, `business_course`, `product_type`, `bussiness_course_description`, `brand_first_use_date`, `status_id`, `first_time`, `user_id`, `street`, `ext_num`, `int_num`, `postal_code`, `colony`, `town`, `state`, `country`, `b_street`, `b_ext_num`, `b_int_num`, `b_postal_code`, `b_colony`, `b_town`, `b_state`, `b_country`, `name`, `last_name`, `m_last_name`, `birthday`, `phone`, `email`, `created_at`, `rfc`  ) VALUES (NULL, ".$array['options'].", '".$array['text']."', '".$array['design']."', '".$array['three_dimensional']."', '".$array['business_course']."', '".$array['product_course']."', '".$array['description']."', '$b_date', '0', 1, '".$ID."', '".$array['street']."', '".$array['exterior']."', '".$array['interior']."', ".$array['postal'].", '".$array['colony']."', '".$array['town']."', '".$array['state']."', '".$array['country']."', '".$array['b_street']."', '".$array['b_exterior']."', '".$array['b_interior']."', ".$array['b_postal'].", '".$array['b_colony']."', '".$array['b_town']."', '".$array['b_state']."', '".$array['b_country']."', '".$array['solicitor_name']."', '".$array['last_name']."', '".$array['m_last_name']."', '$date', '".$array['phone']."', '".$array['email']."', '".date('Y-m-d H:i:s')."', '".$array['rfc']."')");
 } else if( isset($_POST['submit_cambiar']) ) {
@@ -135,7 +139,8 @@ if( isset($_POST['submit_cambiar']) ) {
 $woocommerce->cart->empty_cart();
 
 if ( isset($_POST['submit']) ) {
-    $woocommerce->cart->add_to_cart( 67, $quantity=1 );
+    wp_redirect(home_url().'/registro/?id='.$array['brand_id']);
+    exit();
 } else if( isset($_POST['submit_revision']) ) {
     $woocommerce->cart->add_to_cart( 79, $quantity=1 );
 } else if( isset($_POST['submit_cambiar']) ) {
