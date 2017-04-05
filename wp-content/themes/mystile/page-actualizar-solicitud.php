@@ -1,6 +1,6 @@
 <?php include('header.php'); ?>
 <?php
-if (!function_exists('http_response_code')) {
+/*if (!function_exists('http_response_code')) {
     function http_response_code($code = NULL) {
 
         if ($code !== NULL) {
@@ -72,7 +72,7 @@ if( isset($_POST['status']) ) {
     $brand = $brand[0];
 
     // multiple recipients
-    $to  = $brand->email;
+    $to  = $brand[0]->email;
 
     $solicitud = 'http://registralow.com/site/seguimiento/?id='.$ID;
 
@@ -127,24 +127,24 @@ if( isset($_POST['status']) ) {
             ';
             break;
         case 3:
-	        /*$subject = 'Solicitud en proceso';
+	        $subject = 'Solicitud en proceso';
 	        $message = '
-            ';*/
+            ';
             break;
         case 4:
-	        /*$subject = 'En examen de la autoridad';
+	        $subject = 'En examen de la autoridad';
 	        $message = '
-            ';*/
+            ';
             break;
         case 5:
-	        /*$subject = 'En obstáculo de la autoridad';
+	        $subject = 'En obstáculo de la autoridad';
 	        $message = '
-            ';*/
+            ';
             break;
         case 6:
-	        /*$subject = 'Denegado';
+	        $subject = 'Denegado';
 	        $message = '
-            ';*/
+            ';
             break;
         case 7:
             $subject = '¡Tu marca ha sido registrada!';
@@ -174,14 +174,43 @@ if( isset($_POST['status']) ) {
         //echo "Oops! Hubo un error no pudimos mandar su mensaje.";
     }
 }
-$ID = $_GET['id'];
-$brand = $wpdb->get_results("SELECT * FROM brands WHERE brand_id =".$ID." LIMIT 1");
-$brand = $brand[0];
-$solicitud = get_bloginfo('template_url').'/img/seguimiento/';
+*/
+$brand_id = $_GET['id'];
+$brand = $wpdb->get_results("SELECT *, brands.name as solicitor_name, statuses.name as status_name FROM brands JOIN business_course ON brands.business_course_id = business_course.business_course_id JOIN statuses ON brands.status_id = statuses.status_id WHERE brand_id =".$brand_id." LIMIT 1");
+
+if (intval($brand[0]->status_id) < 3) {
+    $type_flag = 0;
+    $type = 'BÚSQUEDA';
+} else {
+    $type = 'REGISTRO';
+    $type_flag = 1;
+}
+
+if ($brand[0]->from_revision == 1) {
+    if($brand[0]->is_paid_revision == 1) {
+        $paid_status = 'Pagado';
+    } else {
+        $paid_status = '<span class="red">No Pagado</span>';
+    }
+} else {
+    if($brand[0]->is_paid_register == 1) {
+        $paid_status = 'Pagado';
+    } else {
+        $paid_status = '<span class="red">No Pagado</span>';
+    }
+}
+
+$brand_img_src = get_bloginfo('template_url').'/uploads/'.$_GET['id'].'/brand.png';
+$file_m_time = filemtime(dirname(__FILE__).'/uploads/'.$_GET['id'].'/brand.png');
+$brand_img_src = $brand_img_src.'?'.$file_m_time;
+
+$business_course = $wpdb->get_results("SELECT business_course_name FROM business_course WHERE business_course_id = ".$brand[0]->business_course_id);
+
+/*$solicitud = get_bloginfo('template_url').'/img/seguimiento/';
 $proceso = get_bloginfo('template_url').'/img/seguimiento/';
 $registro = get_bloginfo('template_url').'/img/seguimiento/';
 
-switch( $brand->status_id ) {
+switch( $brand[0]->status_id ) {
     case 0:
         $solicitud = $solicitud.'solicitud.png';
         $proceso = $proceso.'proceso.png';
@@ -222,163 +251,163 @@ switch( $brand->status_id ) {
         $proceso = $proceso.'proceso-green.png';
         $registro = $registro.'registro-green.png';
         break;
-}
+}*/
 ?>
-    <form action="<?php echo (the_permalink().'?id='.$ID); ?>" method="post">
-        <input type="hidden" value="<?php echo($ID)?>" name="brand_id" id="brand_id">
+    <form action="<?php echo home_url().'/submitsolicitor'; ?>" method="post">
+        <input type="hidden" value="<?php echo $brand_id; ?>" name="brand_id" id="brand_id">
         <div class="wrapper registro seguimiento">
             <div class="container">
-                <div class="form-container active spacing">
-                    <!--
-                   <div class="info">
-                    <a href=""><img src="<?php bloginfo('template_directory'); ?>/img/icons/info.png" alt=""></a>
-                </div>
-                -->
-                    <h1 class="header blue text-center normal-weight">SEGUIMIENTO</h1>
-                    <div class="row light-spacing">
-                        <h3 class="blue text-center">INFORMACIÓN DEL SOLICITANTE</h3>
+                <div class="form-container active spacing actualizar">
+                    <h1 class="header blue normal-weight">SEGUIMIENTO</h1>
+
+                    <div class="indicators blue text-center row no-margin">
+                        <div class="col-sm-4">
+                            <h4 class="blue">SOLICITUD</h4>
+                            <div class="circle <?php if(($brand[0]->status_id < 3 && $brand[0]->status_id > 0) ||  $brand[0]->status_id >= 3) { echo 'active'; } if($brand[0]->status_id == 2) { echo ' failed'; }  ?>"></div>
+                        </div>
+                        <div class="col-sm-4">
+                            <h4 class="blue">PROCESO</h4>
+                            <div class="circle <?php if($brand[0]->status_id >= 4) { echo 'active'; } ?>"></div>
+                        </div>
+                        <div class="col-sm-4">
+                            <h4 class="blue">REGISTRO</h4>
+                            <div class="circle <?php if($brand[0]->status_id >= 5) { echo 'active'; } ?>"></div>
+                        </div>
+                    </div>
+
+                    <div class="col-sm-3"></div>
+                    <div class="col-sm-6">
+                        <img src="<?php echo $brand_img_src; ?>" alt="Marca" class="img-responsive center-block">
+                    </div>
+                    <div class="col-sm-12">
+                        <div class="slim-yellow-divider"></div>
+                    </div>
+                    <div class="clearfix"></div>
+                    <div class="row">
+                        <h3 class="blue">INFORMACIÓN DE LA SOLICITUD</h3>
+                        <p>Estatus del pago: <?php echo $paid_status; ?></p>
+                        <?php
+                        if($brand[0]->is_changed == 1 && $brand[0]->from_revision == 1) {
+                            echo '<p><span class="red">*</span> El cliente ha aceptado cambiar su marca.</p>';
+                        }
+                        ?>
                         <table>
+                            <colgroup>
+                                <col style="width: 20%">
+                                <col style="width: 26.6666667%">
+                                <col style="width: 26.6666667%">
+                                <col style="width: 26.6666667%">
+                            </colgroup>
                             <thead class="white">
                             <tr>
-                                <th>Nombre</th>
-                                <th>RFC</th>
-                                <th>Fecha de Nacimiento</th>
-                                <th>Teléfono</th>
-                                <th>Correo Electrónico</th>
+                                <th><span>FOLIO</span></th>
+                                <th><span>SOLICITUD</span></th>
+                                <th><span><?php if($brand[0]->is_product) { echo 'PRODUCTO'; } else { echo 'SERVICIO'; } ?></span></th>
+                                <th><span class="red">ETAPA</span></th>
                             </tr>
                             </thead>
                             <tbody class="text">
                             <tr>
-                                <td><?php echo $brand->name." ".$brand->last_name." ".$brand->m_last_name; ?></td>
-                                <td><?php echo $brand->rfc; ?></td>
-                                <td><?php echo date('d/m/Y', strtotime($brand->birthday)); ?></td>
-                                <td><?php echo $brand->phone; ?></td>
-                                <td><?php echo $brand->email; ?></td>
+                                <td><p><?php echo $brand[0]->brand_id; ?></p></td>
+                                <td><p><?php echo $type; ?></p></td>
+                                <td><p>
+                                        <?php
+                                        if($brand[0]->others_name) {
+                                            echo $brand[0]->others_name;
+                                        } else {
+                                            echo $business_course[0]->business_course_name;
+                                        }
+                                        ?>
+                                    </p></td>
+                                <td class="to-uppercase"><p><?php echo $brand[0]->status_name; ?></p></td>
+                            </tr>
+                            </tbody>
+                        </table>
+                        <h3 class="blue">INFORMACIÓN DEL SOLICITANTE</h3>
+                        <table>
+                            <thead class="white">
+                            <tr>
+                                <th><span>NOMBRE</span></th>
+                                <th><span>EMAIL</span></th>
+                            </tr>
+                            </thead>
+                            <tbody class="text">
+                            <tr>
+                                <td><p><?php echo $brand[0]->solicitor_name." ".$brand[0]->last_name." ".$brand[0]->m_last_name; ?></p></td>
+                                <td><p><?php echo $brand[0]->email; ?></p></td>
                             </tr>
                             </tbody>
                         </table>
                         <div style="margin: 10px 0;" class="center-block"></div>
-                        <h3 class="blue text-center">DOMICILIO DEL SOLICITANTE</h3>
+                        <h3 class="blue">DOMICILIO DEL SOLICITANTE</h3>
                         <table>
                             <thead class="white">
                             <tr>
-                                <th>Calle</th>
-                                <th>Número Exterior</th>
-                                <th>Número Interior</th>
-                                <th>Código Postal</th>
+                                <th><span>CALLE</span></th>
+                                <th><span>NÚM. EXTERIOR</span></th>
+                                <th><span>NÚM. INTERIOR</span></th>
+                                <th><span>CÓDIGO POSTAL</span></th>
                             </tr>
                             </thead>
                             <tbody class="text">
                             <tr>
-                                <td><?php echo $brand->street; ?></td>
-                                <td><?php echo $brand->ext_num; ?></td>
-                                <td><?php echo $brand->int_num; ?></td>
-                                <td><?php echo $brand->postal_code; ?></td>
+                                <td><p><?php echo $brand[0]->street; ?></p></td>
+                                <td><p><?php echo $brand[0]->ext_num; ?></p></td>
+                                <td><p><?php echo $brand[0]->int_num; ?></p></td>
+                                <td><p><?php echo $brand[0]->postal_code; ?></p></td>
                             </tr>
                             </tbody>
                         </table>
                         <table>
                             <thead class="white">
                             <tr>
-                                <th>Colonia</th>
-                                <th>Municipio</th>
-                                <!--<th>Localidad</th>-->
-                                <th>Estado</th>
-                                <th>País</th>
+                                <th><span>COLONIA</span></th>
+                                <th><span>MUNICIPIO</span></th>
+                                <th><span>ESTADO</span></th>
+                                <th><span>PAÍS</span></th>
                             </tr>
                             </thead>
                             <tbody class="text">
                             <tr>
-                                <td><?php echo $brand->colony; ?></td>
-                                <td><?php echo $brand->town; ?></td>
-                                <!--<td><?php echo $brand->locality; ?></td>-->
-                                <td><?php echo $brand->state; ?></td>
-                                <td><?php echo $brand->country; ?></td>
+                                <td><p><?php echo $brand[0]->colony; ?></p></td>
+                                <td><p><?php echo $brand[0]->town; ?></p></td>
+                                <td><p><?php echo $brand[0]->state; ?></p></td>
+                                <td><p><?php echo $brand[0]->country; ?></p></td>
                             </tr>
                             </tbody>
                         </table>
-                        <h3 class="blue text-center">GIRO COMERCIAL</h3>
-                        <p class="text"><span class="blue">Tipo: </span><?php echo $brand->business_course; ?></p>
-                        <?php if( $brand->bussiness_course == 'Productos' ) { ?>
-                            <p class="text"><span class="blue">Tipo de Producto: </span><?php echo $brand->product_type; ?></p>
-                        <?php } ?>
-                        <?php if( !$brand->brand_first_use_date == NULL ) { ?>
-                            <p class="text">
-                                <span class="blue">Usado desde:</span>
-                                <?php echo $brand->brand_first_use_date; ?>
-                            </p>
-                        <?php } ?>
-                        <p class="text text-justify">
-                            <?php echo $brand->bussiness_course_description; ?>
-                        </p>
-                        <?php if( !$brand->brand_first_use_date == NULL ) { ?>
-                            <h3 class="blue text-center">ESTABLECIMIENTO</h3>
-                            <table>
-                                <thead class="white">
-                                <tr>
-                                    <th>Calle</th>
-                                    <th>Colonia</th>
-                                    <th>Municipio</th>
-                                    <th>Estado</th>
-                                    <th>País</th>
-                                </tr>
-                                </thead>
-                                <tbody class="text">
-                                <tr>
-                                    <td><?php echo $brand->b_street; ?></td>
-                                    <td><?php echo $brand->b_colony; ?></td>
-                                    <td><?php echo $brand->b_town; ?></td>
-                                    <td><?php echo $brand->b_state; ?></td>
-                                    <td><?php echo $brand->b_country; ?></td>
-                                </tr>
-                                </tbody>
-                            </table>
-                        <?php } ?>
-                        <h3 class="blue text-center">COMENTARIOS</h3>
-                        <textarea name="comments" id="comments" cols="30" rows="10" placeholder="Comentarios" maxlength="254"><?php echo $brand->comments; ?></textarea>
+                        <h3 class="blue">COMENTARIOS</h3>
+                        <textarea style="color: #1a1a1a; font-size: 16px; font-weight: bold;" name="comments" id="comments_area" cols="30" rows="10" placeholder="Comentarios" maxlength="254"><?php echo $brand[0]->comments; ?></textarea>
                     </div>
-                    <div class="row text-center margin-bottom">
-                        <div class="col-sm-4 margin-top">
-                            <p class="gray text-center">Solicitud</p>
-                            <input type="text" class="hidden" value="">
-
-                            <img src="<?php echo $solicitud; ?>" alt="Solicitud">
-                            <hr class="right">
-                        </div>
-                        <div class="col-sm-4 margin-top">
-                            <p class="gray text-center">Proceso</p>
-                            <img src="<?php echo $proceso; ?>" alt="Proceso">
-                        </div>
-                        <div class="col-sm-4 margin-top">
-                            <p class="gray text-center">Registro</p>
-                            <img src="<?php echo $registro; ?>"  alt="Registro">
-                            <hr class="left">
-                        </div>
-                    </div>
-                    <div class="text-center actualizar-solicitud">
-                        <select name="status" id="status" style="max-width: 300px" class="center-block">
-                            <?php $statuses = $wpdb->get_results("SELECT status_id, name FROM statuses");
-                            foreach($statuses as $status){
-                                if($brand->status_id<3){
-                                    if($status->status_id<3){
-                                        if($status->status_id==$brand->status_id){?>
-                                            <option value="<?php echo $status->status_id ?>" selected><?php echo $status->name ?></option>
-                                        <?php   }else{ ?>
-                                            <option value="<?php echo $status->status_id ?>"><?php echo $status->name ?></option>
-                                        <?php   }
+                    <div class="row no-margin btns-container">
+                        <div class="col-sm-6 text-right">
+                            <select name="status" id="status" style="max-width: 300px;" class="center-block pull-right">
+                                <?php $statuses = $wpdb->get_results("SELECT status_id, name FROM statuses");
+                                foreach($statuses as $status){
+                                    if($brand[0]->status_id<3){
+                                        if($status->status_id<3){
+                                            if($status->status_id==$brand[0]->status_id){?>
+                                                <option value="<?php echo $status->status_id ?>" selected><?php echo $status->name ?></option>
+                                            <?php   }else{ ?>
+                                                <option value="<?php echo $status->status_id ?>"><?php echo $status->name ?></option>
+                                            <?php   }
+                                        }
+                                    }else{
+                                        if($status->status_id>2){
+                                            if($status->status_id==$brand[0]->status_id){?>
+                                                <option value="<?php echo $status->status_id ?>" selected><?php echo $status->name ?></option>
+                                            <?php   }else{ ?>
+                                                <option value="<?php echo $status->status_id ?>"><?php echo $status->name ?></option>
+                                            <?php   }
+                                        }
                                     }
-                                }else{
-                                    if($status->status_id>2){
-                                        if($status->status_id==$brand->status_id){?>
-                                            <option value="<?php echo $status->status_id ?>" selected><?php echo $status->name ?></option>
-                                        <?php   }else{ ?>
-                                            <option value="<?php echo $status->status_id ?>"><?php echo $status->name ?></option>
-                                        <?php   }
-                                    }
-                                }
-                            }?>
-                        </select>
-                        <input class="green-btn white" type="submit" value="Actualizar">
+                                }?>
+                            </select>
+                        </div>
+                        <div class="clearfix hidden-lg hidden-md hidden-sm"></div>
+                        <div class="col-sm-6 text-left">
+                            <input style="margin: 0;" class="btn green-btn white" type="submit" name="update_brand" value="Actualizar">
+                        </div>
                     </div>
                 </div>
             </div>

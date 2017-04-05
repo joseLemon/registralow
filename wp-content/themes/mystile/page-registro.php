@@ -2,33 +2,42 @@
 $current_user_id = get_current_user_id();
 
 if(isset($_GET['id'])) {
-    $brand_user_id = $wpdb->get_results('SELECT user_id FROM brands WHERE brand_id = '.$_GET['id'])[0];
+    $brand_user_id = $wpdb->get_results('SELECT user_id FROM brands WHERE brand_id = '.$_GET['id']);
 
-    if($brand_user_id->user_id != $current_user_id) {
+    if($brand_user_id[0]->user_id != $current_user_id) {
         wp_redirect(home_url());
     }
 } else {
     wp_redirect(home_url());
 }
 
-$brand = $wpdb->get_results( "SELECT *, brands.name as solicitor_name, statuses.name as status_name FROM `brands` JOIN business_course ON brands.business_course_id = business_course.business_course_id JOIN statuses ON brands.status_id = statuses.status_id WHERE brand_id =".$_GET['id']." limit 1" )[0];
+$brand = $wpdb->get_results( "SELECT *, brands.name as solicitor_name, statuses.name as status_name FROM `brands` JOIN business_course ON brands.business_course_id = business_course.business_course_id JOIN statuses ON brands.status_id = statuses.status_id WHERE brand_id =".$_GET['id']." limit 1" );
 
-if($brand->is_paid == 0) {
-    wp_redirect(home_url().'/pago/?id='.$brand->brand_id);
-}
+if (intval($brand[0]->status_id) < 3) {
 
-if (intval($brand->status_id) < 3) {
+    if($brand[0]->is_paid_revision == 0) {
+        wp_redirect(home_url().'/pago/?id='.$brand[0]->brand_id);
+    }
+
     $type = 'BÚSQUEDA';
-    $brand_img_src = get_bloginfo('template_url').'/uploads/busqueda/'.$_GET['id'].'/brand.png';
 } else {
+
+    if($brand[0]->is_paid_register == 0) {
+        wp_redirect(home_url().'/pago/?id='.$brand[0]->brand_id);
+    }
+
     $type = 'REGISTRO';
-    $brand_img_src = get_bloginfo('template_url').'/uploads/registro/'.$_GET['id'].'/brand.png';
 }
+
+$brand_img_src = get_bloginfo('template_url').'/uploads/'.$_GET['id'].'/brand.png';
+$file_m_time = filemtime(dirname(__FILE__).'/uploads/'.$_GET['id'].'/brand.png');
+$brand_img_src = $brand_img_src.'?'.$file_m_time;
 ?>
 <?php get_header(); ?>
+
     <div class="wrapper registro forma-registro">
         <div class="container tab-content spacing">
-            <?php if($brand->is_registered == 1) { ?>
+            <?php if($brand[0]->is_registered == 1) { ?>
                 <div class="indicators blue text-center row no-margin">
                     <div class="col-sm-3">
                         <h4 class="blue">Pago</h4>
@@ -89,62 +98,43 @@ if (intval($brand->status_id) < 3) {
                                 <button type="button" data-toggle="modal" data-target="#info-first">i</button>
                             </div>-->
                         </div>
-                        <div class="info-modal modal fade" id="info-first" role="dialog">
-                            <div class="modal-dialog">
-                                <div class="modal-content">
-                                    <div class="modal-header">
-                                        <button type="button" class="close" data-dismiss="modal">&times;</button>
-                                    </div>
-                                    <div class="modal-body">
-                                        <p class="text">
-                                            Atención:<br>
-                                            Tus datos deben ser correctos y completos, sobre todo por que el brindar
-                                            datos falsos en una solicitud ante el IMPI puede ocasionar perder un
-                                            registro legítimo en un futuro.<br><br>
-
-                                            Si quieres saber como tratamos tus datos. Visita nuestra <a href="" target="_blank">política de privacidad</a>.
-                                        </p>
-                                    </div>
-                                </div>
+                        <div class="row">
+                            <div class="col-sm-6">
+                                <label for="solicitor_name">Nombre(s)</label><input type="text" id="solicitor_name" name="solicitor_name" value="<?php echo $brand[0]->solicitor_name ?>">
+                            </div>
+                            <div class="col-sm-3">
+                                <label for="last_name">Apellido Paterno</label><input type="text" id="last_name" name="last_name" value="<?php echo $brand[0]->last_name ?>">
+                            </div>
+                            <div class="col-sm-3">
+                                <label for="m_last_name">Apellido Materno</label><input type="text" id="m_last_name" name="m_last_name" value="<?php echo $brand[0]->m_last_name ?>">
                             </div>
                         </div>
                         <div class="row">
                             <div class="col-sm-6">
-                                <label for="solicitor_name">Nombre(s)</label><input type="text" id="solicitor_name" name="solicitor_name" value="<?php echo $brand->solicitor_name ?>">
-                            </div>
-                            <div class="col-sm-3">
-                                <label for="last_name">Apellido Paterno</label><input type="text" id="last_name" name="last_name" value="<?php echo $brand->last_name ?>">
-                            </div>
-                            <div class="col-sm-3">
-                                <label for="m_last_name">Apellido Materno</label><input type="text" id="m_last_name" name="m_last_name" value="<?php echo $brand->m_last_name ?>">
-                            </div>
-                        </div>
-                        <div class="row">
-                            <div class="col-sm-6">
-                                <label for="email">Email</label><input type="text" id="email" name="email" value="<?php echo $brand->email ?>">
+                                <label for="email">Email</label><input type="text" id="email" name="email" value="<?php echo $brand[0]->email ?>">
                             </div>
                         </div>
                         <h1 class="header blue text-center normal-weight">DOMICILIO</h1>
                         <div class="row">
                             <div class="col-sm-6">
-                                <label for="street">Calle</label><input type="text" id="street" name="street"  value="<?php echo $brand->street ?>">
+                                <label for="street">Calle</label><input type="text" id="street" name="street"  value="<?php echo $brand[0]->street ?>">
                             </div>
                             <div class="col-sm-3 ">
-                                <label for="exterior">Núm. Exterior</label><input type="text" id="exterior" name="exterior"  value="<?php echo $brand->ext_num ?>">
+                                <label for="exterior">Núm. Exterior</label><input type="text" id="exterior" name="exterior"  value="<?php echo $brand[0]->ext_num ?>">
                             </div>
                             <div class="col-sm-3 ">
-                                <label for="interior">Núm. Interior</label><input type="text" id="interior" name="interior"  value="<?php echo $brand->int_num ?>">
+                                <label for="interior">Núm. Interior</label><input type="text" id="interior" name="interior"  value="<?php echo $brand[0]->int_num ?>">
                             </div>
                         </div>
                         <div class="row">
                             <div class="col-sm-6">
-                                <label for="colony">Colonia</label><input type="text" id="colony" name="colony"  value="<?php echo $brand->colony ?>">
+                                <label for="colony">Colonia</label><input type="text" id="colony" name="colony"  value="<?php echo $brand[0]->colony ?>">
                             </div>
                             <div class="col-sm-3 ">
-                                <label for="postal">Código Postal</label><input type="text" id="postal" name="postal"  value="<?php echo $brand->postal_code ?>">
+                                <label for="postal">Código Postal</label><input type="text" id="postal" name="postal"  value="<?php echo $brand[0]->postal_code ?>">
                             </div>
                             <div class="col-sm-3 ">
-                                <label for="town">Municipio</label><input type="text" id="town" name="town"  value="<?php echo $brand->town ?>">
+                                <label for="town">Municipio</label><input type="text" id="town" name="town"  value="<?php echo $brand[0]->town ?>">
                             </div>
                         </div>
                         <div class="row">
@@ -236,10 +226,15 @@ if (intval($brand->status_id) < 3) {
                         </div>
                         <div class="row">
                             <div class="col-sm-6">
-                                <label for="options"><?php if($brand->is_product) { echo 'Producto'; } else { echo 'Servicio'; } ?></label>
+                                <label for="options"><?php if($brand[0]->is_product) { echo 'Producto'; } else { echo 'Servicio'; } ?></label>
                                 <select name="options" id="options">
-                                    <!--<option disabled>---PRODUCTOS---</option>-->
-                                    <!--<?php $business_course = $wpdb->get_results("SELECT * FROM business_course");
+                                    <?php $business_course = $wpdb->get_results("SELECT * FROM business_course WHERE business_course_id = ".$brand[0]->business_course_id);?>
+                                    <?php $business_course_name = $business_course[0]->business_course_name; ?>
+                                    <?php echo '<option value="'.$brand[0]->business_course_id.'">'.$business_course_name.'</option>'; ?>
+                                </select>
+                                <select name="business_course" id="business_course" class="hidden" disabled>
+                                    <option disabled>---PRODUCTOS---</option>
+                                    <?php $business_course = $wpdb->get_results("SELECT * FROM business_course");
                                     foreach($business_course as $course){
                                         $needDescription = "";
                                         if($course->need_description == 1){
@@ -247,13 +242,13 @@ if (intval($brand->status_id) < 3) {
                                         }
                                         if( $course->is_product == 1 ) {
                                             ?>
-                                        <option <?php echo $needDescription; ?> value="<?php echo $course->business_course_id; ?>" <?php if($brand->business_course_id == $course->business_course_id) { echo 'selected'; }; ?>><?php echo $course->business_course_name; ?></option>
-                                        <?php
+                                            <option <?php echo $needDescription; ?> value="<?php echo $course->business_course_id; ?>" <?php if($brand[0]->business_course_id == $course->business_course_id) { echo 'selected'; }; ?>><?php echo $course->business_course_name; ?></option>
+                                            <?php
                                         }
                                     }
-                                    ?>-->
-                                    <!--<option disabled>---SERVICIOS---</option>-->
-                                    <!--<?php
+                                    ?>
+                                    <option disabled>---SERVICIOS---</option>
+                                    <?php
                                     foreach($business_course as $course){
                                         $needDescription = "";
                                         if($course->need_description == 1){
@@ -261,23 +256,22 @@ if (intval($brand->status_id) < 3) {
                                         }
                                         if( $course->is_product == 0 ) {
                                             ?>
-                                        <option <?php echo $needDescription; ?> value="<?php echo $course->business_course_id; ?>" <?php if($brand->business_course_id == $course->business_course_id) { echo 'selected'; }; ?>><?php echo $course->business_course_name; ?></option>
-                                        <?php
+                                            <option <?php echo $needDescription; ?> value="<?php echo $course->business_course_id; ?>" <?php if($brand[0]->business_course_id == $course->business_course_id) { echo 'selected'; }; ?>><?php echo $course->business_course_name; ?></option>
+                                            <?php
                                         }
                                     }
-                                    ?>-->
-                                    <?php $business_course = $wpdb->get_results("SELECT * FROM business_course WHERE business_course_id = ".$brand->business_course_id)[0];?>
-                                    <?php echo '<option value="'.$brand->business_course_id.'">'.$business_course->business_course_name.'</option>'; ?>
+                                    ?>
                                 </select>
+                                <input type="text" name="others" id="others" class="hidden" placeholder="Especifique" disabled value="<?php echo $brand[0]->others_name; ?>">
                             </div>
                             <div class="col-sm-6">
                                 <label for="text">Vista Previa de la Marca</label>
                                 <div class="img-container preview active">
-                                    <img src="<?php echo $brand_img_src; ?>" alt="Marca">
+                                    <img src="<?php echo $brand_img_src; ?>" alt="Vista Previa" class="center-block img-responsive" id="preview">
                                 </div>
                             </div>
                         </div>
-                        <div class="row nav" role="tablist">
+                        <div class="row nav btns-container" role="tablist">
                             <!--<div class="col-sm-6">
                                 <a href="#registro" class="white blue-btn btn center-block text-center smoothScroll" aria-controls="registro" role="tab" data-toggle="tab">ANTERIOR</a>
                             </div>-->
@@ -285,7 +279,7 @@ if (intval($brand->status_id) < 3) {
                                 <a id="validationTwo" onclick="validateTwo()" href="" class="white blue-btn btn text-center smoothScroll" aria-controls="giro" role="tab" data-toggle="tab">CONFIRMAR</a>
                             </div>
                             <div class="col-sm-6 text-left">
-                                <a href="#change-confirm" data-toggle="modal" data-target="#change-confirm" class="white red-btn btn text-center">CAMBIAR</a>
+                                <a href="#change-confirm" data-toggle="modal" data-target="#change-confirm" class="white red-btn btn text-center" id="change_btn">CAMBIAR</a>
                                 <div class="info red" style="top: 16px; margin-left: 20px;">
                                     <button type="button" data-toggle="modal" data-target="#info-change">i</button>
                                 </div>
@@ -307,23 +301,6 @@ if (intval($brand->status_id) < 3) {
                                         </div>
                                     </div>
                                 </div>
-                                <div class="modal fade" id="change-confirm" tabindex="-1" role="dialog">
-                                    <div class="modal-dialog" role="document">
-                                        <div class="modal-content">
-                                            <div class="modal-header">
-                                                <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
-                                                <h4 class="modal-title">Modal title</h4>
-                                            </div>
-                                            <div class="modal-body">
-                                                <p>One fine body&hellip;</p>
-                                            </div>
-                                            <div class="modal-footer">
-                                                <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
-                                                <button type="button" class="btn btn-primary">Save changes</button>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
                             </div>
                         </div>
                     </div>
@@ -334,7 +311,7 @@ if (intval($brand->status_id) < 3) {
                         </div>
                         <div class="col-sm-3"></div>
                         <div class="col-sm-6">
-                            <img src="<?php echo $brand_img_src; ?>" alt="Marca" class="img-responsive center-block">
+                            <img id="last_preview" src="<?php echo $brand_img_src; ?>" alt="Marca" class="img-responsive center-block">
                         </div>
                         <div class="col-sm-12">
                             <div class="slim-yellow-divider"></div>
@@ -363,23 +340,23 @@ if (intval($brand->status_id) < 3) {
                                             <span>ETAPA</span>
                                         </th>
                                         <th class="white">
-                                            <span style="margin-right: 0"><?php if($brand->is_product) { echo 'PRODUCTO'; } else { echo 'SERVICIO'; } ?></span>
+                                            <span style="margin-right: 0"><?php if($brand[0]->is_product) { echo 'PRODUCTO'; } else { echo 'SERVICIO'; } ?></span>
                                         </th>
                                     </tr>
                                     </thead>
                                     <tbody>
                                     <tr>
                                         <td>
-                                            <p class="no-margin"><?php echo $brand->brand_id ?></p>
+                                            <p class="no-margin"><?php echo $brand[0]->brand_id ?></p>
                                         </td>
                                         <td>
                                             <p class="no-margin"><?php echo $type ?></p>
                                         </td>
                                         <td>
-                                            <p class="no-margin"><?php echo $brand->status_name ?></p>
+                                            <p class="no-margin"><?php echo $brand[0]->status_name ?></p>
                                         </td>
                                         <td>
-                                            <p class="no-margin"><?php echo $course->business_course_name; ?></p>
+                                            <p class="no-margin to-uppercase" id="bc_name"></p>
                                         </td>
                                     </tr>
                                     </tbody>
@@ -528,13 +505,136 @@ if (intval($brand->status_id) < 3) {
                         <a href="legal">Aviso de Privacidad</a>
                     </p>
                 </div>
+                <div class="form-container" style="display: block;">
+                    <div class="info-modal modal fade" id="info-first" role="dialog">
+                        <div class="modal-dialog">
+                            <div class="modal-content">
+                                <div class="modal-header">
+                                    <button type="button" class="close" data-dismiss="modal">&times;</button>
+                                </div>
+                                <div class="modal-body">
+                                    <p class="text">
+                                        Atención:<br>
+                                        Tus datos deben ser correctos y completos, sobre todo por que el brindar
+                                        datos falsos en una solicitud ante el IMPI puede ocasionar perder un
+                                        registro legítimo en un futuro.<br><br>
+
+                                        Si quieres saber como tratamos tus datos. Visita nuestra <a href="" target="_blank">política de privacidad</a>.
+                                    </p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="info-modal modal fade" id="change-confirm" tabindex="-1" role="dialog">
+                        <div class="modal-dialog" role="document">
+                            <div class="modal-content">
+                                <div class="modal-header">
+                                    <button type="button" class="close" data-dismiss="modal">&times;</button>
+                                </div>
+                                <div class="modal-body">
+                                    <p>
+                                        Realizar un cambio en la marca y en los productos o servicios implica
+                                        cambiar legalmente la misma. (Si su trámite es un registro <u>sin previa
+                                            búsqueda</u> no tiene implicaciones, sin embargo, si se trata de un registro
+                                        que viene de una búsqueda realizada por nosotros, debe estar conciente en que
+                                        la misma no será vinculante con el resultado que se obtenga)
+                                    </p>
+                                </div>
+                                <div class="modal-footer">
+                                    <form action="<?php echo home_url() ?>/submitsolicitor" method="POST" id="change_confirm" style="display: inline-block;">
+                                        <input type="hidden" name="change_brand">
+                                        <input type="hidden" name="brand_id" value="<?php echo $brand[0]->brand_id ?>">
+                                        <button type="submit" class="btn red-btn white auto-width" style="margin: 0!important;" onclick="changeBrand();">ESTOY DE ACUERDO</button>
+                                    </form>
+                                    <?php if (intval($brand[0]->status_id) < 3) { ?>
+                                        <a href="<?php echo home_url(); ?> /solicitud" class="btn blue-btn auto-width" style="margin: 0!important;">QUIERO UNA NUEVA BÚSQUEDA</a>
+                                    <?php } ?>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
             <?php } ?>
         </div>
     </div>
+    <div class="loader">
+        <div class="sk-fading-circle">
+            <div class="sk-circle1 sk-circle"></div>
+            <div class="sk-circle2 sk-circle"></div>
+            <div class="sk-circle3 sk-circle"></div>
+            <div class="sk-circle4 sk-circle"></div>
+            <div class="sk-circle5 sk-circle"></div>
+            <div class="sk-circle6 sk-circle"></div>
+            <div class="sk-circle7 sk-circle"></div>
+            <div class="sk-circle8 sk-circle"></div>
+            <div class="sk-circle9 sk-circle"></div>
+            <div class="sk-circle10 sk-circle"></div>
+            <div class="sk-circle11 sk-circle"></div>
+            <div class="sk-circle12 sk-circle"></div>
+        </div>
+    </div>
     <script>
+        function readFile() {
+            if (this.files && this.files[0]) {
+                var FR = new FileReader();
+                FR.addEventListener("load", function(e) {
+                    document.getElementById("preview").src = e.target.result;
+                    document.getElementById("last_preview").src = e.target.result;
+                });
+                FR.readAsDataURL( this.files[0] );
+            }
+        }
+
         $('a[data-toggle="tab"], button[data-toggle="tab"').on('shown.bs.tab', function (e) {
             //$('.indicators .circle').removeClass('active');
             $('.indicators div[class*=col]:nth-of-type('+($('div[role=tabpanel].active').index()+1)+') .circle').addClass('active');
         });
+
+        $('#change_confirm button[type=submit]').click(function () {
+            $('#change_btn').addClass('disabled');
+        });
+
+        function changeBrand() {
+            $('#change_confirm').submit(function (e) {
+                e.preventDefault();
+            });
+
+            $('.loader').addClass('active');
+
+            $.ajax({
+                url: '<?php echo home_url().'/submitsolicitor' ?>',
+                type: 'post',
+                success: function () {
+                    // FIX HERE
+                    $img_change = '<div class="clearfix"></div>' +
+                        '<label for="brand_file" class="file-input">ADJUNTAR</label>' +
+                        '<input id="brand_file" name="brand_file" type="file" accept="image/x-png,image/jpeg">';
+
+                    $('#options').prop('disabled', true).addClass('hidden');
+                    $('#business_course').prop('disabled', false).removeClass('hidden');
+                    $('.img-container').after($img_change);
+
+                    document.getElementById("brand_file").addEventListener("change", readFile);
+
+                    $('#change_btn').after('<input type="hidden" name="change_flag" value="true"/>');
+
+                    $('#change-confirm').modal('hide');
+
+                    $('.loader').removeClass('active');
+
+                    if($('#business_course').val() == 5 || $('#business_course').val() == 10) {
+                        $('#others').removeClass('hidden').prop('disabled',false);
+                    }
+
+                    $('#business_course').change(function () {
+                        if($(this).val() == 5 || $(this).val() == 10) {
+                            $('#others').removeClass('hidden').prop('disabled',false);
+                        } else {
+                            $('#others').addClass('hidden').prop('disabled',true);
+                        }
+                    });
+                }
+            });
+        }
     </script>
 <?php get_footer(); ?>

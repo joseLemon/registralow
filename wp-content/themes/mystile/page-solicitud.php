@@ -1,3 +1,14 @@
+<?php
+if(is_user_logged_in()) {
+    $current_user = wp_get_current_user();
+
+    $current_user_firstname = $current_user->user_firstname;
+    $current_user_email = $current_user->user_email;
+} else {
+    $current_user_firstname = '';
+    $current_user_email = '';
+}
+?>
 <?php include('header.php'); ?>
     <link rel="stylesheet" href="<?php bloginfo('template_url'); ?>/css/font-awesome.min.css">
     <div class="wrapper registro">
@@ -11,19 +22,19 @@
                 <form action="<?php echo home_url(); ?>/submitsolicitor" id="requestForm" method="POST" enctype="multipart/form-data">
                     <div class="row">
                         <div class="col-sm-6">
-                            <label for="solicitor_name">Nombre(s)</label><input type="text" id="solicitor_name" name="solicitor_name">
+                            <label for="solicitor_name">Nombre(s)</label><input type="text" id="solicitor_name" name="solicitor_name" value="<?php echo $current_user_firstname; ?>" autocomplete="off">
                         </div>
                         <div class="col-sm-3">
-                            <label for="last_name">Apellido Paterno</label><input type="text" id="last_name" name="last_name">
+                            <label for="last_name">Apellido Paterno</label><input type="text" id="last_name" name="last_name" autocomplete="off">
                         </div>
                         <div class="col-sm-3">
-                            <label for="m_last_name">Apellido Materno</label><input type="text" id="m_last_name" name="m_last_name">
+                            <label for="m_last_name">Apellido Materno</label><input type="text" id="m_last_name" name="m_last_name" autocomplete="off">
                         </div>
                     </div>
                     <div class="row">
                         <div class="col-sm-6">
-                            <label for="bussiness_course">Giro Comcercial</label>
-                            <select name="bussiness_course" id="bussiness_course">
+                            <label for="business_course">Giro Comcercial</label>
+                            <select name="business_course" id="business_course">
                                 <option selected disabled>---PRODUCTOS---</option>
                                 <?php $results = $wpdb->get_results( "SELECT * FROM `business_course`" );
                                 foreach ($results as $result){
@@ -47,8 +58,9 @@
                                 }
                                 ?>
                             </select>
-                            <label for="email">Email</label><input type="text" id="email" name="email">
-                            <label for="email_confirm">Confirmación de Email</label><input type="text" id="email_confirm" name="email_confirm">
+                            <input type="text" id="others" name="others" class="hidden" placeholder="Especifique" disabled>
+                            <label for="email">Email</label><input type="text" id="email" name="email" value="<?php echo $current_user_email; ?>" autocomplete="off">
+                            <label for="email_confirm">Confirmación de Email</label><input type="text" id="email_confirm" name="email_confirm" value="<?php echo $current_user_email; ?>">
                             <!-- RECAPTCHA -->
                             <label class="submit__control">
                                 <h4>¿Eres humano?</h4>
@@ -74,7 +86,7 @@
                             <input id="brand_file" name="brand_file" type="file" accept="image/x-png,image/jpeg">
                         </div>
                     </div>
-                    <div class="row">
+                    <div class="row btns-container">
                         <div class="col-sm-6 text-right">
                             <a href="#" class="btn blue-btn disabled" id="buscarSubmit">BUSCAR</a>
                         </div>
@@ -261,13 +273,15 @@
     </script>
     <script>
         // Form Validation
+        var errors = '';
         $('#buscarSubmit, #registrarSubmit').click(function (e) {
             e.preventDefault();
 
+            errors = '';
+
             var id = $(this).attr('id');
 
-            var errors = '',
-                email = $('#email').val(),
+            var email = $('#email').val(),
                 name = $('#solicitor_name').val(),
                 lastName = $('#last_name').val(),
                 mLastName = $('#m_last_name').val();
@@ -309,8 +323,16 @@
                 errors += 'Debes aceptar nuestros términos y condiciones para continuar.<br>'
             }
 
-            if( $('#bussiness_course').val() == null ) {
+            if( $('#business_course').val() == null ) {
                 errors += 'Debes elegir un tipo de giro comercial.<br>'
+            }
+
+            if( !$('#others').hasClass('hidden') && $('#others').val() == '' ) {
+                errors += 'Debes especificar tu giro comercial.<br>';
+            }
+
+            if( $('#brand_file').get(0).files.length == 0 ) {
+                errors += 'Asegurate de agregar la imagen de tu marca.<br>';
             }
 
             /*if( $('#brand_file') == '' ) {
@@ -335,6 +357,44 @@
 
                 $('#requestForm').submit();
             }
+        });
+
+        $('#business_course').change(function () {
+            console.log();
+            if($(this).val() == 5 || $(this).val() == 10) {
+                $('#others').removeClass('hidden').prop('disabled',false);
+            } else {
+                $('#others').addClass('hidden').prop('disabled',true);
+            }
+        });
+
+        $('#email').focusout(function () {
+            errors = '';
+
+            var dataString = {
+                'user_email'  : $(this).val(),
+                'validate_email' : true
+            };
+
+            <?php if(!is_user_logged_in()) { ?>
+            $.ajax({
+                type: "POST",
+                url: "<?php echo home_url().'/submitsolicitor' ?>",
+                data: dataString,
+                dataType: 'JSON',
+                success: function(data) {
+                    if(!data) {
+                        console.log(data);
+                        errors = 'El correo electrónico no está disponible, asegurate de iniciar sesión antes de continuar.<br>';
+                        $("#error").removeClass('hidden').addClass('active').html('<a href="#" class="close" data-dismiss="alert" aria-label="close">&times;</a>Lo sentimos :( <br>' + errors);
+                        $('#email').addClass('invalid');
+                    } else {
+                        $("#error").addClass('hidden').removeClass('active').html('');
+                        $('#email').removeClass('invalid');
+                    }
+                }
+            });
+            <?php } ?>
         });
     </script>
 <?php include('footer.php'); ?>

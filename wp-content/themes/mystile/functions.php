@@ -111,6 +111,12 @@ function my_awesome_publication_notification() {
 }
 add_filter('login_redirect', 'login_redirect', 10, 3);*/
 
+function my_account_login_redirect() {
+    return home_url().'/mi-cuenta';
+}
+
+add_filter('login_redirect', 'my_account_login_redirect');
+
 if($_COOKIE['firstVisit'] != false) {
     setcookie('firstVisit', false, time() + (10 * 365 * 24 * 60 * 60), "/"); // delete in ten years
 }
@@ -173,6 +179,242 @@ function GenerateThumbnail($im_filename,$th_filename,$max_width,$max_height,$qua
     return 1;
 }
 
+
+function my_login_logo() { ?>
+    <style type="text/css">
+        #login h1 a, .login h1 a {
+            background: url(<?php echo get_bloginfo('template_url'); ?>/img/index/icons/registralow.png) no-repeat center center;
+            height: 50px;
+            width: 320px;
+            background-size: contain;
+            cursor: pointer;
+            pointer-events: none;
+        }
+    </style>
+<?php }
+add_action( 'login_enqueue_scripts', 'my_login_logo' );
+
+function sendStatusUpdate ($email,$type,$is_update) {
+    if($type == 'revision') {
+        if($is_update) {
+            $message_content =
+                'Hay noticias acerca de tu trámite:';
+
+            $message = '
+               <style>
+               @import url("https://fonts.googleapis.com/css?family=Open+Sans");
+               table {
+                   font-family: "Open Sans","sans-serif";
+               }
+               </style>
+               <table style="border-collapse: collapse;margin: 0 auto;background: #fff;border-radius: 5px;width: 800px;border: 1px solid #e3e3e3;border-spacing: 0;">
+                   <tbody>
+                   <tr style="background-color: #1da6df;margin-bottom: 5px;">
+                       <td colspan="2" style="margin: 0 auto;height: auto;padding: 10px 15px;text-align: right;">
+                           <img src="'.get_bloginfo('template_url').'/img/index/icons/r-white.png" alt="Registralow" style="display: inline-block;width: 30px;margin-right: 15px;">
+                           <a href="https://registralow.com" style="color: #fff;display: inline-block;line-height:30px;margin:0;text-decoration:none!important;float:right;font-size:16px;">www.registralow.com</a>
+                       </td>
+                   </tr>
+                   <tr style="height: 5px;"></tr>
+                   <tr style="background-color: #456170;">
+                       <td>
+                           <img src="'.get_bloginfo('template_url').'/img/index/nosotros/h1.png" style="max-width: 420px;position:relative;bottom:-1px;">
+                       </td>
+                       <td style="margin: 0 auto;height: auto;padding: 15px;color: #353535;color:#fff;">
+                          <h2 style="font-weight:400;font-size:22px;">¡Tenemos noticias para tí!</h2>
+                          <p style="font-size:16px;">
+                               '.$message_content.'
+                          </p>
+                          <p style="font-size:16px;">
+                               Conoce el estatus de tu trámite en<br>
+                               <a style="font-size:16px;color:#fff!important;" href="href="'.home_url().'/mi-cuenta">www.registralow.com/mi-cuenta</a>
+                          </p>
+                       </td>
+                   </tr>
+                   <tr style="background-color: #fff;">
+                       <td colspan="2" style="margin: 0 auto;height: auto;padding: 10px 15px;">
+                           <p style="color: #5a5a5a; text-align: center; font-size: 18px;">
+                                Accediendo con tu cuenta de correo y constraseña este 
+                               <a style="font-weight:700;font-size:18px;color:#5a5a5a!important;" href="href="'.home_url().'/mi-cuenta">link</a>
+                           </p>
+                       </td>
+                   </tr>
+                   </tbody>
+               </table>
+           ';
+        } else {
+            $message_content =
+                'Nuestro equipo en estos momentos
+            se encuentra haciendo la búsqueda de tu marca
+            para darte una opinión legal.';
+
+            $message = '
+               <style>
+               @import url("https://fonts.googleapis.com/css?family=Open+Sans");
+               table {
+                   font-family: "Open Sans","sans-serif";
+               }
+               </style>
+               <table style="border-collapse: collapse;margin: 0 auto;background: #fff;border-radius: 5px;width: 800px;border: 1px solid #e3e3e3;border-spacing: 0;">
+                   <tbody>
+                   <tr style="background-color: #1da6df;margin-bottom: 5px;">
+                       <td colspan="2" style="margin: 0 auto;height: auto;padding: 10px 15px;text-align: right;">
+                           <img src="'.get_bloginfo('template_url').'/img/index/icons/r-white.png" alt="Registralow" style="display: inline-block;width: 30px;margin-right: 15px;">
+                           <a href="https://registralow.com" style="color: #fff;display: inline-block;line-height:30px;margin:0;text-decoration:none!important;float:right;font-size:16px;">www.registralow.com</a>
+                       </td>
+                   </tr>
+                   <tr style="height: 5px;"></tr>
+                   <tr style="background-color: #456170;">
+                       <td>
+                           <img src="'.get_bloginfo('template_url').'/img/index/nosotros/h1.png" style="max-width: 420px;position:relative;bottom:-1px;">
+                       </td>
+                       <td style="margin: 0 auto;height: auto;padding: 15px;color: #353535;color:#fff;">
+                          <h2 style="font-weight:400;font-size:22px;">¡ Gracias por confiar en <img src="'.get_bloginfo('template_url').'/img/logo.png" alt="Registralow" style="max-width: 125px;display:inline-block;position:relative;bottom:-4px;"> !</h2>
+                          <p style="font-size:16px;">
+                               '.$message_content.'
+                          </p>
+                          <p style="font-size:16px;">
+                               Conoce el estatus de tu trámite en<br>
+                               <a style="font-size:16px;color:#fff!important;" href="href="'.home_url().'/mi-cuenta">www.registralow.com/mi-cuenta</a>
+                          </p>
+                       </td>
+                   </tr>
+                   <tr style="background-color: #fff;">
+                       <td colspan="2" style="margin: 0 auto;height: auto;padding: 10px 15px;">
+                           <p style="color: #5a5a5a; text-align: center; font-size: 18px;">
+                                Accediendo con tu cuenta de correo y constraseña este 
+                               <a style="font-weight:700;font-size:18px;color:#5a5a5a!important;" href="href="'.home_url().'/mi-cuenta">link</a>
+                           </p>
+                       </td>
+                   </tr>
+                   </tbody>
+               </table>
+           ';
+        }
+
+    } else if ($type == 'register') {
+        if($is_update) {
+            $message_content =
+                'Hay noticias acerca de tu trámite:';
+            $message = '
+               <style>
+               @import url("https://fonts.googleapis.com/css?family=Open+Sans");
+               table {
+                   font-family: "Open Sans","sans-serif";
+               }
+               </style>
+               <table style="border-collapse: collapse;margin: 0 auto;background: #fff;border-radius: 5px;width: 800px;border: 1px solid #e3e3e3;border-spacing: 0;">
+                   <tbody>
+                   <tr style="background-color: #dede38;margin-bottom: 5px;">
+                       <td colspan="2" style="margin: 0 auto;height: auto;padding: 10px 15px;">
+                           <img src="'.get_bloginfo('template_url').'/img/index/icons/r-blue.png" alt="Registralow" style="display: inline-block;width: 30px;margin-right: 15px;float: left;">
+                           <a href="https://registralow.com" style="color: #1da6df;display: inline-block;line-height:30px;margin:0;text-decoration:none!important;font-size:16px;">www.registralow.com</a>
+                       </td>
+                   </tr>
+                   <tr style="height: 5px;"></tr>
+                   <tr style="background-color: #1da6df;">
+                       <td style="margin: 0 auto;height: auto;padding: 15px;color: #353535;color:#fff;">
+                          <h2 style="font-weight:400;font-size:22px;">¡ Gracias por confiar en <img src="'.get_bloginfo('template_url').'/img/logo.png" alt="Registralow" style="max-width: 125px;display:inline-block;position:relative;bottom:-4px;"> !</h2>
+                          <p style="font-size:16px;">
+                               '.$message_content.'
+                          </p>
+                          <p style="font-size:16px;">
+                               Conoce el estatus de tu trámite en<br>
+                               <a style="font-size:16px;color:#fff!important;" href="href="'.home_url().'/mi-cuenta">www.registralow.com/mi-cuenta</a>
+                          </p>
+                       </td>
+                       <td>
+                           <img src="'.get_bloginfo('template_url').'/img/index/nosotros/h3.png" style="max-width: 420px;position:relative;bottom:-1px;">
+                       </td>
+                   </tr>
+                   <tr style="background-color: #fff;">
+                       <td colspan="2" style="margin: 0 auto;height: auto;padding: 10px 15px;">
+                           <p style="color: #5a5a5a; text-align: center; font-size: 18px;">
+                                Accediendo con tu cuenta de correo y constraseña este 
+                               <a style="font-weight:700;font-size:18px;color:#5a5a5a!important;" href="href="'.home_url().'/mi-cuenta">link</a>
+                           </p>
+                       </td>
+                   </tr>
+                   </tbody>
+               </table>
+           ';
+        } else {
+            $message_content =
+                'Nuestro equipo en estos momentos está preparando
+            tu solicitud.';
+            $message = '
+               <style>
+               @import url("https://fonts.googleapis.com/css?family=Open+Sans");
+               table {
+                   font-family: "Open Sans","sans-serif";
+               }
+               </style>
+               <table style="border-collapse: collapse;margin: 0 auto;background: #fff;border-radius: 5px;width: 800px;border: 1px solid #e3e3e3;border-spacing: 0;">
+                   <tbody>
+                   <tr style="background-color: #dede38;margin-bottom: 5px;">
+                       <td colspan="2" style="margin: 0 auto;height: auto;padding: 10px 15px;">
+                           <img src="'.get_bloginfo('template_url').'/img/index/icons/r-blue.png" alt="Registralow" style="display: inline-block;width: 30px;margin-right: 15px;float: left;">
+                           <a href="https://registralow.com" style="color: #1da6df;display: inline-block;line-height:30px;margin:0;text-decoration:none!important;font-size:16px;">www.registralow.com</a>
+                       </td>
+                   </tr>
+                   <tr style="height: 5px;"></tr>
+                   <tr style="background-color: #1da6df;">
+                       <td style="margin: 0 auto;height: auto;padding: 15px;color: #353535;color:#fff;">
+                          <h2 style="font-weight:400;font-size:22px;">¡ Gracias por confiar en <img src="'.get_bloginfo('template_url').'/img/logo.png" alt="Registralow" style="max-width: 125px;display:inline-block;position:relative;bottom:-4px;"> !</h2>
+                          <p style="font-size:16px;">
+                               '.$message_content.'
+                          </p>
+                          <p style="font-size:16px;">
+                               Conoce el estatus de tu trámite en<br>
+                               <a style="font-size:16px;color:#fff!important;" href="href="'.home_url().'/mi-cuenta">www.registralow.com/mi-cuenta</a>
+                          </p>
+                       </td>
+                       <td>
+                           <img src="'.get_bloginfo('template_url').'/img/index/nosotros/h3.png" style="max-width: 420px;position:relative;bottom:-1px;">
+                       </td>
+                   </tr>
+                   <tr style="background-color: #fff;">
+                       <td colspan="2" style="margin: 0 auto;height: auto;padding: 10px 15px;">
+                           <p style="color: #5a5a5a; text-align: center; font-size: 18px;">
+                                Accediendo con tu cuenta de correo y constraseña este 
+                               <a style="font-weight:700;font-size:18px;color:#5a5a5a!important;" href="href="'.home_url().'/mi-cuenta">link</a>
+                           </p>
+                       </td>
+                   </tr>
+                   </tbody>
+               </table>
+           ';
+        }
+    }
+
+    $to = $email;
+
+    // To send HTML mail, the Content-type header must be set
+    $headers = 'MIME-Version: 1.0' . "\r\n";
+    $headers .= 'Content-type: text/html; charset=UTF-8' . "\r\n";
+
+    // Additional headers
+    $headers .= 'To: <' . $to . '>' . "\r\n";
+    $headers .= 'From: Registralow <contacto@registralow.com>' . "\r\n";
+
+    // message
+    $subject = 'Estatus de tu solicitud';
+
+    //  Message preview
+    //return $message;
+
+    if (wp_mail($to, $subject, $message, $headers)) {
+        // Set a 200 (okay) response code.
+        http_response_code(200);
+        echo "¡Gracias! Su mensaje ha sido envíado.";
+    } else {
+        // Set a 500 (internal server error) response code.
+        http_response_code(500);
+        echo "Oops! Hubo un error no pudimos mandar su mensaje.";
+    }
+}
+
+add_theme_support( 'post-thumbnails' );
 /*-----------------------------------------------------------------------------------*/
 /* Don't add any code below here or the sky will fall down */
 /*-----------------------------------------------------------------------------------*/

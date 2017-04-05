@@ -19,6 +19,7 @@ function registralow_form() {
             <div class="alert alert-danger">El usuario o contraseña no son correctos.</div>
             <?php } ?>
             <?php wp_login_form(); ?>
+            <div class="clearfix"></div>
             <?php echo do_shortcode( '[oa_social_login]' ) ?>
         </div>
     </div>

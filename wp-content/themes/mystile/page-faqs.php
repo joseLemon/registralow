@@ -240,8 +240,8 @@
                         Comienza ahora.
                     </p>
                     <div>
-                        <a href="solicitud" class="btn blue-btn">BÚSQUEDA</a>
-                        <a href="solicitud" class="btn blue-btn">REGISTRO</a>
+                        <a href="<?php echo home_url(); ?>/solicitud" class="btn blue-btn">BÚSQUEDA</a>
+                        <a href="<?php echo home_url(); ?>/solicitud" class="btn blue-btn">REGISTRO</a>
                     </div>
                     <h2 class="blue">¿Necesitas ayuda?</h2>
                     <p class="text">

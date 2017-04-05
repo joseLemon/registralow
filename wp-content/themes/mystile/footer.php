@@ -27,7 +27,7 @@
     <div class="footer-rights">
         <div class="container">
             <p>
-                Todos los derechos reservados Registralow® <?php echo date('Y'); ?> | <a href="http://lemonthree.mx" style="text-decoration: none!important;" target="_blank">Lemon Three <img src="http://lemonthree.mx/public/footer-logo.png" alt="Lemon Three" style="margin-top: -4px;"></a>
+                Todos los derechos reservados Registralow® <?php echo date('Y'); ?> | <a href="http://lemonthree.mx" style="text-decoration: none!important;" target="_blank">Lemon Three <img src="<?php echo get_bloginfo('template_url'); ?>/img/footer-logo.png" alt="Lemon Three" style="margin-top: -4px;"></a>
             </p>
         </div>
     </div>
@@ -48,11 +48,17 @@
 
     })();
 </script>
-<!--<script id='fresco_script' data-frescochat='eb184234-7845-4f87-9a95-f1b764f79954'>
+<script id='fresco_script' data-frescochat='eb184234-7845-4f87-9a95-f1b764f79954'>
     var frescochat_script = document.createElement("script");
     frescochat_script.src = ('https:' == document.location.protocol ? 'https:' : 'http:') + '//frescochat.blob.core.windows.net/app/v3/js/frescochat.js';
     frescochat_script.async = true;
     document.getElementsByTagName("head")[0].appendChild(frescochat_script);
-</script>-->
+</script>
+<script>
+    $('.chat').click(function () {
+        console.log('click');
+        $('.frescochat-tb').addClass('active');
+    });
+</script>
 </body>
 </html>

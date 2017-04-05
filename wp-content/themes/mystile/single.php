@@ -35,7 +35,7 @@
             ?>
         </div>
         <div class="col-xs-12">
-            <?php comment_form(
+            <?php /*comment_form(
     array(
         'label_submit' => "Comentar", 
         'author' =>
@@ -57,7 +57,7 @@
         'title_reply'       => __( 'Responder' ),
         'title_reply_to'    => __( 'Responder a %s' ),
         'cancel_reply_link' => __( 'Cancelar Respuesta' ),
-    )); ?>
+    )); */?>
         </div>
         <?php endwhile; ?>
         <?php else : ?>

@@ -1,13 +1,10 @@
-<?php
-/*
-Template Name: Archives
-*/
-get_header(); ?>
+<?php get_header(); ?>
     <div class="wrapper blog">
         <div class="container text-center spacing">
             <h1 class="blue header normal-weight">BLOG</h1>
 
-            <?php global $post; // required
+            <?php
+            global $post; // required
             $args = array(); // exclude category 9
             $custom_posts = get_posts($args);
             $array_length = count($custom_posts);
@@ -16,16 +13,12 @@ get_header(); ?>
             if( $row_counter == 0 ) {
             ?>
             <div class="row">
-                <?php } else if ( $row_counter == $array_length ) {
-                ?>
+                <?php } else if ( $row_counter == $array_length ) { ?>
             </div>
-            <?php } else if ( $row_counter % 3 == 0 ) {
-            ?>
+            <?php } else if ( $row_counter % 3 == 0 ) { ?>
         </div>
         <div class="row">
-            <?php
-            }
-            ?>
+            <?php } ?>
             <div class="col-sm-4">
                 <div class="blog-img center-block">
                     <img class="img-responsive" src="<?php echo CFS()->get('img'); ?>" alt="">

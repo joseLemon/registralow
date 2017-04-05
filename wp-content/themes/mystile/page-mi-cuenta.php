@@ -1,3 +1,8 @@
+<?php
+if(!isset($_GET['notification']) && !is_user_logged_in()) {
+    wp_redirect(home_url() . '/wp-login.php');
+}
+?>
 <?php include('header.php'); ?>
 <?php
 $current_user = wp_get_current_user();
@@ -6,7 +11,24 @@ $brands = $wpdb->get_results("SELECT *, statuses.name as status_name FROM brands
 ?>
     <div class="registro wrapper mi-cuenta">
         <div class="container">
-            <?php if( empty($brands) ) { ?>
+            <?php if ( isset($_GET['notification']) ) { ?>
+                <div class="form-container active">
+                    <div class="row no-margin spacing">
+                        <div class="col-sm-2 col-lg-3"></div>
+                        <div class="col-sm-8 col-lg-6">
+                            <h1 class="blue text-center header normal-weight">¡ Bienvenido a <img style="position: relative; left: 0; bottom: 7px;" src="<?php echo get_bloginfo('template_url'); ?>/img/index/icons/registralow.png" alt="Registralow"> !</h1>
+                            <p class="text text-justify">
+                                Antes de comenzar, asegurate de iniciar sesión con la
+                                información que se te ha enviado a tu correo electrónico
+                                que nos has proporcionado.
+                            </p>
+                            <p class="text">
+                                Si no recibiste un correo con tus datos, obten una nueva contraseña en este <a href="<?php echo home_url(); ?>/wp-login.php?action=lostpassword">link</a>
+                            </p>
+                        </div>
+                    </div>
+                </div>
+            <?php } else if( empty($brands) ) { ?>
                 <div class="form-container active">
                     <div class="row no-margin spacing">
                         <h1 class="blue text-center header normal-weight">NO SE HA REALIZADO NINGUNA SOLICITUD</h1>
@@ -26,10 +48,10 @@ $brands = $wpdb->get_results("SELECT *, statuses.name as status_name FROM brands
                                     Comienza ahora.
                                 </p>
                                 <div class="col-sm-6 text-left">
-                                    <a href="" class="btn blue-btn">BÚSQUEDA</a>
+                                    <a href="<?php echo home_url(); ?>/solicitud" class="btn blue-btn">BÚSQUEDA</a>
                                 </div>
                                 <div class="col-sm-6 text-right">
-                                    <a href="" class="btn blue-btn">REGISTRO</a>
+                                    <a href="<?php echo home_url(); ?>/solicitud" class="btn blue-btn">REGISTRO</a>
                                 </div>
                             </div>
                             <div class="col-sm-7">

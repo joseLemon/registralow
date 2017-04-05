@@ -140,7 +140,8 @@ var name,
     colony,
     town,
     state,
-    country;
+    country,
+    bc_name;
 
 function validateOne(){
     var errors ="";
@@ -156,6 +157,7 @@ function validateOne(){
     town = document.getElementById("town").value;
     state = document.getElementById("state").value;
     country = document.getElementById("country").value;
+
     if( name == null || name.length == 0 || /^\s+$/.test(name) ) {
         errors += "El nombre es obligatorio<br>";
     }else {
@@ -239,6 +241,12 @@ $('#updateForm').submit(function (e) {
 });
 
 function validateTwo(e){
+    if($('#business_course option:selected').val() == 5 || $('#business_course option:selected').val() == 10) {
+        bc_name = $('#others').val();
+    } else {
+        bc_name = $('#business_course option:selected').text();
+    }
+
     var errors ="";
     options = document.getElementById("options").value;
     if( options == null || options.length == 0 || /^\s+$/.test(options) ) {
@@ -273,11 +281,12 @@ function previewTableInject() {
     $('#ttown').text(town);
     $('#tstate').text(state);
     $('#tcountry').text(country);
+    $('#bc_name').text(bc_name);
 }
 
-$('#solicitorForm').submit(function (e) {
+/*$('#solicitorForm').submit(function (e) {
     validateTree(e);
-});
+});*/
 
 function validateTree(e){
     var errors ="";

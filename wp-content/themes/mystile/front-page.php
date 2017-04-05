@@ -26,7 +26,7 @@
                 <img src="<?php echo bloginfo('template_directory').'/'; ?>img/index/icons/r-green.png" alt="Logo Registralow" class="box-logo">
                 <h1 class="white bold">QUE NADIE SE TE ADELANTE</h1>
                 <div class="yellow-divider"></div>
-                <a href="registro" class="btn yellow-btn white">REGISTRAR</a>
+                <a href="solicitud" class="btn yellow-btn white">REGISTRAR</a>
             <?php } ?>
             <div class="green-block right"></div>
         </div>
@@ -298,9 +298,6 @@
             </div>
         </div>
     </div>
-    <!--
-<a href="<?php echo $woocommerce->cart->get_checkout_url() ?>">checkout</a>
-<a href="<?php echo WC()->cart->get_cart_url();  ?>">cart</a>-->
 <?php if($_COOKIE['firstVisit'] != false) { ?>
     <div class="video-modal modal fade" id="video-modal" role="dialog">
         <div class="modal-dialog video-modal-dialog">

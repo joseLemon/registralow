@@ -1,3 +1,6 @@
+<?php
+print_r($_SESSION);
+?>
 <!DOCTYPE html>
 <html lang="en">
     <head>
@@ -10,9 +13,9 @@
         <link rel="stylesheet" href="<?php bloginfo('template_directory'); ?>/css/dialog-sandra.css">
         <link rel="stylesheet" href="https://ajax.googleapis.com/ajax/libs/jqueryui/1.12.0/themes/smoothness/jquery-ui.css">
         <link rel="stylesheet" href="<?php bloginfo('stylesheet_url'); ?>">
-        <script type="text/javascript" src="http://registralow.api.oneall.com/socialize/library.js?lang=es"></script>
+        <script type="text/javascript" src="https://registralow.api.oneall.com/socialize/library.js?lang=es"></script>
         <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
-        <script src="http://ajax.googleapis.com/ajax/libs/jqueryui/1.9.1/jquery-ui.min.js"></script>
+        <script src="https://ajax.googleapis.com/ajax/libs/jqueryui/1.9.1/jquery-ui.min.js"></script>
         <script src="<?php bloginfo('template_directory'); ?>/js/bootstrap.min.js"></script>
         <?php
         $isIE10 = (preg_match("/(?i)msie [10]/",$_SERVER['HTTP_USER_AGENT']));
